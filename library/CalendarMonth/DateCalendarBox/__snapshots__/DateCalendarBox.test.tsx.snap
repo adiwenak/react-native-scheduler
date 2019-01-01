@@ -1,0 +1,176 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DateCalendarBox /> should render with given props 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  collapsable={undefined}
+  hasTVPreferredFocus={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  nativeID={undefined}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "flexDirection": "column",
+      "height": 40,
+      "opacity": 1,
+      "width": 50,
+    }
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#FF1493",
+          },
+          Object {
+            "borderRadius": 12.5,
+            "height": 25,
+            "width": 25,
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "#323A48",
+                "fontSize": 14,
+                "fontWeight": "500",
+              },
+              Object {
+                "fontSize": 16,
+              },
+            ]
+          }
+        >
+          1
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
+        Object {
+          "height": 10,
+          "paddingBottom": 8,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "blue",
+          "borderRadius": 2.9411764705882355,
+          "height": 5.882352941176471,
+          "marginLeft": 2,
+          "marginRight": 2,
+          "width": 5.882352941176471,
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "backgroundColor": "green",
+          "borderRadius": 2.9411764705882355,
+          "height": 5.882352941176471,
+          "marginLeft": 2,
+          "marginRight": 2,
+          "width": 5.882352941176471,
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "backgroundColor": "red",
+          "borderRadius": 2.9411764705882355,
+          "height": 5.882352941176471,
+          "marginLeft": 2,
+          "marginRight": 2,
+          "width": 5.882352941176471,
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "backgroundColor": "pink",
+          "borderRadius": 2.9411764705882355,
+          "height": 5.882352941176471,
+          "marginLeft": 2,
+          "marginRight": 2,
+          "width": 5.882352941176471,
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "backgroundColor": "black",
+          "borderRadius": 2.9411764705882355,
+          "height": 5.882352941176471,
+          "marginLeft": 2,
+          "marginRight": 2,
+          "width": 5.882352941176471,
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "backgroundColor": "grey",
+          "borderRadius": 2.9411764705882355,
+          "height": 5.882352941176471,
+          "marginLeft": 2,
+          "marginRight": 2,
+          "width": 5.882352941176471,
+        }
+      }
+    />
+  </View>
+</View>
+`;

@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DateComponent /> should render with given props when isSelected is false 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#323A48",
+          "fontSize": 14,
+          "fontWeight": "500",
+        },
+        Object {
+          "fontSize": 16,
+        },
+      ]
+    }
+  >
+    1
+  </Text>
+</View>
+`;
+
+exports[`<DateComponent /> should render with given props when isSelected is true 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#FF1493",
+        },
+        Object {
+          "borderRadius": 20.833333333333336,
+          "height": 41.66666666666667,
+          "width": 41.66666666666667,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#323A48",
+              "fontSize": 14,
+              "fontWeight": "500",
+            },
+            Object {
+              "fontSize": 16,
+            },
+          ]
+        }
+      >
+        1
+      </Text>
+    </View>
+  </View>
+</View>
+`;

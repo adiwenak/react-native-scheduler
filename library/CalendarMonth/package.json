@@ -1,0 +1,8 @@
+{
+  "name": "react-native-scheduler-calendar",
+  "version": "0.0.1",
+  "description": "UI Control for calendar",
+  "main": "index.ts",
+  "author": "",
+  "license": "ISC"
+}

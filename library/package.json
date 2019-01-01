@@ -1,0 +1,11 @@
+{
+  "name": "RNSchedulerCalendar",
+  "version": "0.0.1",
+  "description": "UI Control library for calendar, time and scheduler",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

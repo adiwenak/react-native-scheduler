@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<WeekDayHeader /> should render with given props 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "black",
+        "flex": 1,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "textAlign": "center",
+      }
+    }
+  >
+    S
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "black",
+        "flex": 1,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "textAlign": "center",
+      }
+    }
+  >
+    M
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "black",
+        "flex": 1,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "textAlign": "center",
+      }
+    }
+  >
+    T
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "black",
+        "flex": 1,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "textAlign": "center",
+      }
+    }
+  >
+    W
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "black",
+        "flex": 1,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "textAlign": "center",
+      }
+    }
+  >
+    T
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "black",
+        "flex": 1,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "textAlign": "center",
+      }
+    }
+  >
+    F
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "black",
+        "flex": 1,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "textAlign": "center",
+      }
+    }
+  >
+    S
+  </Text>
+</View>
+`;
