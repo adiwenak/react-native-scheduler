@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "module": "esnext",
-    "outDir": "../build/dist",
+    "outDir": "../build/master",
     "sourceMap": true,
     "experimentalDecorators": true,
     "jsx": "react-native",

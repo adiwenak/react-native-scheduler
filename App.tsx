@@ -1,5 +1,6 @@
 import * as React from "react";
 import { StyleSheet, Text, View } from 'react-native';
+import { CalendarMonth } from 'react-native-scheduler-calendar/CalendarMonth';
 
 enum Language {
   english = "English",
@@ -13,6 +14,7 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <Text>{stringBuilder}</Text>
+        <CalendarMonth data={[]} />
       </View>
     );
   }

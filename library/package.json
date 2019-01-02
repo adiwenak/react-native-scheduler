@@ -1,11 +1,8 @@
 {
-  "name": "RNSchedulerCalendar",
+  "name": "react-native-scheduler",
   "version": "0.0.1",
-  "description": "UI Control library for calendar, time and scheduler",
+  "description": "Master library for react-native-scheduler",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "",
   "license": "ISC"
 }

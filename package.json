@@ -3,21 +3,24 @@
   "name": "schedulo",
   "version": "0.0.1",
   "scripts": {
-    "start": "expo start",
+    "start": "rm -r build/* && expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
+    "eject": "expo eject",
     "build": "cd library && tsc",
     "build-calendar": "cd library/CalendarMonth && tsc && cp package.json ../../build/CalendarMonth/",
-    "publish-calendar": "npm run build-calendar && npm publish",
+    "publish-calendar": "cd library/CalendarMonth && npm publish",
     "build-library": "cd library && tsc && cp package.json ../build/dist/ && Echo Build completed!",
-    "publish-library": "cd build/dist && npm publish && echo Package published!",
-    "eject": "expo eject"
+    "publish-library": "cd build/dist && npm publish && echo Package published!"
   },
   "dependencies": {
+    "add": "^2.0.6",
     "expo": "^31.0.2",
     "moment": "^2.23.0",
     "react": "16.5.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz"
+    "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
+    "react-native-scheduler-calendar": "^0.0.1",
+    "tslib": "^1.9.3"
   },
   "devDependencies": {
     "@types/enzyme": "^3.1.15",

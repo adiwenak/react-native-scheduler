@@ -24,4 +24,8 @@
       "jest"
     ]
   },
+  "exclude": [
+    "node_modules",
+    "build"
+  ]
 }
