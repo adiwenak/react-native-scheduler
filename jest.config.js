@@ -25,5 +25,14 @@ module.exports = {
   transformIgnorePatterns: [
     "<rootDir>/node_modules/(?!react-native)/"
   ],
+  collectCoverage: true,
+  coverageDirectory: "./testReport",
+  coverageThreshold: {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80
+      }
+  },
   cacheDirectory: '.jest/cache',
 };
