@@ -1,0 +1,4 @@
+02796279618dc6ed9d4f58035a8a95db
+'use strict';
+
+module.exports = require("./es2015");

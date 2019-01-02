@@ -1,0 +1,23 @@
+83007ae0f125d0ffcd4f5e7a80c19e74
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true });
+
+exports['default'] = shallow;
+
+
+
+var _ShallowWrapper2 = _interopRequireDefault(require("./ShallowWrapper"));
+
+function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { 'default': obj };}
+
+
+
+
+
+
+
+function shallow(node, options) {
+  return new _ShallowWrapper2['default'](node, null, options);
+}

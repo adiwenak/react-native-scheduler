@@ -1,40 +1,45 @@
 {
-  "main": "node_modules/expo/AppEntry.js",
-  "name": "schedulo",
-  "version": "0.0.1",
-  "scripts": {
-    "start": "rm -r build/* && expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "eject": "expo eject",
-    "build": "cd library && tsc",
-    "build-calendar": "cd library/CalendarMonth && tsc && cp package.json ../../build/CalendarMonth/",
-    "publish-calendar": "cd library/CalendarMonth && npm publish",
-    "build-library": "cd library && tsc && cp package.json ../build/dist/ && Echo Build completed!",
-    "publish-library": "cd build/dist && npm publish && echo Package published!"
-  },
-  "dependencies": {
-    "add": "^2.0.6",
-    "expo": "^31.0.2",
-    "moment": "^2.23.0",
-    "react": "16.5.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
-    "react-native-scheduler-calendar": "^0.0.1",
-    "tslib": "^1.9.3"
-  },
-  "devDependencies": {
-    "@types/enzyme": "^3.1.15",
-    "@types/jest": "^23.3.10",
-    "@types/react": "^16.7.18",
-    "@types/react-native": "^0.57.23",
-    "@types/react-test-renderer": "^16.0.3",
-    "babel-jest": "^23.6.0",
-    "babel-preset-expo": "^5.0.0",
-    "enzyme": "^3.8.0",
-    "jest": "^23.6.0",
-    "jest-react-native": "^18.0.0",
-    "react-test-renderer": "^16.7.0",
-    "ts-jest": "^23.10.5",
-    "typescript": "^3.2.2"
-  }
+    "main": "node_modules/expo/AppEntry.js",
+    "name": "schedulo",
+    "version": "0.0.1",
+    "scripts": {
+        "start": "rm -rf build/* && expo start",
+        "android": "expo start --android",
+        "ios": "expo start --ios",
+        "eject": "expo eject",
+        "linting": "tslint --fix --project library",
+        "build": "cd library && tsc",
+        "build-calendar": "cd library/CalendarMonth && tsc && cp package.json ../../build/CalendarMonth/",
+        "publish-calendar": "cd library/CalendarMonth && npm publish",
+        "build-library": "cd library && tsc && cp package.json ../build/dist/ && Echo Build completed!",
+        "publish-library": "cd build/dist && npm publish && echo Package published!",
+        "test": "jest"
+    },
+    "dependencies": {
+        "enzyme-adapter-react-16": "^1.7.1",
+        "expo": "^31.0.2",
+        "moment": "^2.23.0",
+        "react": "16.5.0",
+        "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
+        "react-native-scheduler-calendar": "^0.0.1",
+        "tslib": "^1.9.3"
+    },
+    "devDependencies": {
+        "@types/enzyme": "^3.1.15",
+        "@types/jest": "^23.3.10",
+        "@types/react": "^16.7.18",
+        "@types/react-native": "^0.57.23",
+        "@types/react-test-renderer": "^16.0.3",
+        "babel-core": "^7.0.0-bridge.0",
+        "babel-jest": "^23.6.0",
+        "babel-preset-expo": "^5.0.0",
+        "enzyme": "^3.8.0",
+        "jest": "^23.6.0",
+        "jest-react-native": "^18.0.0",
+        "react-dom": "^16.7.0",
+        "react-test-renderer": "^16.7.0",
+        "ts-jest": "^23.10.5",
+        "tslint": "^5.12.0",
+        "typescript": "^3.2.2"
+    }
 }

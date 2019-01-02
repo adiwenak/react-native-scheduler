@@ -1,0 +1,12 @@
+0878873b9021eed377d9c94b799d892f
+
+
+var defineProperty = function () {
+  try {
+    var func = require("./_getNative")(Object, 'defineProperty');
+    func({}, '', {});
+    return func;
+  } catch (e) {}
+}();
+
+module.exports = defineProperty;

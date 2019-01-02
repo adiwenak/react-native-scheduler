@@ -1,0 +1,51 @@
+5f132b25103e5cb1a80c3d4e366a3899
+
+
+
+
+
+
+
+
+
+'use strict';
+
+
+
+
+
+
+
+
+
+
+
+
+
+var ShadowPropTypesIOS = {
+
+
+
+
+  shadowColor: require("../../StyleSheet/ColorPropType"),
+
+
+
+
+  shadowOffset: require('prop-types').shape({
+    width: require('prop-types').number,
+    height: require('prop-types').number }),
+
+
+
+
+
+  shadowOpacity: require('prop-types').number,
+
+
+
+
+  shadowRadius: require('prop-types').number };
+
+
+module.exports = ShadowPropTypesIOS;

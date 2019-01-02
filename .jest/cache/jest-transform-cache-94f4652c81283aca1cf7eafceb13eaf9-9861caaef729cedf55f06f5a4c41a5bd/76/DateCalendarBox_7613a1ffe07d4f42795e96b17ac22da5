@@ -1,0 +1,61 @@
+879fa1938d87e042845ffefd32833489
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.DateCalendarBox = void 0;
+
+var tslib_1 = _interopRequireWildcard(require("tslib"));
+
+var React = _interopRequireWildcard(require("react"));
+
+var _reactNative = require("react-native");
+
+var _DateCalendarBox = _interopRequireDefault(require("./DateCalendarBox.style"));
+
+var _IndividualComponents = require("./IndividualComponents");
+
+var DateCalendarBox = function (_super) {
+  tslib_1.__extends(DateCalendarBox, _super);
+
+  function DateCalendarBox() {
+    var _this = _super !== null && _super.apply(this, arguments) || this;
+
+    _this.handleOnPress = function () {
+      if (_this.props.date) {
+        _this.props.dateBoxOnPressHandler(_this.props.date);
+      }
+    };
+
+    return _this;
+  }
+
+  DateCalendarBox.prototype.render = function () {
+    var dateComponentHeight = this.props.boxWidth * 0.6;
+    var busyIndicatorHeight = this.props.boxWidth * 0.2;
+    return React.createElement(_reactNative.TouchableOpacity, {
+      style: [_DateCalendarBox.default.touchableContainer, {
+        height: this.props.boxWidth * 0.8,
+        width: this.props.boxWidth
+      }],
+      onPress: this.handleOnPress
+    }, React.createElement(_IndividualComponents.DateComponent, {
+      date: this.props.date,
+      isWeekend: this.props.isWeekend,
+      isSelected: this.props.isSelected,
+      dateFontSize: this.props.dateFontSize,
+      dateComponentHeight: dateComponentHeight
+    }), React.createElement(_IndividualComponents.BusyIndicator, {
+      whosBusy: this.props.whosBusy,
+      height: busyIndicatorHeight
+    }));
+  };
+
+  return DateCalendarBox;
+}(React.Component);
+
+exports.DateCalendarBox = DateCalendarBox;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9ha3VybmFkaS9Qcm9qZWN0cy9yZWFjdC1uYXRpdmUtc2NoZWR1bGVyL2xpYnJhcnkvQ2FsZW5kYXJNb250aC9EYXRlQ2FsZW5kYXJCb3gvRGF0ZUNhbGVuZGFyQm94LnRzeCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7OztBQUFBOztBQUVBOztBQUVBOztBQUNBOztBQVlBLElBQUEsZUFBQSxHQUFBLFVBQUEsTUFBQSxFQUFBO0FBQXFDLEVBQUEsT0FBQSxDQUFBLFNBQUEsQ0FBQSxlQUFBLEVBQUEsTUFBQTs7QUFBckMsV0FBQSxlQUFBLEdBQUE7QUFBQSxRQUFBLEtBQUEsR0FBQSxNQUFBLEtBQUEsSUFBQSxJQUFBLE1BQUEsQ0FBQSxLQUFBLENBQUEsSUFBQSxFQUFBLFNBQUEsQ0FBQSxJQUFBLElBQUE7O0FBQ1MsSUFBQSxLQUFBLENBQUEsYUFBQSxHQUFnQixZQUFBO0FBQ3JCLFVBQUksS0FBSSxDQUFDLEtBQUwsQ0FBVyxJQUFmLEVBQXFCO0FBQ25CLFFBQUEsS0FBSSxDQUFDLEtBQUwsQ0FBVyxxQkFBWCxDQUFpQyxLQUFJLENBQUMsS0FBTCxDQUFXLElBQTVDO0FBQ0Q7QUFDRixLQUpNOzs7QUEyQlI7O0FBckJRLEVBQUEsZUFBQSxDQUFBLFNBQUEsQ0FBQSxNQUFBLEdBQVAsWUFBQTtBQUNFLFFBQU0sbUJBQW1CLEdBQUcsS0FBSyxLQUFMLENBQVcsUUFBWCxHQUFzQixHQUFsRDtBQUNBLFFBQU0sbUJBQW1CLEdBQUcsS0FBSyxLQUFMLENBQVcsUUFBWCxHQUFzQixHQUFsRDtBQUNBLFdBQ0Usb0JBQUMsNkJBQUQ7QUFDRSxNQUFBLEtBQUssRUFBRSxDQUNMLHlCQUFPLGtCQURGLEVBRUw7QUFBRSxRQUFBLE1BQU0sRUFBRSxLQUFLLEtBQUwsQ0FBVyxRQUFYLEdBQXNCLEdBQWhDO0FBQXFDLFFBQUEsS0FBSyxFQUFFLEtBQUssS0FBTCxDQUFXO0FBQXZELE9BRkssQ0FEVDtBQUlFLE1BQUEsT0FBTyxFQUFFLEtBQUs7QUFKaEIsT0FNRSxvQkFBQyxtQ0FBRDtBQUNFLE1BQUEsSUFBSSxFQUFFLEtBQUssS0FBTCxDQUFXLElBRG5CO0FBRUUsTUFBQSxTQUFTLEVBQUUsS0FBSyxLQUFMLENBQVcsU0FGeEI7QUFHRSxNQUFBLFVBQVUsRUFBRSxLQUFLLEtBQUwsQ0FBVyxVQUh6QjtBQUlFLE1BQUEsWUFBWSxFQUFFLEtBQUssS0FBTCxDQUFXLFlBSjNCO0FBS0UsTUFBQSxtQkFBbUIsRUFBRTtBQUx2QixNQU5GLEVBYUUsb0JBQUMsbUNBQUQ7QUFBZSxNQUFBLFFBQVEsRUFBRSxLQUFLLEtBQUwsQ0FBVyxRQUFwQztBQUE4QyxNQUFBLE1BQU0sRUFBRTtBQUF0RCxNQWJGLENBREY7QUFpQkQsR0FwQk07O0FBcUJULFNBQUEsZUFBQTtBQUFDLENBNUJELENBQXFDLGVBQXJDLENBQUEiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgKiBhcyBSZWFjdCBmcm9tIFwicmVhY3RcIlxuaW1wb3J0IHsgQ29tcG9uZW50IH0gZnJvbSBcInJlYWN0XCJcbmltcG9ydCB7IFRvdWNoYWJsZU9wYWNpdHkgfSBmcm9tIFwicmVhY3QtbmF0aXZlXCJcbmltcG9ydCB7IERhdGVOdW1iZXIsIFVzZXIgfSBmcm9tIFwiLi4vLi4vc2hhcmVkL21vZGVsXCJcbmltcG9ydCBzdHlsZXMgZnJvbSBcIi4vRGF0ZUNhbGVuZGFyQm94LnN0eWxlXCJcbmltcG9ydCB7IEJ1c3lJbmRpY2F0b3IsIERhdGVDb21wb25lbnQgfSBmcm9tIFwiLi9JbmRpdmlkdWFsQ29tcG9uZW50c1wiXG5cbmludGVyZmFjZSBDb21wb25lbnRQcm9wcyB7XG4gIGRhdGU/OiBEYXRlTnVtYmVyXG4gIGlzU2VsZWN0ZWQ6IGJvb2xlYW5cbiAgaXNXZWVrZW5kOiBib29sZWFuXG4gIGJveFdpZHRoOiBudW1iZXJcbiAgZGF0ZUZvbnRTaXplOiBudW1iZXJcbiAgd2hvc0J1c3k6IFVzZXJbXVxuICBkYXRlQm94T25QcmVzc0hhbmRsZXI6IChkYXRlOiBEYXRlTnVtYmVyKSA9PiB2b2lkXG59XG5cbmV4cG9ydCBjbGFzcyBEYXRlQ2FsZW5kYXJCb3ggZXh0ZW5kcyBDb21wb25lbnQ8Q29tcG9uZW50UHJvcHM+IHtcbiAgcHVibGljIGhhbmRsZU9uUHJlc3MgPSAoKSA9PiB7XG4gICAgaWYgKHRoaXMucHJvcHMuZGF0ZSkge1xuICAgICAgdGhpcy5wcm9wcy5kYXRlQm94T25QcmVzc0hhbmRsZXIodGhpcy5wcm9wcy5kYXRlKVxuICAgIH1cbiAgfVxuXG4gIHB1YmxpYyByZW5kZXIoKSB7XG4gICAgY29uc3QgZGF0ZUNvbXBvbmVudEhlaWdodCA9IHRoaXMucHJvcHMuYm94V2lkdGggKiAwLjZcbiAgICBjb25zdCBidXN5SW5kaWNhdG9ySGVpZ2h0ID0gdGhpcy5wcm9wcy5ib3hXaWR0aCAqIDAuMlxuICAgIHJldHVybiAoXG4gICAgICA8VG91Y2hhYmxlT3BhY2l0eVxuICAgICAgICBzdHlsZT17W1xuICAgICAgICAgIHN0eWxlcy50b3VjaGFibGVDb250YWluZXIsXG4gICAgICAgICAgeyBoZWlnaHQ6IHRoaXMucHJvcHMuYm94V2lkdGggKiAwLjgsIHdpZHRoOiB0aGlzLnByb3BzLmJveFdpZHRoIH1dfVxuICAgICAgICBvblByZXNzPXt0aGlzLmhhbmRsZU9uUHJlc3N9XG4gICAgICA+XG4gICAgICAgIDxEYXRlQ29tcG9uZW50XG4gICAgICAgICAgZGF0ZT17dGhpcy5wcm9wcy5kYXRlfVxuICAgICAgICAgIGlzV2Vla2VuZD17dGhpcy5wcm9wcy5pc1dlZWtlbmR9XG4gICAgICAgICAgaXNTZWxlY3RlZD17dGhpcy5wcm9wcy5pc1NlbGVjdGVkfVxuICAgICAgICAgIGRhdGVGb250U2l6ZT17dGhpcy5wcm9wcy5kYXRlRm9udFNpemV9XG4gICAgICAgICAgZGF0ZUNvbXBvbmVudEhlaWdodD17ZGF0ZUNvbXBvbmVudEhlaWdodH1cbiAgICAgICAgLz5cbiAgICAgICAgPEJ1c3lJbmRpY2F0b3Igd2hvc0J1c3k9e3RoaXMucHJvcHMud2hvc0J1c3l9IGhlaWdodD17YnVzeUluZGljYXRvckhlaWdodH0gLz5cbiAgICAgIDwvVG91Y2hhYmxlT3BhY2l0eT5cbiAgICApXG4gIH1cbn1cbiJdfQ==

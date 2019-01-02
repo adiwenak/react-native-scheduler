@@ -1,0 +1,22 @@
+790558b75c3e91257fd470f4d8d47871
+
+
+
+
+
+
+
+
+
+
+'use strict';var
+
+
+
+
+
+
+
+NativeMethodsMixin = require("./ReactNative").__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.NativeMethodsMixin;
+
+module.exports = NativeMethodsMixin;

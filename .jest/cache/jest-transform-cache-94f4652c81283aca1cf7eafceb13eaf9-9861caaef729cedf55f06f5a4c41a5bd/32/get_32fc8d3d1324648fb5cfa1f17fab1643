@@ -1,0 +1,26 @@
+add55b92e78fb938d4fc721e3382b9fc
+
+
+
+
+function _get(target, property, receiver) {
+  if (typeof Reflect !== "undefined" && Reflect.get) {
+    module.exports = _get = Reflect.get;
+  } else {
+    module.exports = _get = function _get(target, property, receiver) {
+      var base = require("./superPropBase")(target, property);
+      if (!base) return;
+      var desc = Object.getOwnPropertyDescriptor(base, property);
+
+      if (desc.get) {
+        return desc.get.call(receiver);
+      }
+
+      return desc.value;
+    };
+  }
+
+  return _get(target, property, receiver || target);
+}
+
+module.exports = _get;

@@ -1,0 +1,48 @@
+2a8022ce685e0bc499b0315e8707582b
+
+
+
+
+
+
+
+
+
+var reRegExpChar = /[\\^$.*+?()[\]{}|]/g;
+
+
+var reIsHostCtor = /^\[object .+?Constructor\]$/;
+
+
+var funcProto = Function.prototype,
+objectProto = Object.prototype;
+
+
+var funcToString = funcProto.toString;
+
+
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+
+var reIsNative = RegExp('^' +
+funcToString.call(hasOwnProperty).replace(reRegExpChar, '\\$&').
+replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') + '$');
+
+
+
+
+
+
+
+
+
+
+function baseIsNative(value) {
+  if (!require("./isObject")(value) || require("./_isMasked")(value)) {
+    return false;
+  }
+  var pattern = require("./isFunction")(value) ? reIsNative : reIsHostCtor;
+  return pattern.test(require("./_toSource")(value));
+}
+
+module.exports = baseIsNative;

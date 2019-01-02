@@ -1,0 +1,14 @@
+02b4992f0884e838dec4a02473cca140
+'use strict';
+
+var _jestCli;
+
+function _load_jestCli() {
+  return _jestCli = _interopRequireDefault(require('jest-cli'));
+}
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
+module.exports = (_jestCli || _load_jestCli()).default;

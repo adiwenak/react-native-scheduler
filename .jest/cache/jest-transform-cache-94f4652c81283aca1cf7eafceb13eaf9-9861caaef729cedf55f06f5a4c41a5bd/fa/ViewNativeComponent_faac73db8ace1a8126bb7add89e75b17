@@ -1,0 +1,24 @@
+f8c57248e07a0406dc91e957967386fc
+
+
+
+
+
+
+
+
+
+
+'use strict';
+
+
+
+
+
+
+
+
+
+var NativeViewComponent = require("../../ReactNative/requireNativeComponent")('RCTView');
+
+module.exports = NativeViewComponent;

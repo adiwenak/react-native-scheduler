@@ -1,0 +1,5 @@
+eabf2f65e7ae4e05e4ba679363e1ad5a
+"use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");var _enzymeAdapterReact = _interopRequireDefault(require("enzyme-adapter-react-16"));
+var _enzyme = _interopRequireDefault(require("enzyme"));
+
+_enzyme.default.configure({ adapter: new _enzymeAdapterReact.default() });

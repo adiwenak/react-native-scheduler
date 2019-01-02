@@ -11,9 +11,6 @@ exports[`<DateComponent /> should render with given props when isSelected is fal
   }
 >
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Array [
         Object {
@@ -66,9 +63,6 @@ exports[`<DateComponent /> should render with given props when isSelected is tru
       }
     >
       <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
         style={
           Array [
             Object {

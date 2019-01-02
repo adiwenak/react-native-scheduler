@@ -1,0 +1,14 @@
+f358c6240f594a463af6152a6a09ae0c
+'use strict';
+
+
+
+module.exports = require("./core.js");
+require("./core.js").prototype.done = function (onFulfilled, onRejected) {
+  var self = arguments.length ? this.then.apply(this, arguments) : this;
+  self.then(null, function (err) {
+    setTimeout(function () {
+      throw err;
+    }, 0);
+  });
+};

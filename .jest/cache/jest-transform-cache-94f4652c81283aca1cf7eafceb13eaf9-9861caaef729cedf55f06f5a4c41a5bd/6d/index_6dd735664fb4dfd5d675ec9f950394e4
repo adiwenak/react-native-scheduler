@@ -1,0 +1,225 @@
+cdb3f3ff591eee41c086a94d68bbba17
+'use strict';
+
+var _exit;
+
+function _load_exit() {
+  return _exit = _interopRequireDefault(require('exit'));
+}
+
+var _run_test;
+
+function _load_run_test() {
+  return _run_test = _interopRequireDefault(require('./run_test'));
+}
+
+var _throat;
+
+function _load_throat() {
+  return _throat = _interopRequireDefault(require('throat'));
+}
+
+var _jestWorker;
+
+function _load_jestWorker() {
+  return _jestWorker = _interopRequireDefault(require('jest-worker'));
+}
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
+function _asyncToGenerator(fn) {
+  return function () {
+    var gen = fn.apply(this, arguments);
+    return new Promise(function (resolve, reject) {
+      function step(key, arg) {
+        try {
+          var info = gen[key](arg);
+          var value = info.value;
+        } catch (error) {
+          reject(error);
+          return;
+        }
+        if (info.done) {
+          resolve(value);
+        } else {
+          return Promise.resolve(value).then(
+          function (value) {
+            step('next', value);
+          },
+          function (err) {
+            step('throw', err);
+          });
+
+        }
+      }
+      return step('next');
+    });
+  };
+}
+
+
+
+
+
+
+
+
+
+var TEST_WORKER_PATH = require.resolve('./test_worker');var
+
+TestRunner = function () {
+  function TestRunner(globalConfig) {require("@babel/runtime/helpers/classCallCheck")(this, TestRunner);
+    this._globalConfig = globalConfig;
+  }require("@babel/runtime/helpers/createClass")(TestRunner, [{ key: "runTests", value: function runTests(
+
+    tests, watcher, onStart, onResult, onFailure, options) {
+      var _this = this;
+
+      return _asyncToGenerator(require("@babel/runtime/regenerator").mark(function _callee() {return require("@babel/runtime/regenerator").wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;
+                return options.serial ?
+                _this._createInBandTestRun(
+                tests,
+                watcher,
+                onStart,
+                onResult,
+                onFailure) :
+
+                _this._createParallelTestRun(
+                tests,
+                watcher,
+                onStart,
+                onResult,
+                onFailure);case 2:return _context.abrupt("return", _context.sent);case 3:case "end":return _context.stop();}}}, _callee, this);}))();
+
+
+    } }, { key: "_createInBandTestRun", value: function _createInBandTestRun(
+
+    tests, watcher, onStart, onResult, onFailure) {
+      var _this2 = this;
+
+      return _asyncToGenerator(require("@babel/runtime/regenerator").mark(function _callee3() {var mutex;return require("@babel/runtime/regenerator").wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:
+                process.env.JEST_WORKER_ID = '1';
+                mutex = (0, (_throat || _load_throat()).default)(1);return _context3.abrupt("return",
+                tests.reduce(function (promise, test) {
+                  return mutex(function () {
+                    return promise.
+                    then(
+                    _asyncToGenerator(require("@babel/runtime/regenerator").mark(function _callee2() {return require("@babel/runtime/regenerator").wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:if (!
+                              watcher.isInterrupted()) {_context2.next = 2;break;}throw (
+                                new CancelRun());case 2:_context2.next = 4;
+
+
+                              return onStart(test);case 4:return _context2.abrupt("return",
+                              (0,
+                              (_run_test || _load_run_test()).
+                              default)(test.path, _this2._globalConfig, test.context.config, test.context.resolver));case 5:case "end":return _context2.stop();}}}, _callee2, this);}))).
+
+
+                    then(function (result) {
+                      return onResult(test, result);
+                    }).
+                    catch(function (err) {
+                      return onFailure(test, err);
+                    });
+                  });
+                }, Promise.resolve()));case 3:case "end":return _context3.stop();}}}, _callee3, this);}))();
+
+    } }, { key: "_createParallelTestRun", value: function _createParallelTestRun(
+
+    tests, watcher, onStart, onResult, onFailure) {
+      var _this3 = this;
+
+      return _asyncToGenerator(require("@babel/runtime/regenerator").mark(function _callee6() {var worker, mutex, runTestInWorker, onError, onInterrupt, runAllTests, cleanup;return require("@babel/runtime/regenerator").wrap(function _callee6$(_context6) {while (1) {switch (_context6.prev = _context6.next) {case 0:
+
+                worker = new (_jestWorker || _load_jestWorker()).default(
+                TEST_WORKER_PATH,
+                {
+                  exposedMethods: ['worker'],
+                  forkOptions: { stdio: 'inherit' },
+                  maxRetries: 3,
+                  numWorkers: _this3._globalConfig.maxWorkers });
+
+
+
+                mutex = (0, (_throat || _load_throat()).default)(
+                _this3._globalConfig.maxWorkers);
+
+
+
+
+                runTestInWorker = function runTestInWorker(test) {
+                  return mutex(
+                  _asyncToGenerator(require("@babel/runtime/regenerator").mark(function _callee4() {return require("@babel/runtime/regenerator").wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:if (!
+                            watcher.isInterrupted()) {_context4.next = 2;break;}return _context4.abrupt("return",
+                            Promise.reject());case 2:_context4.next = 4;
+
+
+                            return onStart(test);case 4:return _context4.abrupt("return",
+
+                            worker.worker({
+                              config: test.context.config,
+                              globalConfig: _this3._globalConfig,
+                              path: test.path,
+                              rawModuleMap: watcher.isWatchMode() ?
+                              test.context.moduleMap.getRawModuleMap() :
+                              null }));case 5:case "end":return _context4.stop();}}}, _callee4, this);})));
+
+
+
+                };
+
+                onError = function () {
+                  var _ref3 = _asyncToGenerator(require("@babel/runtime/regenerator").mark(function _callee5(err, test) {return require("@babel/runtime/regenerator").wrap(function _callee5$(_context5) {while (1) {switch (_context5.prev = _context5.next) {case 0:_context5.next = 2;
+                            return onFailure(test, err);case 2:
+                            if (err.type === 'ProcessTerminatedError') {
+                              console.error(
+                              'A worker process has quit unexpectedly! ' +
+                              'Most likely this is an initialization error.');
+
+                              (0, (_exit || _load_exit()).default)(1);
+                            }case 3:case "end":return _context5.stop();}}}, _callee5, this);}));
+
+
+                  return function onError(_x, _x2) {
+                    return _ref3.apply(this, arguments);
+                  };
+                }();
+
+                onInterrupt = new Promise(function (_, reject) {
+                  watcher.on('change', function (state) {
+                    if (state.interrupted) {
+                      reject(new CancelRun());
+                    }
+                  });
+                });
+
+                runAllTests = Promise.all(
+                tests.map(function (test) {
+                  return runTestInWorker(test).
+                  then(function (testResult) {
+                    return onResult(test, testResult);
+                  }).
+                  catch(function (error) {
+                    return onError(error, test);
+                  });
+                }));
+
+
+                cleanup = function cleanup() {
+                  return worker.end();
+                };return _context6.abrupt("return",
+                Promise.race([runAllTests, onInterrupt]).then(cleanup, cleanup));case 8:case "end":return _context6.stop();}}}, _callee6, this);}))();
+
+    } }]);return TestRunner;}();var
+
+
+CancelRun = function (_Error) {require("@babel/runtime/helpers/inherits")(CancelRun, _Error);
+  function CancelRun(message) {var _this4;require("@babel/runtime/helpers/classCallCheck")(this, CancelRun);
+    _this4 = require("@babel/runtime/helpers/possibleConstructorReturn")(this, require("@babel/runtime/helpers/getPrototypeOf")(CancelRun).call(this, message));
+    _this4.name = 'CancelRun';return _this4;
+  }return CancelRun;}(require("@babel/runtime/helpers/wrapNativeSuper")(Error));
+
+
+module.exports = TestRunner;

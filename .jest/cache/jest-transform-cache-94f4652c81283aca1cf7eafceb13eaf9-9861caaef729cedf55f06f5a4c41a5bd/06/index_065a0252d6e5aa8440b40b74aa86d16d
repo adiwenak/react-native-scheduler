@@ -1,0 +1,718 @@
+67940c93bffc4773ad2e1ff512d2e8f9
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true });
+
+exports.runCLI = exports.run = undefined;
+
+var run = exports.run = function () {
+  var _ref = _asyncToGenerator(require("@babel/runtime/regenerator").mark(function _callee(maybeArgv, project) {var argv, projects, _ref2, results, globalConfig;return require("@babel/runtime/regenerator").wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.prev = 0;
+
+            argv = buildArgv(maybeArgv, project);if (!
+
+            argv.init) {_context.next = 6;break;}_context.next = 5;
+            return (0, (_init || _load_init()).default)();case 5:return _context.abrupt("return");case 6:
+
+
+
+            projects = getProjectListFromCLIArgs(argv, project);_context.next = 9;
+
+            return runCLI(argv, projects);case 9:_ref2 = _context.sent;
+
+            results = _ref2.results,
+            globalConfig = _ref2.globalConfig;
+
+            readResultsAndExit(results, globalConfig);_context.next = 21;break;case 14:_context.prev = 14;_context.t0 = _context["catch"](0);
+
+            (0, (_jestUtil || _load_jestUtil()).clearLine)(process.stderr);
+            (0, (_jestUtil || _load_jestUtil()).clearLine)(process.stdout);
+            console.error((_chalk || _load_chalk()).default.red(_context.t0.stack));
+            (0, (_exit || _load_exit()).default)(1);throw _context.t0;case 21:case "end":return _context.stop();}}}, _callee, this, [[0, 14]]);}));
+
+
+
+
+  return function run(_x, _x2) {
+    return _ref.apply(this, arguments);
+  };
+}();
+
+var _jestUtil;
+
+function _load_jestUtil() {
+  return _jestUtil = require('jest-util');
+}
+
+var _jestValidate;
+
+function _load_jestValidate() {
+  return _jestValidate = require('jest-validate');
+}
+
+var _jestConfig;
+
+function _load_jestConfig() {
+  return _jestConfig = require('jest-config');
+}
+
+var _args;
+
+function _load_args() {
+  return _args = _interopRequireWildcard(require("./args"));
+}
+
+var _chalk;
+
+function _load_chalk() {
+  return _chalk = _interopRequireDefault(require('chalk'));
+}
+
+var _create_context;
+
+function _load_create_context() {
+  return _create_context = _interopRequireDefault(
+  require("../lib/create_context"));
+
+}
+
+var _exit;
+
+function _load_exit() {
+  return _exit = _interopRequireDefault(require('exit'));
+}
+
+var _getChangedFilesPromise;
+
+function _load_getChangedFilesPromise() {
+  return _getChangedFilesPromise = _interopRequireDefault(
+  require("../getChangedFilesPromise"));
+
+}
+
+var _collectHandles;
+
+function _load_collectHandles() {
+  return _collectHandles = require("../collectHandles");
+}
+
+var _fs;
+
+function _load_fs() {
+  return _fs = _interopRequireDefault(require('fs'));
+}
+
+var _handle_deprecation_warnings;
+
+function _load_handle_deprecation_warnings() {
+  return _handle_deprecation_warnings = _interopRequireDefault(
+  require("../lib/handle_deprecation_warnings"));
+
+}
+
+var _log_debug_messages;
+
+function _load_log_debug_messages() {
+  return _log_debug_messages = _interopRequireDefault(
+  require("../lib/log_debug_messages"));
+
+}
+
+var _preRunMessage;
+
+function _load_preRunMessage() {
+  return _preRunMessage = require("../preRunMessage");
+}
+
+var _runJest;
+
+function _load_runJest() {
+  return _runJest = _interopRequireDefault(require("../runJest"));
+}
+
+var _jestRuntime;
+
+function _load_jestRuntime() {
+  return _jestRuntime = _interopRequireDefault(require('jest-runtime'));
+}
+
+var _TestWatcher;
+
+function _load_TestWatcher() {
+  return _TestWatcher = _interopRequireDefault(require("../TestWatcher"));
+}
+
+var _watch;
+
+function _load_watch() {
+  return _watch = _interopRequireDefault(require("../watch"));
+}
+
+var _pluralize;
+
+function _load_pluralize() {
+  return _pluralize = _interopRequireDefault(require("../pluralize"));
+}
+
+var _yargs;
+
+function _load_yargs() {
+  return _yargs = _interopRequireDefault(require('yargs'));
+}
+
+var _rimraf;
+
+function _load_rimraf() {
+  return _rimraf = _interopRequireDefault(require('rimraf'));
+}
+
+var _realpathNative;
+
+function _load_realpathNative() {
+  return _realpathNative = require('realpath-native');
+}
+
+var _init;
+
+function _load_init() {
+  return _init = _interopRequireDefault(require("../lib/init"));
+}
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
+function _interopRequireWildcard(obj) {
+  if (obj && obj.__esModule) {
+    return obj;
+  } else {
+    var newObj = {};
+    if (obj != null) {
+      for (var key in obj) {
+        if (Object.prototype.hasOwnProperty.call(obj, key))
+        newObj[key] = obj[key];
+      }
+    }
+    newObj.default = obj;
+    return newObj;
+  }
+}
+
+function _asyncToGenerator(fn) {
+  return function () {
+    var gen = fn.apply(this, arguments);
+    return new Promise(function (resolve, reject) {
+      function step(key, arg) {
+        try {
+          var info = gen[key](arg);
+          var value = info.value;
+        } catch (error) {
+          reject(error);
+          return;
+        }
+        if (info.done) {
+          resolve(value);
+        } else {
+          return Promise.resolve(value).then(
+          function (value) {
+            step('next', value);
+          },
+          function (err) {
+            step('throw', err);
+          });
+
+        }
+      }
+      return step('next');
+    });
+  };
+}
+
+
+
+
+
+
+
+
+
+var runCLI = exports.runCLI = function () {
+  var _ref3 = _asyncToGenerator(require("@babel/runtime/regenerator").mark(function _callee2(argv, projects) {var realFs, fs, results, outputStream, _getConfigs, globalConfig, configs, hasDeprecationWarnings, _results, openHandles, formatted, openHandlesString, message;return require("@babel/runtime/regenerator").wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+            realFs = require('fs');
+            fs = require('graceful-fs');
+            fs.gracefulify(realFs);
+
+
+
+
+
+            outputStream =
+            argv.json || argv.useStderr ? process.stderr : process.stdout;
+
+            _getConfigs = getConfigs(projects, argv, outputStream);
+
+            globalConfig = _getConfigs.globalConfig,
+            configs = _getConfigs.configs,
+            hasDeprecationWarnings = _getConfigs.hasDeprecationWarnings;
+
+            if (argv.clearCache) {
+              configs.forEach(function (config) {
+                (_rimraf || _load_rimraf()).default.sync(config.cacheDirectory);
+                process.stdout.write("Cleared " + config.cacheDirectory + "\n");
+              });
+
+              (0, (_exit || _load_exit()).default)(0);
+            }_context2.next = 9;
+
+            return _run(
+            globalConfig,
+            configs,
+            hasDeprecationWarnings,
+            outputStream,
+            function (r) {
+              return results = r;
+            });case 9:if (!(
+
+
+            argv.watch || argv.watchAll)) {_context2.next = 11;break;}return _context2.abrupt("return",
+
+
+
+            new Promise(function () {}));case 11:if (
+
+
+            results) {_context2.next = 13;break;}throw (
+              new Error(
+              'AggregatedResult must be present after test run is complete'));case 13:
+
+
+
+            _results = results;
+            openHandles = _results.openHandles;
+
+            if (openHandles && openHandles.length) {
+              formatted = (0,
+              (_collectHandles || _load_collectHandles()).formatHandleErrors)(
+              openHandles,
+              configs[0]);
+
+
+              openHandlesString = (0, (_pluralize || _load_pluralize()).default)(
+              'open handle',
+              formatted.length,
+              's');
+
+
+              message =
+              (_chalk || _load_chalk()).default.red("\nJest has detected the following " +
+              openHandlesString + " potentially keeping Jest from exiting:\n\n") +
+              formatted.join('\n\n');
+
+              console.error(message);
+            }return _context2.abrupt("return",
+
+            Promise.resolve({ globalConfig: globalConfig, results: results }));case 17:case "end":return _context2.stop();}}}, _callee2, this);}));
+
+
+  return function runCLI(_x3, _x4) {
+    return _ref3.apply(this, arguments);
+  };
+}();
+
+var readResultsAndExit = function readResultsAndExit(result, globalConfig) {
+  var code = !result || result.success ? 0 : globalConfig.testFailureExitCode;
+
+  process.on('exit', function () {return process.exitCode = code;});
+
+  if (globalConfig.forceExit) {
+    if (!globalConfig.detectOpenHandles) {
+      console.error(
+      (_chalk || _load_chalk()).default.red.bold('Force exiting Jest\n\n') +
+      (_chalk || _load_chalk()).default.red(
+      'Have you considered using `--detectOpenHandles` to detect ' +
+      'async operations that kept running after all tests finished?'));
+
+
+    }
+
+    (0, (_exit || _load_exit()).default)(code);
+  } else if (!globalConfig.detectOpenHandles) {
+    setTimeout(function () {
+      console.error(
+      (_chalk || _load_chalk()).default.red.bold(
+      'Jest did not exit one second after the test run has completed.\n\n') +
+
+      (_chalk || _load_chalk()).default.red(
+      'This usually means that there are asynchronous operations that ' +
+      "weren't stopped in your tests. Consider running Jest with " +
+      '`--detectOpenHandles` to troubleshoot this issue.'));
+
+
+
+    }, 1000).unref();
+  }
+};
+
+var buildArgv = function buildArgv(maybeArgv, project) {
+  var argv = (0, (_yargs || _load_yargs()).default)(
+  maybeArgv || process.argv.slice(2)).
+
+  usage((_args || _load_args()).usage).
+  alias('help', 'h').
+  options((_args || _load_args()).options).
+  epilogue((_args || _load_args()).docs).
+  check((_args || _load_args()).check).argv;
+
+  (0, (_jestValidate || _load_jestValidate()).validateCLIOptions)(
+  argv,
+  require("@babel/runtime/helpers/extends")({}, (_args || _load_args()).options, {
+    deprecationEntries: (_jestConfig || _load_jestConfig()).deprecationEntries }));
+
+
+
+  return argv;
+};
+
+var getProjectListFromCLIArgs = function getProjectListFromCLIArgs(argv, project) {
+  var projects = argv.projects ? argv.projects : [];
+
+  if (project) {
+    projects.push(project);
+  }
+
+  if (!projects.length && process.platform === 'win32') {
+    try {
+      projects.push(
+      (0, (_realpathNative || _load_realpathNative()).sync)(process.cwd()));
+
+    } catch (err) {
+
+
+    }
+  }
+
+  if (!projects.length) {
+    projects.push(process.cwd());
+  }
+
+  return projects;
+};
+
+var printDebugInfoAndExitIfNeeded = function printDebugInfoAndExitIfNeeded(
+argv,
+globalConfig,
+configs,
+outputStream)
+{
+  if (argv.debug) {
+    (0, (_log_debug_messages || _load_log_debug_messages()).default)(
+    globalConfig,
+    configs,
+    outputStream);
+
+    return;
+  }
+
+  if (argv.showConfig) {
+    (0, (_log_debug_messages || _load_log_debug_messages()).default)(
+    globalConfig,
+    configs,
+    process.stdout);
+
+    (0, (_exit || _load_exit()).default)(0);
+  }
+};
+
+var ensureNoDuplicateConfigs = function ensureNoDuplicateConfigs(parsedConfigs, projects, rootConfigPath) {
+  var configPathMap = new Map();var _loop = function _loop(
+
+  config) {
+    var configPath = config.configPath;
+
+    if (configPathMap.has(configPath)) {
+      var message = "Whoops! Two projects resolved to the same config path: " + (
+      _chalk || _load_chalk()).
+      default.bold(String(configPath)) + ":\n\n  Project 1: " +
+
+      (_chalk || _load_chalk()).default.bold(
+      projects[parsedConfigs.findIndex(function (x) {return x === config;})]) + "\n  Project 2: " +
+
+      (_chalk || _load_chalk()).default.bold(
+      projects[parsedConfigs.findIndex(function (x) {return x === configPathMap.get(configPath);})]) + "\n\nThis usually means that your " +
+
+
+      (_chalk || _load_chalk()).default.bold(
+      '"projects"') + " config includes a directory that doesn't have any configuration recognizable by Jest. Please fix it.\n";
+
+
+
+      throw new Error(message);
+    }
+    if (configPath !== null) {
+      configPathMap.set(configPath, config);
+    }};for (var _iterator = parsedConfigs, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[typeof Symbol === "function" ? Symbol.iterator : "@@iterator"]();;) {var _ref13;if (_isArray) {if (_i >= _iterator.length) break;_ref13 = _iterator[_i++];} else {_i = _iterator.next();if (_i.done) break;_ref13 = _i.value;}var config = _ref13;_loop(config);
+  }
+};
+
+
+
+
+
+
+
+
+
+
+var getConfigs = function getConfigs(projectsFromCLIArgs, argv, outputStream) {
+  var globalConfig;
+  var hasDeprecationWarnings;
+  var configs = [];
+  var projects = projectsFromCLIArgs;
+  var configPath;
+
+  if (projectsFromCLIArgs.length === 1) {
+    var parsedConfig = (0, (_jestConfig || _load_jestConfig()).readConfig)(
+    argv,
+    projects[0]);
+
+    configPath = parsedConfig.configPath;
+
+    if (parsedConfig.globalConfig.projects) {
+
+
+      projects = parsedConfig.globalConfig.projects;
+    }
+
+    hasDeprecationWarnings = parsedConfig.hasDeprecationWarnings;
+    globalConfig = parsedConfig.globalConfig;
+    configs = [parsedConfig.projectConfig];
+    if (globalConfig.projects && globalConfig.projects.length) {
+
+
+      projects = globalConfig.projects;
+    }
+  }
+
+  if (projects.length > 1) {
+    var parsedConfigs = projects.
+    filter(function (root) {
+
+      if (
+      (_fs || _load_fs()).default.existsSync(root) &&
+      !(_fs || _load_fs()).default.lstatSync(root).isDirectory() &&
+      !root.endsWith('.js') &&
+      !root.endsWith('.json'))
+      {
+        return false;
+      }
+
+      return true;
+    }).
+    map(function (root) {return (
+        (0, (_jestConfig || _load_jestConfig()).readConfig)(
+        argv,
+        root,
+        true,
+        configPath));});
+
+
+
+    ensureNoDuplicateConfigs(parsedConfigs, projects, configPath);
+    configs = parsedConfigs.map(function (_ref4) {
+      var projectConfig = _ref4.projectConfig;
+      return projectConfig;
+    });
+    if (!hasDeprecationWarnings) {
+      hasDeprecationWarnings = parsedConfigs.some(function (_ref5) {
+        var hasDeprecationWarnings = _ref5.hasDeprecationWarnings;
+        return !!hasDeprecationWarnings;
+      });
+    }
+
+    if (!globalConfig) {
+      globalConfig = parsedConfigs[0].globalConfig;
+    }
+  }
+
+  if (!globalConfig || !configs.length) {
+    throw new Error('jest: No configuration found for any project.');
+  }
+
+  printDebugInfoAndExitIfNeeded(argv, globalConfig, configs, outputStream);
+
+  return {
+    configs: configs,
+    globalConfig: globalConfig,
+    hasDeprecationWarnings: !!hasDeprecationWarnings };
+
+};
+
+var buildContextsAndHasteMaps = function () {
+  var _ref6 = _asyncToGenerator(require("@babel/runtime/regenerator").mark(function _callee4(configs, globalConfig, outputStream) {var hasteMapInstances, contexts;return require("@babel/runtime/regenerator").wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:
+            hasteMapInstances = Array(configs.length);_context4.next = 3;
+            return Promise.all(
+            configs.map(
+            function () {
+              var _ref7 = _asyncToGenerator(require("@babel/runtime/regenerator").mark(function _callee3(config, index) {var hasteMapInstance;return require("@babel/runtime/regenerator").wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:
+                        (0,
+                        (_jestUtil || _load_jestUtil()).
+                        createDirectory)(config.cacheDirectory);
+                        hasteMapInstance = (
+                        _jestRuntime || _load_jestRuntime()).
+                        default.createHasteMap(config, {
+                          console: new (_jestUtil || _load_jestUtil()).Console(
+                          outputStream,
+                          outputStream),
+
+                          maxWorkers: globalConfig.maxWorkers,
+                          resetCache: !config.cache,
+                          watch: globalConfig.watch || globalConfig.watchAll,
+                          watchman: globalConfig.watchman });
+
+                        hasteMapInstances[index] = hasteMapInstance;_context3.t0 = (
+                        0,
+                        (_create_context || _load_create_context()).
+                        default);_context3.t1 = config;_context3.next = 7;return hasteMapInstance.build();case 7:_context3.t2 = _context3.sent;return _context3.abrupt("return", (0, _context3.t0)(_context3.t1, _context3.t2));case 9:case "end":return _context3.stop();}}}, _callee3, this);}));
+
+
+              return function (_x8, _x9) {
+                return _ref7.apply(this, arguments);
+              };
+            }()));case 3:contexts = _context4.sent;return _context4.abrupt("return",
+
+
+
+            { contexts: contexts, hasteMapInstances: hasteMapInstances });case 5:case "end":return _context4.stop();}}}, _callee4, this);}));
+
+
+  return function buildContextsAndHasteMaps(_x5, _x6, _x7) {
+    return _ref6.apply(this, arguments);
+  };
+}();
+
+var _run = function () {
+  var _ref8 = _asyncToGenerator(require("@babel/runtime/regenerator").mark(function _callee5(
+  globalConfig,
+  configs,
+  hasDeprecationWarnings,
+  outputStream,
+  onComplete) {var changedFilesPromise, _ref9, contexts, hasteMapInstances;return require("@babel/runtime/regenerator").wrap(function _callee5$(_context5) {while (1) {switch (_context5.prev = _context5.next) {case 0:
+
+
+
+            changedFilesPromise = (0,
+            (_getChangedFilesPromise || _load_getChangedFilesPromise()).default)(
+            globalConfig,
+            configs);_context5.next = 3;
+
+
+            return buildContextsAndHasteMaps(
+            configs,
+            globalConfig,
+            outputStream);case 3:_ref9 = _context5.sent;
+
+
+            contexts = _ref9.contexts,
+            hasteMapInstances = _ref9.hasteMapInstances;if (!(
+
+            globalConfig.watch || globalConfig.watchAll)) {_context5.next = 10;break;}_context5.next = 8;
+            return runWatch(
+            contexts,
+            configs,
+            hasDeprecationWarnings,
+            globalConfig,
+            outputStream,
+            hasteMapInstances,
+            changedFilesPromise);case 8:_context5.next = 12;break;case 10:_context5.next = 12;
+
+            return runWithoutWatch(
+            globalConfig,
+            contexts,
+            outputStream,
+            onComplete,
+            changedFilesPromise);case 12:case "end":return _context5.stop();}}}, _callee5, this);}));
+
+
+
+  return function _run(_x10, _x11, _x12, _x13, _x14) {
+    return _ref8.apply(this, arguments);
+  };
+}();
+
+var runWatch = function () {
+  var _ref10 = _asyncToGenerator(require("@babel/runtime/regenerator").mark(function _callee6(
+  contexts,
+  configs,
+  hasDeprecationWarnings,
+  globalConfig,
+  outputStream,
+  hasteMapInstances,
+  changedFilesPromise) {return require("@babel/runtime/regenerator").wrap(function _callee6$(_context6) {while (1) {switch (_context6.prev = _context6.next) {case 0:if (!
+
+            hasDeprecationWarnings) {_context6.next = 10;break;}_context6.prev = 1;_context6.next = 4;
+
+            return (0,
+            (_handle_deprecation_warnings || _load_handle_deprecation_warnings()).
+            default)(outputStream, process.stdin);case 4:return _context6.abrupt("return",
+            (0, (_watch || _load_watch()).default)(
+            globalConfig,
+            contexts,
+            outputStream,
+            hasteMapInstances));case 7:_context6.prev = 7;_context6.t0 = _context6["catch"](1);
+
+
+            (0, (_exit || _load_exit()).default)(0);case 10:return _context6.abrupt("return",
+
+
+
+            (0, (_watch || _load_watch()).default)(
+            globalConfig,
+            contexts,
+            outputStream,
+            hasteMapInstances));case 11:case "end":return _context6.stop();}}}, _callee6, this, [[1, 7]]);}));
+
+
+
+  return function runWatch(_x15, _x16, _x17, _x18, _x19, _x20, _x21) {
+    return _ref10.apply(this, arguments);
+  };
+}();
+
+var runWithoutWatch = function () {
+  var _ref11 = _asyncToGenerator(require("@babel/runtime/regenerator").mark(function _callee8(
+  globalConfig,
+  contexts,
+  outputStream,
+  onComplete,
+  changedFilesPromise) {var startRun;return require("@babel/runtime/regenerator").wrap(function _callee8$(_context8) {while (1) {switch (_context8.prev = _context8.next) {case 0:
+
+            startRun = function () {
+              var _ref12 = _asyncToGenerator(require("@babel/runtime/regenerator").mark(function _callee7() {return require("@babel/runtime/regenerator").wrap(function _callee7$(_context7) {while (1) {switch (_context7.prev = _context7.next) {case 0:
+                        if (!globalConfig.listTests) {
+                          (0, (_preRunMessage || _load_preRunMessage()).print)(outputStream);
+                        }_context7.next = 3;
+                        return (0, (_runJest || _load_runJest()).default)({
+                          changedFilesPromise: changedFilesPromise,
+                          contexts: contexts,
+                          failedTestsCache: null,
+                          globalConfig: globalConfig,
+                          onComplete: onComplete,
+                          outputStream: outputStream,
+                          startRun: startRun,
+                          testWatcher: new (_TestWatcher || _load_TestWatcher()).default({
+                            isWatchMode: false }) });case 3:return _context7.abrupt("return", _context7.sent);case 4:case "end":return _context7.stop();}}}, _callee7, this);}));
+
+
+
+
+              return function startRun() {
+                return _ref12.apply(this, arguments);
+              };
+            }();_context8.next = 3;
+            return startRun();case 3:return _context8.abrupt("return", _context8.sent);case 4:case "end":return _context8.stop();}}}, _callee8, this);}));
+
+
+  return function runWithoutWatch(_x22, _x23, _x24, _x25, _x26) {
+    return _ref11.apply(this, arguments);
+  };
+}();

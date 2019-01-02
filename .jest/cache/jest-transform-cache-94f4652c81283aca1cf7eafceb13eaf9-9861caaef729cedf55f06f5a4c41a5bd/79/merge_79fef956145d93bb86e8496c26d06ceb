@@ -1,0 +1,50 @@
+403eb7a1efb4b6863978bd166fd504dd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"use strict";
+
+
+
+
+
+
+
+
+
+
+var merge = function merge(one, two) {
+  var result = {};
+  require('./mergeInto')(result, one);
+  require('./mergeInto')(result, two);
+  return result;
+};
+
+module.exports = merge;

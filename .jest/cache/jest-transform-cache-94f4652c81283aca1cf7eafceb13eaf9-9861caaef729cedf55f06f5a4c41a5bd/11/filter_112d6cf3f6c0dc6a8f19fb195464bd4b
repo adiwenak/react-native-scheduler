@@ -1,0 +1,49 @@
+beb6a970bb9d0b6aabec720b935b56d7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function filter(collection, predicate) {
+  var func = require("./isArray")(collection) ? require("./_arrayFilter") : require("./_baseFilter");
+  return func(collection, require("./_baseIteratee")(predicate, 3));
+}
+
+module.exports = filter;

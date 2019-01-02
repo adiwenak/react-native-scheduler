@@ -1,0 +1,694 @@
+b02d10c132638fc63f310c5c42f8e2d3
+'use strict';
+
+
+
+
+
+
+var $TypeError = require("./GetIntrinsic")('%TypeError%');
+var $SyntaxError = require("./GetIntrinsic")('%SyntaxError%');
+var $Array = require("./GetIntrinsic")('%Array%');
+var $String = require("./GetIntrinsic")('%String%');
+var $Object = require("./GetIntrinsic")('%Object%');
+var $Number = require("./GetIntrinsic")('%Number%');
+var $Symbol = require("./GetIntrinsic")('%Symbol%', true);
+var $RegExp = require("./GetIntrinsic")('%RegExp%');
+
+var hasSymbols = !!$Symbol;
+
+
+
+var MAX_SAFE_INTEGER = $Number.MAX_SAFE_INTEGER || Math.pow(2, 53) - 1;
+
+
+
+
+
+var parseInteger = parseInt;
+
+var arraySlice = require('function-bind').call(Function.call, $Array.prototype.slice);
+var strSlice = require('function-bind').call(Function.call, $String.prototype.slice);
+var isBinary = require('function-bind').call(Function.call, $RegExp.prototype.test, /^0b[01]+$/i);
+var isOctal = require('function-bind').call(Function.call, $RegExp.prototype.test, /^0o[0-7]+$/i);
+var regexExec = require('function-bind').call(Function.call, $RegExp.prototype.exec);
+var nonWS = ["\x85", "\u200B", "\uFFFE"].join('');
+var nonWSregex = new $RegExp('[' + nonWS + ']', 'g');
+var hasNonWS = require('function-bind').call(Function.call, $RegExp.prototype.test, nonWSregex);
+var invalidHexLiteral = /^[-+]0x[0-9a-f]+$/i;
+var isInvalidHexLiteral = require('function-bind').call(Function.call, $RegExp.prototype.test, invalidHexLiteral);
+var $charCodeAt = require('function-bind').call(Function.call, $String.prototype.charCodeAt);
+
+var toStr = require('function-bind').call(Function.call, Object.prototype.toString);
+
+var $floor = Math.floor;
+var $abs = Math.abs;
+
+var $ObjectCreate = Object.create;
+var $gOPD = $Object.getOwnPropertyDescriptor;
+
+var $isExtensible = $Object.isExtensible;
+
+
+
+var ws = [
+"\t\n\x0B\f\r \xA0\u1680\u180E\u2000\u2001\u2002\u2003",
+"\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\u2028",
+"\u2029\uFEFF"].
+join('');
+var trimRegex = new RegExp('(^[' + ws + ']+)|([' + ws + ']+$)', 'g');
+var replace = require('function-bind').call(Function.call, $String.prototype.replace);
+var trim = function trim(value) {
+  return replace(value, trimRegex, '');
+};
+
+
+
+
+
+
+var ES6 = require("./helpers/assign")(require("./helpers/assign")({}, require("./es5")), {
+
+
+  Call: function Call(F, V) {
+    var args = arguments.length > 2 ? arguments[2] : [];
+    if (!this.IsCallable(F)) {
+      throw new $TypeError(F + ' is not a function');
+    }
+    return F.apply(V, args);
+  },
+
+
+  ToPrimitive: require('es-to-primitive/es6'),
+
+
+
+
+
+  ToNumber: function ToNumber(argument) {
+    var value = require("./helpers/isPrimitive")(argument) ? argument : require('es-to-primitive/es6')(argument, $Number);
+    if (typeof value === 'symbol') {
+      throw new $TypeError('Cannot convert a Symbol value to a number');
+    }
+    if (typeof value === 'string') {
+      if (isBinary(value)) {
+        return this.ToNumber(parseInteger(strSlice(value, 2), 2));
+      } else if (isOctal(value)) {
+        return this.ToNumber(parseInteger(strSlice(value, 2), 8));
+      } else if (hasNonWS(value) || isInvalidHexLiteral(value)) {
+        return NaN;
+      } else {
+        var trimmed = trim(value);
+        if (trimmed !== value) {
+          return this.ToNumber(trimmed);
+        }
+      }
+    }
+    return $Number(value);
+  },
+
+
+
+
+
+
+
+
+
+
+
+  ToInt16: function ToInt16(argument) {
+    var int16bit = this.ToUint16(argument);
+    return int16bit >= 0x8000 ? int16bit - 0x10000 : int16bit;
+  },
+
+
+
+
+
+  ToInt8: function ToInt8(argument) {
+    var int8bit = this.ToUint8(argument);
+    return int8bit >= 0x80 ? int8bit - 0x100 : int8bit;
+  },
+
+
+  ToUint8: function ToUint8(argument) {
+    var number = this.ToNumber(argument);
+    if (require("./helpers/isNaN")(number) || number === 0 || !require("./helpers/isFinite")(number)) {return 0;}
+    var posInt = require("./helpers/sign")(number) * $floor($abs(number));
+    return require("./helpers/mod")(posInt, 0x100);
+  },
+
+
+  ToUint8Clamp: function ToUint8Clamp(argument) {
+    var number = this.ToNumber(argument);
+    if (require("./helpers/isNaN")(number) || number <= 0) {return 0;}
+    if (number >= 0xFF) {return 0xFF;}
+    var f = $floor(argument);
+    if (f + 0.5 < number) {return f + 1;}
+    if (number < f + 0.5) {return f;}
+    if (f % 2 !== 0) {return f + 1;}
+    return f;
+  },
+
+
+  ToString: function ToString(argument) {
+    if (typeof argument === 'symbol') {
+      throw new $TypeError('Cannot convert a Symbol value to a string');
+    }
+    return $String(argument);
+  },
+
+
+  ToObject: function ToObject(value) {
+    this.RequireObjectCoercible(value);
+    return $Object(value);
+  },
+
+
+  ToPropertyKey: function ToPropertyKey(argument) {
+    var key = this.ToPrimitive(argument, $String);
+    return typeof key === 'symbol' ? key : this.ToString(key);
+  },
+
+
+  ToLength: function ToLength(argument) {
+    var len = this.ToInteger(argument);
+    if (len <= 0) {return 0;}
+    if (len > MAX_SAFE_INTEGER) {return MAX_SAFE_INTEGER;}
+    return len;
+  },
+
+
+  CanonicalNumericIndexString: function CanonicalNumericIndexString(argument) {
+    if (toStr(argument) !== '[object String]') {
+      throw new $TypeError('must be a string');
+    }
+    if (argument === '-0') {return -0;}
+    var n = this.ToNumber(argument);
+    if (this.SameValue(this.ToString(n), argument)) {return n;}
+    return void 0;
+  },
+
+
+  RequireObjectCoercible: require("./es5").CheckObjectCoercible,
+
+
+  IsArray: $Array.isArray || function IsArray(argument) {
+    return toStr(argument) === '[object Array]';
+  },
+
+
+
+
+
+  IsConstructor: function IsConstructor(argument) {
+    return typeof argument === 'function' && !!argument.prototype;
+  },
+
+
+  IsExtensible: Object.preventExtensions ?
+  function IsExtensible(obj) {
+    if (require("./helpers/isPrimitive")(obj)) {
+      return false;
+    }
+    return $isExtensible(obj);
+  } :
+  function isExtensible(obj) {return true;},
+
+
+  IsInteger: function IsInteger(argument) {
+    if (typeof argument !== 'number' || require("./helpers/isNaN")(argument) || !require("./helpers/isFinite")(argument)) {
+      return false;
+    }
+    var abs = $abs(argument);
+    return $floor(abs) === abs;
+  },
+
+
+  IsPropertyKey: function IsPropertyKey(argument) {
+    return typeof argument === 'string' || typeof argument === 'symbol';
+  },
+
+
+  IsRegExp: function IsRegExp(argument) {
+    if (!argument || typeof argument !== 'object') {
+      return false;
+    }
+    if (hasSymbols) {
+      var isRegExp = argument[$Symbol.match];
+      if (typeof isRegExp !== 'undefined') {
+        return require("./es5").ToBoolean(isRegExp);
+      }
+    }
+    return require('is-regex')(argument);
+  },
+
+
+
+
+
+  SameValueZero: function SameValueZero(x, y) {
+    return x === y || require("./helpers/isNaN")(x) && require("./helpers/isNaN")(y);
+  },
+
+
+
+
+
+
+
+
+  GetV: function GetV(V, P) {
+
+    if (!this.IsPropertyKey(P)) {
+      throw new $TypeError('Assertion failed: IsPropertyKey(P) is not true');
+    }
+
+
+    var O = this.ToObject(V);
+
+
+    return O[P];
+  },
+
+
+
+
+
+
+
+
+
+
+  GetMethod: function GetMethod(O, P) {
+
+    if (!this.IsPropertyKey(P)) {
+      throw new $TypeError('Assertion failed: IsPropertyKey(P) is not true');
+    }
+
+
+    var func = this.GetV(O, P);
+
+
+    if (func == null) {
+      return void 0;
+    }
+
+
+    if (!this.IsCallable(func)) {
+      throw new $TypeError(P + 'is not a function');
+    }
+
+
+    return func;
+  },
+
+
+
+
+
+
+
+  Get: function Get(O, P) {
+
+    if (this.Type(O) !== 'Object') {
+      throw new $TypeError('Assertion failed: Type(O) is not Object');
+    }
+
+    if (!this.IsPropertyKey(P)) {
+      throw new $TypeError('Assertion failed: IsPropertyKey(P) is not true');
+    }
+
+    return O[P];
+  },
+
+  Type: function Type(x) {
+    if (typeof x === 'symbol') {
+      return 'Symbol';
+    }
+    return require("./es5").Type(x);
+  },
+
+
+  SpeciesConstructor: function SpeciesConstructor(O, defaultConstructor) {
+    if (this.Type(O) !== 'Object') {
+      throw new $TypeError('Assertion failed: Type(O) is not Object');
+    }
+    var C = O.constructor;
+    if (typeof C === 'undefined') {
+      return defaultConstructor;
+    }
+    if (this.Type(C) !== 'Object') {
+      throw new $TypeError('O.constructor is not an Object');
+    }
+    var S = hasSymbols && $Symbol.species ? C[$Symbol.species] : void 0;
+    if (S == null) {
+      return defaultConstructor;
+    }
+    if (this.IsConstructor(S)) {
+      return S;
+    }
+    throw new $TypeError('no constructor found');
+  },
+
+
+  CompletePropertyDescriptor: function CompletePropertyDescriptor(Desc) {
+    if (!this.IsPropertyDescriptor(Desc)) {
+      throw new $TypeError('Desc must be a Property Descriptor');
+    }
+
+    if (this.IsGenericDescriptor(Desc) || this.IsDataDescriptor(Desc)) {
+      if (!require('has')(Desc, '[[Value]]')) {
+        Desc['[[Value]]'] = void 0;
+      }
+      if (!require('has')(Desc, '[[Writable]]')) {
+        Desc['[[Writable]]'] = false;
+      }
+    } else {
+      if (!require('has')(Desc, '[[Get]]')) {
+        Desc['[[Get]]'] = void 0;
+      }
+      if (!require('has')(Desc, '[[Set]]')) {
+        Desc['[[Set]]'] = void 0;
+      }
+    }
+    if (!require('has')(Desc, '[[Enumerable]]')) {
+      Desc['[[Enumerable]]'] = false;
+    }
+    if (!require('has')(Desc, '[[Configurable]]')) {
+      Desc['[[Configurable]]'] = false;
+    }
+    return Desc;
+  },
+
+
+  Set: function Set(O, P, V, Throw) {
+    if (this.Type(O) !== 'Object') {
+      throw new $TypeError('O must be an Object');
+    }
+    if (!this.IsPropertyKey(P)) {
+      throw new $TypeError('P must be a Property Key');
+    }
+    if (this.Type(Throw) !== 'Boolean') {
+      throw new $TypeError('Throw must be a Boolean');
+    }
+    if (Throw) {
+      O[P] = V;
+      return true;
+    } else {
+      try {
+        O[P] = V;
+      } catch (e) {
+        return false;
+      }
+    }
+  },
+
+
+  HasOwnProperty: function HasOwnProperty(O, P) {
+    if (this.Type(O) !== 'Object') {
+      throw new $TypeError('O must be an Object');
+    }
+    if (!this.IsPropertyKey(P)) {
+      throw new $TypeError('P must be a Property Key');
+    }
+    return require('has')(O, P);
+  },
+
+
+  HasProperty: function HasProperty(O, P) {
+    if (this.Type(O) !== 'Object') {
+      throw new $TypeError('O must be an Object');
+    }
+    if (!this.IsPropertyKey(P)) {
+      throw new $TypeError('P must be a Property Key');
+    }
+    return P in O;
+  },
+
+
+  IsConcatSpreadable: function IsConcatSpreadable(O) {
+    if (this.Type(O) !== 'Object') {
+      return false;
+    }
+    if (hasSymbols && typeof $Symbol.isConcatSpreadable === 'symbol') {
+      var spreadable = this.Get(O, typeof Symbol === "function" ? Symbol.isConcatSpreadable : "@@isConcatSpreadable");
+      if (typeof spreadable !== 'undefined') {
+        return this.ToBoolean(spreadable);
+      }
+    }
+    return this.IsArray(O);
+  },
+
+
+  Invoke: function Invoke(O, P) {
+    if (!this.IsPropertyKey(P)) {
+      throw new $TypeError('P must be a Property Key');
+    }
+    var argumentsList = arraySlice(arguments, 2);
+    var func = this.GetV(O, P);
+    return this.Call(func, O, argumentsList);
+  },
+
+
+  GetIterator: function GetIterator(obj, method) {
+    if (!hasSymbols) {
+      throw new SyntaxError('ES.GetIterator depends on native iterator support.');
+    }
+
+    var actualMethod = method;
+    if (arguments.length < 2) {
+      actualMethod = this.GetMethod(obj, $Symbol.iterator);
+    }
+    var iterator = this.Call(actualMethod, obj);
+    if (this.Type(iterator) !== 'Object') {
+      throw new $TypeError('iterator must return an object');
+    }
+
+    return iterator;
+  },
+
+
+  IteratorNext: function IteratorNext(iterator, value) {
+    var result = this.Invoke(iterator, 'next', arguments.length < 2 ? [] : [value]);
+    if (this.Type(result) !== 'Object') {
+      throw new $TypeError('iterator next must return an object');
+    }
+    return result;
+  },
+
+
+  IteratorComplete: function IteratorComplete(iterResult) {
+    if (this.Type(iterResult) !== 'Object') {
+      throw new $TypeError('Assertion failed: Type(iterResult) is not Object');
+    }
+    return this.ToBoolean(this.Get(iterResult, 'done'));
+  },
+
+
+  IteratorValue: function IteratorValue(iterResult) {
+    if (this.Type(iterResult) !== 'Object') {
+      throw new $TypeError('Assertion failed: Type(iterResult) is not Object');
+    }
+    return this.Get(iterResult, 'value');
+  },
+
+
+  IteratorStep: function IteratorStep(iterator) {
+    var result = this.IteratorNext(iterator);
+    var done = this.IteratorComplete(result);
+    return done === true ? false : result;
+  },
+
+
+  IteratorClose: function IteratorClose(iterator, completion) {
+    if (this.Type(iterator) !== 'Object') {
+      throw new $TypeError('Assertion failed: Type(iterator) is not Object');
+    }
+    if (!this.IsCallable(completion)) {
+      throw new $TypeError('Assertion failed: completion is not a thunk for a Completion Record');
+    }
+    var completionThunk = completion;
+
+    var iteratorReturn = this.GetMethod(iterator, 'return');
+
+    if (typeof iteratorReturn === 'undefined') {
+      return completionThunk();
+    }
+
+    var completionRecord;
+    try {
+      var innerResult = this.Call(iteratorReturn, iterator, []);
+    } catch (e) {
+
+
+
+      completionRecord = completionThunk();
+      completionThunk = null;
+
+
+      throw e;
+    }
+    completionRecord = completionThunk();
+    completionThunk = null;
+
+    if (this.Type(innerResult) !== 'Object') {
+      throw new $TypeError('iterator .return must return an object');
+    }
+
+    return completionRecord;
+  },
+
+
+  CreateIterResultObject: function CreateIterResultObject(value, done) {
+    if (this.Type(done) !== 'Boolean') {
+      throw new $TypeError('Assertion failed: Type(done) is not Boolean');
+    }
+    return {
+      value: value,
+      done: done };
+
+  },
+
+
+  RegExpExec: function RegExpExec(R, S) {
+    if (this.Type(R) !== 'Object') {
+      throw new $TypeError('R must be an Object');
+    }
+    if (this.Type(S) !== 'String') {
+      throw new $TypeError('S must be a String');
+    }
+    var exec = this.Get(R, 'exec');
+    if (this.IsCallable(exec)) {
+      var result = this.Call(exec, R, [S]);
+      if (result === null || this.Type(result) === 'Object') {
+        return result;
+      }
+      throw new $TypeError('"exec" method must return `null` or an Object');
+    }
+    return regexExec(R, S);
+  },
+
+
+  ArraySpeciesCreate: function ArraySpeciesCreate(originalArray, length) {
+    if (!this.IsInteger(length) || length < 0) {
+      throw new $TypeError('Assertion failed: length must be an integer >= 0');
+    }
+    var len = length === 0 ? 0 : length;
+    var C;
+    var isArray = this.IsArray(originalArray);
+    if (isArray) {
+      C = this.Get(originalArray, 'constructor');
+
+
+
+
+
+      if (this.Type(C) === 'Object' && hasSymbols && $Symbol.species) {
+        C = this.Get(C, $Symbol.species);
+        if (C === null) {
+          C = void 0;
+        }
+      }
+    }
+    if (typeof C === 'undefined') {
+      return $Array(len);
+    }
+    if (!this.IsConstructor(C)) {
+      throw new $TypeError('C must be a constructor');
+    }
+    return new C(len);
+  },
+
+  CreateDataProperty: function CreateDataProperty(O, P, V) {
+    if (this.Type(O) !== 'Object') {
+      throw new $TypeError('Assertion failed: Type(O) is not Object');
+    }
+    if (!this.IsPropertyKey(P)) {
+      throw new $TypeError('Assertion failed: IsPropertyKey(P) is not true');
+    }
+    var oldDesc = $gOPD(O, P);
+    var extensible = oldDesc || typeof $isExtensible !== 'function' || $isExtensible(O);
+    var immutable = oldDesc && (!oldDesc.writable || !oldDesc.configurable);
+    if (immutable || !extensible) {
+      return false;
+    }
+    var newDesc = {
+      configurable: true,
+      enumerable: true,
+      value: V,
+      writable: true };
+
+    Object.defineProperty(O, P, newDesc);
+    return true;
+  },
+
+
+  CreateDataPropertyOrThrow: function CreateDataPropertyOrThrow(O, P, V) {
+    if (this.Type(O) !== 'Object') {
+      throw new $TypeError('Assertion failed: Type(O) is not Object');
+    }
+    if (!this.IsPropertyKey(P)) {
+      throw new $TypeError('Assertion failed: IsPropertyKey(P) is not true');
+    }
+    var success = this.CreateDataProperty(O, P, V);
+    if (!success) {
+      throw new $TypeError('unable to create data property');
+    }
+    return success;
+  },
+
+
+  ObjectCreate: function ObjectCreate(proto, internalSlotsList) {
+    if (proto !== null && this.Type(proto) !== 'Object') {
+      throw new $TypeError('Assertion failed: proto must be null or an object');
+    }
+    var slots = arguments.length < 2 ? [] : internalSlotsList;
+    if (slots.length > 0) {
+      throw new $SyntaxError('es-abstract does not yet support internal slots');
+    }
+
+    if (proto === null && !$ObjectCreate) {
+      throw new $SyntaxError('native Object.create support is required to create null objects');
+    }
+
+    return $ObjectCreate(proto);
+  },
+
+
+  AdvanceStringIndex: function AdvanceStringIndex(S, index, unicode) {
+    if (this.Type(S) !== 'String') {
+      throw new $TypeError('S must be a String');
+    }
+    if (!this.IsInteger(index) || index < 0 || index > MAX_SAFE_INTEGER) {
+      throw new $TypeError('Assertion failed: length must be an integer >= 0 and <= 2**53');
+    }
+    if (this.Type(unicode) !== 'Boolean') {
+      throw new $TypeError('Assertion failed: unicode must be a Boolean');
+    }
+    if (!unicode) {
+      return index + 1;
+    }
+    var length = S.length;
+    if (index + 1 >= length) {
+      return index + 1;
+    }
+
+    var first = $charCodeAt(S, index);
+    if (first < 0xD800 || first > 0xDBFF) {
+      return index + 1;
+    }
+
+    var second = $charCodeAt(S, index + 1);
+    if (second < 0xDC00 || second > 0xDFFF) {
+      return index + 1;
+    }
+
+    return index + 2;
+  } });
+
+
+delete ES6.CheckObjectCoercible;
+
+module.exports = ES6;

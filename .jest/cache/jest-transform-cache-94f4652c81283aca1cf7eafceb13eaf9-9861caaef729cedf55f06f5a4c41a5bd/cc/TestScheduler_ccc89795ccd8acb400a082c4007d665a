@@ -1,0 +1,577 @@
+c088f217b5d376b47cd33d4d8a2a9499
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true });
+
+
+var _slicedToArray = function () {
+  function sliceIterator(arr, i) {
+    var _arr = [];
+    var _n = true;
+    var _d = false;
+    var _e = undefined;
+    try {
+      for (
+      var _i = arr[typeof Symbol === "function" ? Symbol.iterator : "@@iterator"](), _s;
+      !(_n = (_s = _i.next()).done);
+      _n = true)
+      {
+        _arr.push(_s.value);
+        if (i && _arr.length === i) break;
+      }
+    } catch (err) {
+      _d = true;
+      _e = err;
+    } finally {
+      try {
+        if (!_n && _i['return']) _i['return']();
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+    return _arr;
+  }
+  return function (arr, i) {
+    if (Array.isArray(arr)) {
+      return arr;
+    } else if ((typeof Symbol === "function" ? Symbol.iterator : "@@iterator") in Object(arr)) {
+      return sliceIterator(arr, i);
+    } else {
+      throw new TypeError(
+      'Invalid attempt to destructure non-iterable instance');
+
+    }
+  };
+}();
+
+var _chalk;
+
+function _load_chalk() {
+  return _chalk = _interopRequireDefault(require('chalk'));
+}
+
+var _jestMessageUtil;
+
+function _load_jestMessageUtil() {
+  return _jestMessageUtil = require('jest-message-util');
+}
+
+var _testResultHelpers;
+
+function _load_testResultHelpers() {
+  return _testResultHelpers = require('./testResultHelpers');
+}
+
+var _coverage_reporter;
+
+function _load_coverage_reporter() {
+  return _coverage_reporter = _interopRequireDefault(
+  require('./reporters/coverage_reporter'));
+
+}
+
+var _default_reporter;
+
+function _load_default_reporter() {
+  return _default_reporter = _interopRequireDefault(
+  require('./reporters/default_reporter'));
+
+}
+
+var _exit;
+
+function _load_exit() {
+  return _exit = _interopRequireDefault(require('exit'));
+}
+
+var _notify_reporter;
+
+function _load_notify_reporter() {
+  return _notify_reporter = _interopRequireDefault(
+  require('./reporters/notify_reporter'));
+
+}
+
+var _ReporterDispatcher;
+
+function _load_ReporterDispatcher() {
+  return _ReporterDispatcher = _interopRequireDefault(
+  require('./ReporterDispatcher'));
+
+}
+
+var _jestSnapshot;
+
+function _load_jestSnapshot() {
+  return _jestSnapshot = _interopRequireDefault(require('jest-snapshot'));
+}
+
+var _summary_reporter;
+
+function _load_summary_reporter() {
+  return _summary_reporter = _interopRequireDefault(
+  require('./reporters/summary_reporter'));
+
+}
+
+var _jestRunner;
+
+function _load_jestRunner() {
+  return _jestRunner = _interopRequireDefault(require('jest-runner'));
+}
+
+var _TestWatcher;
+
+function _load_TestWatcher() {
+  return _TestWatcher = _interopRequireDefault(require('./TestWatcher'));
+}
+
+var _verbose_reporter;
+
+function _load_verbose_reporter() {
+  return _verbose_reporter = _interopRequireDefault(
+  require('./reporters/verbose_reporter'));
+
+}
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
+function _asyncToGenerator(fn) {
+  return function () {
+    var gen = fn.apply(this, arguments);
+    return new Promise(function (resolve, reject) {
+      function step(key, arg) {
+        try {
+          var info = gen[key](arg);
+          var value = info.value;
+        } catch (error) {
+          reject(error);
+          return;
+        }
+        if (info.done) {
+          resolve(value);
+        } else {
+          return Promise.resolve(value).then(
+          function (value) {
+            step('next', value);
+          },
+          function (err) {
+            step('throw', err);
+          });
+
+        }
+      }
+      return step('next');
+    });
+  };
+}
+
+
+
+
+
+
+
+
+
+var SLOW_TEST_TIME = 1000;
+
+
+
+(_jestRunner || _load_jestRunner()).default;var
+
+TestScheduler = function () {
+  function TestScheduler(globalConfig, options, context) {require("@babel/runtime/helpers/classCallCheck")(this, TestScheduler);
+    this._dispatcher = new (
+    _ReporterDispatcher || _load_ReporterDispatcher()).
+    default();
+    this._globalConfig = globalConfig;
+    this._options = options;
+    this._context = context;
+    this._setupReporters();
+  }require("@babel/runtime/helpers/createClass")(TestScheduler, [{ key: "addReporter", value: function addReporter(
+
+    reporter) {
+      this._dispatcher.register(reporter);
+    } }, { key: "removeReporter", value: function removeReporter(
+
+    ReporterClass) {
+      this._dispatcher.unregister(ReporterClass);
+    } }, { key: "scheduleTests", value: function scheduleTests(
+
+    tests, watcher) {
+      var _this = this;
+
+      return _asyncToGenerator(require("@babel/runtime/regenerator").mark(function _callee3() {var onStart, timings, contexts, aggregatedResults, estimatedTime, areFastTests, runInBandWatch, runInBandNonWatch, runInBand, onResult, onFailure, updateSnapshotState, testRunners, testsByRunner, _arr2, _i2, runner, anyTestFailures, anyReporterErrors;return require("@babel/runtime/regenerator").wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:
+                onStart = _this._dispatcher.onTestStart.bind(_this._dispatcher);
+                timings = [];
+                contexts = new Set();
+                tests.forEach(function (test) {
+                  contexts.add(test.context);
+                  if (test.duration) {
+                    timings.push(test.duration);
+                  }
+                });
+
+                aggregatedResults = createAggregatedResults(tests.length);
+                estimatedTime = Math.ceil(
+                getEstimatedTime(timings, _this._globalConfig.maxWorkers) / 1000);
+
+
+
+
+
+
+
+
+
+                areFastTests = timings.every(function (timing) {
+                  return timing < SLOW_TEST_TIME;
+                });
+
+                runInBandWatch = tests.length <= 1 && areFastTests;
+                runInBandNonWatch =
+                _this._globalConfig.maxWorkers <= 1 ||
+                tests.length <= 1 ||
+                tests.length <= 20 && timings.length > 0 && areFastTests;
+
+                runInBand =
+                _this._globalConfig.watch || _this._globalConfig.watchAll ?
+                runInBandWatch :
+                runInBandNonWatch;
+
+                onResult = function () {
+                  var _ref = _asyncToGenerator(require("@babel/runtime/regenerator").mark(function _callee(test, testResult) {var message, _message;return require("@babel/runtime/regenerator").wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:if (!
+                            watcher.isInterrupted()) {_context.next = 2;break;}return _context.abrupt("return",
+                            Promise.resolve());case 2:if (!(
+
+
+                            testResult.testResults.length === 0)) {_context.next = 5;break;}
+                            message = 'Your test suite must contain at least one test.';return _context.abrupt("return",
+
+                            onFailure(test, {
+                              message: message,
+                              stack: new Error(message).stack }));case 5:if (!
+
+
+
+
+                            testResult.leaks) {_context.next = 8;break;}
+                            _message =
+                            (_chalk || _load_chalk()).default.red.bold(
+                            'EXPERIMENTAL FEATURE!\n') +
+
+                            'Your test suite is leaking memory. Please ensure all references are cleaned.\n' +
+                            '\n' +
+                            'There is a number of things that can leak memory:\n' +
+                            '  - Async operations that have not finished (e.g. fs.readFile).\n' +
+                            '  - Timers not properly mocked (e.g. setInterval, setTimeout).\n' +
+                            '  - Keeping references to the global scope.';return _context.abrupt("return",
+
+                            onFailure(test, {
+                              message: _message,
+                              stack: new Error(_message).stack }));case 8:
+
+
+
+                            (0,
+                            (_testResultHelpers || _load_testResultHelpers()).
+                            addResult)(aggregatedResults, testResult);_context.next = 11;
+                            return _this._dispatcher.onTestResult(
+                            test,
+                            testResult,
+                            aggregatedResults);case 11:return _context.abrupt("return",
+
+                            _this._bailIfNeeded(contexts, aggregatedResults, watcher));case 12:case "end":return _context.stop();}}}, _callee, this);}));
+
+
+                  return function onResult(_x, _x2) {
+                    return _ref.apply(this, arguments);
+                  };
+                }();
+
+                onFailure = function () {
+                  var _ref2 = _asyncToGenerator(require("@babel/runtime/regenerator").mark(function _callee2(test, error) {var testResult;return require("@babel/runtime/regenerator").wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:if (!
+                            watcher.isInterrupted()) {_context2.next = 2;break;}return _context2.abrupt("return");case 2:
+
+
+                            testResult = (0,
+                            (_testResultHelpers || _load_testResultHelpers()).
+                            buildFailureTestResult)(test.path, error);
+                            testResult.failureMessage = (0,
+                            (_jestMessageUtil || _load_jestMessageUtil()).formatExecError)(
+                            testResult.testExecError,
+                            test.context.config,
+                            _this._globalConfig,
+                            test.path);
+
+                            (0,
+                            (_testResultHelpers || _load_testResultHelpers()).
+                            addResult)(aggregatedResults, testResult);_context2.next = 7;
+                            return _this._dispatcher.onTestResult(
+                            test,
+                            testResult,
+                            aggregatedResults);case 7:case "end":return _context2.stop();}}}, _callee2, this);}));
+
+
+
+                  return function onFailure(_x3, _x4) {
+                    return _ref2.apply(this, arguments);
+                  };
+                }();
+
+                updateSnapshotState = function updateSnapshotState() {
+                  contexts.forEach(function (context) {
+                    var status = (
+                    _jestSnapshot || _load_jestSnapshot()).
+                    default.cleanup(
+                    context.hasteFS,
+                    _this._globalConfig.updateSnapshot);
+
+
+                    aggregatedResults.snapshot.filesRemoved += status.filesRemoved;
+                  });
+                  var updateAll = _this._globalConfig.updateSnapshot === 'all';
+                  aggregatedResults.snapshot.didUpdate = updateAll;
+                  aggregatedResults.snapshot.failure = !!(
+                  !updateAll && (
+                  aggregatedResults.snapshot.unchecked ||
+                  aggregatedResults.snapshot.unmatched ||
+                  aggregatedResults.snapshot.filesRemoved));
+
+                };_context3.next = 15;
+
+                return _this._dispatcher.onRunStart(aggregatedResults, {
+                  estimatedTime: estimatedTime,
+                  showStatus: !runInBand });case 15:
+
+
+                testRunners = Object.create(null);
+                contexts.forEach(function (_ref3) {
+                  var config = _ref3.config;
+
+                  if (!testRunners[config.runner]) {
+
+                    testRunners[config.runner] = new (require(config.runner))(
+                    _this._globalConfig);
+
+                  }
+                });
+
+                testsByRunner = _this._partitionTests(testRunners, tests);if (!
+
+                testsByRunner) {_context3.next = 35;break;}_context3.prev = 19;_arr2 =
+
+                Object.keys(testRunners);_i2 = 0;case 22:if (!(_i2 < _arr2.length)) {_context3.next = 29;break;}runner = _arr2[_i2];_context3.next = 26;
+                return testRunners[runner].runTests(
+                testsByRunner[runner],
+                watcher,
+                onStart,
+                onResult,
+                onFailure,
+                {
+                  serial: runInBand || Boolean(testRunners[runner].isSerial) });case 26:_i2++;_context3.next = 22;break;case 29:_context3.next = 35;break;case 31:_context3.prev = 31;_context3.t0 = _context3["catch"](19);if (
+
+
+
+
+                watcher.isInterrupted()) {_context3.next = 35;break;}throw _context3.t0;case 35:
+
+
+
+
+
+                updateSnapshotState();
+                aggregatedResults.wasInterrupted = watcher.isInterrupted();_context3.next = 39;
+                return _this._dispatcher.onRunComplete(contexts, aggregatedResults);case 39:
+
+                anyTestFailures = !(
+                aggregatedResults.numFailedTests === 0 &&
+                aggregatedResults.numRuntimeErrorTestSuites === 0);
+
+                anyReporterErrors = _this._dispatcher.hasErrors();
+
+                aggregatedResults.success = !(
+                anyTestFailures ||
+                aggregatedResults.snapshot.failure ||
+                anyReporterErrors);return _context3.abrupt("return",
+
+
+                aggregatedResults);case 43:case "end":return _context3.stop();}}}, _callee3, this, [[19, 31]]);}))();
+
+    } }, { key: "_partitionTests", value: function _partitionTests(
+
+    testRunners, tests) {
+      if (Object.keys(testRunners).length > 1) {
+        return tests.reduce(function (testRuns, test) {
+          var runner = test.context.config.runner;
+          if (!testRuns[runner]) {
+            testRuns[runner] = [];
+          }
+          testRuns[runner].push(test);
+          return testRuns;
+        }, Object.create(null));
+      } else if (tests.length > 0 && tests[0] != null) {
+
+        return require("@babel/runtime/helpers/extends")(Object.create(null), require("@babel/runtime/helpers/defineProperty")({},
+        tests[0].context.config.runner, tests));
+
+      } else {
+        return null;
+      }
+    } }, { key: "_shouldAddDefaultReporters", value: function _shouldAddDefaultReporters(
+
+    reporters) {var _this2 = this;
+      return (
+        !reporters ||
+        !!reporters.find(
+        function (reporter) {return _this2._getReporterProps(reporter).path === 'default';}));
+
+
+    } }, { key: "_setupReporters", value: function _setupReporters()
+
+    {
+      var _globalConfig = this._globalConfig;
+      var collectCoverage = _globalConfig.collectCoverage,
+      notify = _globalConfig.notify,
+      reporters = _globalConfig.reporters;
+
+      var isDefault = this._shouldAddDefaultReporters(reporters);
+
+      if (isDefault) {
+        this._setupDefaultReporters(collectCoverage);
+      }
+
+      if (!isDefault && collectCoverage) {
+        this.addReporter(
+        new (_coverage_reporter || _load_coverage_reporter()).default(
+        this._globalConfig));
+
+
+      }
+
+      if (notify) {
+        this.addReporter(
+        new (_notify_reporter || _load_notify_reporter()).default(
+        this._globalConfig,
+        this._options.startRun,
+        this._context));
+
+
+      }
+
+      if (reporters && Array.isArray(reporters)) {
+        this._addCustomReporters(reporters);
+      }
+    } }, { key: "_setupDefaultReporters", value: function _setupDefaultReporters(
+
+    collectCoverage) {
+      this.addReporter(
+      this._globalConfig.verbose ?
+      new (_verbose_reporter || _load_verbose_reporter()).default(
+      this._globalConfig) :
+
+      new (_default_reporter || _load_default_reporter()).default(
+      this._globalConfig));
+
+
+
+      if (collectCoverage) {
+        this.addReporter(
+        new (_coverage_reporter || _load_coverage_reporter()).default(
+        this._globalConfig));
+
+
+      }
+
+      this.addReporter(
+      new (_summary_reporter || _load_summary_reporter()).default(
+      this._globalConfig));
+
+
+    } }, { key: "_addCustomReporters", value: function _addCustomReporters(
+
+    reporters) {var _this3 = this;
+      reporters.forEach(function (reporter, index) {
+        var _getReporterProps = _this3._getReporterProps(reporter);
+
+        var options = _getReporterProps.options,
+        path = _getReporterProps.path;
+
+        if (path === 'default') return;
+
+        try {
+
+          var Reporter = require(path);
+          _this3.addReporter(new Reporter(_this3._globalConfig, options));
+        } catch (error) {
+          throw new Error(
+          'An error occurred while adding the reporter at path "' +
+          path +
+          '".' +
+          error.message);
+
+        }
+      });
+    } }, { key: "_getReporterProps", value: function _getReporterProps(
+
+
+
+
+
+    reporter) {
+      if (typeof reporter === 'string') {
+        return { options: this._options, path: reporter };
+      } else if (Array.isArray(reporter)) {
+        var _reporter = _slicedToArray(reporter, 2);
+
+        var path = _reporter[0],
+        options = _reporter[1];
+
+        return { options: options, path: path };
+      }
+
+      throw new Error('Reporter should be either a string or an array');
+    } }, { key: "_bailIfNeeded", value: function _bailIfNeeded(
+
+    contexts, aggregatedResults, watcher) {
+      if (this._globalConfig.bail && aggregatedResults.numFailedTests !== 0) {
+        if (watcher.isWatchMode()) {
+          watcher.setState({ interrupted: true });
+        } else {
+          var failureExit = function failureExit() {return (0, (_exit || _load_exit()).default)(1);};
+
+          return this._dispatcher.
+          onRunComplete(contexts, aggregatedResults).
+          then(failureExit).
+          catch(failureExit);
+        }
+      }
+      return Promise.resolve();
+    } }]);return TestScheduler;}();
+
+
+exports.default = TestScheduler;
+var createAggregatedResults = function createAggregatedResults(numTotalTestSuites) {
+  var result = (0,
+  (_testResultHelpers || _load_testResultHelpers()).
+  makeEmptyAggregatedTestResult)();
+  result.numTotalTestSuites = numTotalTestSuites;
+  result.startTime = Date.now();
+  result.success = false;
+  return result;
+};
+
+var getEstimatedTime = function getEstimatedTime(timings, workers) {
+  if (!timings.length) {
+    return 0;
+  }
+
+  var max = Math.max.apply(null, timings);
+  return timings.length <= workers ?
+  max :
+  Math.max(timings.reduce(function (sum, time) {return sum + time;}) / workers, max);
+};

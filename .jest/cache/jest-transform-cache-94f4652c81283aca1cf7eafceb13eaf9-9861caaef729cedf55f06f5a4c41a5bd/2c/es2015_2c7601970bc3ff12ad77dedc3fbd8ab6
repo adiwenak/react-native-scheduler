@@ -1,0 +1,76 @@
+bdfee77997e51a5300967f1f092eee62
+'use strict';
+
+var hasSymbols = typeof Symbol === 'function' && typeof (typeof Symbol === "function" ? Symbol.iterator : "@@iterator") === 'symbol';
+
+
+
+
+
+
+var ordinaryToPrimitive = function OrdinaryToPrimitive(O, hint) {
+  if (typeof O === 'undefined' || O === null) {
+    throw new TypeError('Cannot call method on ' + O);
+  }
+  if (typeof hint !== 'string' || hint !== 'number' && hint !== 'string') {
+    throw new TypeError('hint must be "string" or "number"');
+  }
+  var methodNames = hint === 'string' ? ['toString', 'valueOf'] : ['valueOf', 'toString'];
+  var method, result, i;
+  for (i = 0; i < methodNames.length; ++i) {
+    method = O[methodNames[i]];
+    if (require('is-callable')(method)) {
+      result = method.call(O);
+      if (require("./helpers/isPrimitive")(result)) {
+        return result;
+      }
+    }
+  }
+  throw new TypeError('No default value');
+};
+
+var GetMethod = function GetMethod(O, P) {
+  var func = O[P];
+  if (func !== null && typeof func !== 'undefined') {
+    if (!require('is-callable')(func)) {
+      throw new TypeError(func + ' returned for property ' + P + ' of object ' + O + ' is not a function');
+    }
+    return func;
+  }
+  return void 0;
+};
+
+
+module.exports = function ToPrimitive(input) {
+  if (require("./helpers/isPrimitive")(input)) {
+    return input;
+  }
+  var hint = 'default';
+  if (arguments.length > 1) {
+    if (arguments[1] === String) {
+      hint = 'string';
+    } else if (arguments[1] === Number) {
+      hint = 'number';
+    }
+  }
+
+  var exoticToPrim;
+  if (hasSymbols) {
+    if (typeof Symbol === "function" ? Symbol.toPrimitive : "@@toPrimitive") {
+      exoticToPrim = GetMethod(input, Symbol.toPrimitive);
+    } else if (require('is-symbol')(input)) {
+      exoticToPrim = Symbol.prototype.valueOf;
+    }
+  }
+  if (typeof exoticToPrim !== 'undefined') {
+    var result = exoticToPrim.call(input, hint);
+    if (require("./helpers/isPrimitive")(result)) {
+      return result;
+    }
+    throw new TypeError('unable to convert exotic object to primitive');
+  }
+  if (hint === 'default' && (require('is-date-object')(input) || require('is-symbol')(input))) {
+    hint = 'string';
+  }
+  return ordinaryToPrimitive(input, hint === 'default' ? 'number' : hint);
+};

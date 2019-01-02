@@ -1,0 +1,49 @@
+af138c072ea776c0846483eef84293b3
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var isSubset = function (_isSubset) {
+  function isSubset(_x, _x2) {
+    return _isSubset.apply(this, arguments);
+  }
+
+  isSubset.toString = function () {
+    return _isSubset.toString();
+  };
+
+  return isSubset;
+}(function (superset, subset) {
+  if (typeof superset !== 'object' || superset === null || typeof subset !== 'object' || subset === null) return false;
+
+  return Object.keys(subset).every(function (key) {
+    if (!superset.propertyIsEnumerable(key)) return false;
+
+    var subsetItem = subset[key];
+    var supersetItem = superset[key];
+    if (typeof subsetItem === 'object' && subsetItem !== null ? !isSubset(supersetItem, subsetItem) : supersetItem !== subsetItem) return false;
+
+    return true;
+  });
+});
+
+exports['default'] = isSubset;
+module.exports = exports['default'];

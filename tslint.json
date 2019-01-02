@@ -1,0 +1,30 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended"
+  ],
+  "jsRules": {},
+  "rules": {
+    "no-var-keyword": true,
+    "semicolon": [
+      true,
+      "never"
+    ],
+    "indent": [
+      true,
+      "spaces",
+      2
+    ],
+    "interface-name": [
+      true,
+      "never-prefix"
+    ],
+    "no-empty-interface": false,
+    "no-shadowed-variable": false,
+    "member-access": false,
+    "no-angle-bracket-type-assertion": false,
+    "object-literal-sort-keys": false,
+    "trailing-comma": false
+  },
+  "rulesDirectory": []
+}

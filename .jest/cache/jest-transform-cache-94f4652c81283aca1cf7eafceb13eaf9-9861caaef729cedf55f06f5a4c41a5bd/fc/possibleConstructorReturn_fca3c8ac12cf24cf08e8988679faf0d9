@@ -1,0 +1,14 @@
+27468d9cdeb50292f322338cd3f37aab
+
+
+
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (require("../helpers/typeof")(call) === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return require("./assertThisInitialized")(self);
+}
+
+module.exports = _possibleConstructorReturn;

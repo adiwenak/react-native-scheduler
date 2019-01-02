@@ -4,11 +4,11 @@ import {User} from "../../../shared/model"
 import styles from "./BusyIndicator.style"
 
 export interface BusyIndicatorProps {
-  whosBusy : User[]
-  height : number
+  whosBusy: User[]
+  height: number
 }
 
-export const BusyIndicator = (props : BusyIndicatorProps) : JSX.Element => {
+export const BusyIndicator = (props: BusyIndicatorProps): JSX.Element => {
   const circleSize = props.height / 1.7
   const circleBorderRadius = circleSize / 2
   return (
@@ -21,7 +21,7 @@ export const BusyIndicator = (props : BusyIndicatorProps) : JSX.Element => {
     ]}>
       {props
         .whosBusy
-        .map((obj : User) => <View
+        .map((obj: User) => <View
           key={obj.id}
           style={{
           height: circleSize,

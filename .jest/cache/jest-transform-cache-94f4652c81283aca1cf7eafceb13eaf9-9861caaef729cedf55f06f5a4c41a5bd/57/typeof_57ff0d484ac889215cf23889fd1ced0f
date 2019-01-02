@@ -1,0 +1,18 @@
+464bef4fdcdf1529a75a47e4f59b46be
+function _typeof2(obj) {if (typeof Symbol === "function" && typeof (typeof Symbol === "function" ? Symbol.iterator : "@@iterator") === "symbol") {_typeof2 = function _typeof2(obj) {return typeof obj;};} else {_typeof2 = function _typeof2(obj) {return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== (typeof Symbol === "function" ? Symbol.prototype : "@@prototype") ? "symbol" : typeof obj;};}return _typeof2(obj);}
+
+function _typeof(obj) {
+  if (typeof Symbol === "function" && _typeof2(typeof Symbol === "function" ? Symbol.iterator : "@@iterator") === "symbol") {
+    module.exports = _typeof = function _typeof(obj) {
+      return _typeof2(obj);
+    };
+  } else {
+    module.exports = _typeof = function _typeof(obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== (typeof Symbol === "function" ? Symbol.prototype : "@@prototype") ? "symbol" : _typeof2(obj);
+    };
+  }
+
+  return _typeof(obj);
+}
+
+module.exports = _typeof;

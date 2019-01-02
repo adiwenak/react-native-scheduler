@@ -1,0 +1,33 @@
+da39c1791786339ae243131f2e2eec77
+
+
+
+
+
+
+
+
+
+
+'use strict';
+
+
+
+
+
+
+
+
+
+
+
+
+
+var createReactNativeComponentClass = function createReactNativeComponentClass(
+name,
+callback)
+{
+  return require('./ReactNativeViewConfigRegistry').register(name, callback);
+};
+
+module.exports = createReactNativeComponentClass;

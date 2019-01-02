@@ -1,0 +1,17 @@
+e61fff658e86f72553127f072604b3a5
+'use strict';
+
+
+
+
+var ES2016 = require("./helpers/assign")(require("./helpers/assign")({}, require("./es2015")), {
+
+  SameValueNonNumber: function SameValueNonNumber(x, y) {
+    if (typeof x === 'number' || typeof x !== typeof y) {
+      throw new TypeError('SameValueNonNumber requires two non-number values of the same type.');
+    }
+    return this.SameValue(x, y);
+  } });
+
+
+module.exports = ES2016;

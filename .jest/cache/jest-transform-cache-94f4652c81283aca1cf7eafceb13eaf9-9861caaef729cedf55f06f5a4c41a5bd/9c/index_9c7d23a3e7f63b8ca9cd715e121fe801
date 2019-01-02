@@ -1,0 +1,8 @@
+40726369a33933a2f2f729e040286b76
+'use strict';
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = require("./cjs/react.production.min.js");
+} else {
+  module.exports = require("./cjs/react.development.js");
+}

@@ -1,0 +1,19 @@
+c9f410faa25f45e118f74423b6606db1
+
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true } });
+
+
+  if (superClass) require("./setPrototypeOf")(subClass, superClass);
+}
+
+module.exports = _inherits;

@@ -1,0 +1,63 @@
+169811dac7f4b6edfc70147d37fd0ff4
+
+
+
+
+
+
+
+
+
+'use strict';
+
+
+
+
+
+
+
+
+var ImageStylePropTypes = require("@babel/runtime/helpers/objectSpread")({}, require("../StyleSheet/LayoutPropTypes"), require("../Components/View/ShadowPropTypesIOS"), require("../StyleSheet/TransformPropTypes"), {
+
+
+
+  resizeMode: require('prop-types').oneOf(Object.keys(require("./ImageResizeMode"))),
+  backfaceVisibility: require('prop-types').oneOf(['visible', 'hidden']),
+  backgroundColor: require("../StyleSheet/ColorPropType"),
+  borderColor: require("../StyleSheet/ColorPropType"),
+  borderWidth: require('prop-types').number,
+  borderRadius: require('prop-types').number,
+  overflow: require('prop-types').oneOf(['visible', 'hidden']),
+
+
+
+
+  tintColor: require("../StyleSheet/ColorPropType"),
+  opacity: require('prop-types').number,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  overlayColor: require('prop-types').string,
+
+
+  borderTopLeftRadius: require('prop-types').number,
+  borderTopRightRadius: require('prop-types').number,
+  borderBottomLeftRadius: require('prop-types').number,
+  borderBottomRightRadius: require('prop-types').number });
+
+
+module.exports = ImageStylePropTypes;

@@ -1,0 +1,15 @@
+224fe52c40fa7b8e1c65013db282f237
+'use strict';
+
+
+
+
+module.exports = function shimValues() {
+  var polyfill = require('./polyfill')();
+  require('define-properties')(Object, { values: polyfill }, {
+    values: function testValues() {
+      return Object.values !== polyfill;
+    } });
+
+  return polyfill;
+};

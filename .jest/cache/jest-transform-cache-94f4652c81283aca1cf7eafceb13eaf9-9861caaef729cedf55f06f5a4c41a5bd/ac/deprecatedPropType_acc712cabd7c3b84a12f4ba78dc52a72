@@ -1,0 +1,35 @@
+eac83df790f7bd51276f90e1244e6c76
+
+
+
+
+
+
+
+
+
+
+'use strict';
+
+
+
+
+
+
+function deprecatedPropType(
+propType,
+explanation)
+{
+  return function validate(props, propName, componentName) {
+
+    if (!require("../ReactNative/UIManager")[componentName] && props[propName] !== undefined) {
+      console.warn("`" +
+      propName + "` supplied to `" + componentName + "` has been deprecated. " + explanation);
+
+    }for (var _len = arguments.length, rest = new Array(_len > 3 ? _len - 3 : 0), _key = 3; _key < _len; _key++) {rest[_key - 3] = arguments[_key];}
+
+    return propType.apply(void 0, [props, propName, componentName].concat(rest));
+  };
+}
+
+module.exports = deprecatedPropType;

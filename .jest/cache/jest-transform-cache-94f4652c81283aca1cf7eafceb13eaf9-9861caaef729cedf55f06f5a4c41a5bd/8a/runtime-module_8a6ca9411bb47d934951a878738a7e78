@@ -1,0 +1,38 @@
+1706cb848617edc6591f98bf61201c19
+
+
+
+
+
+
+
+
+
+var g = function () {
+  return this || typeof self === "object" && self;
+}() || Function("return this")();
+
+
+
+var hadRuntime = g.regeneratorRuntime &&
+Object.getOwnPropertyNames(g).indexOf("regeneratorRuntime") >= 0;
+
+
+var oldRuntime = hadRuntime && g.regeneratorRuntime;
+
+
+g.regeneratorRuntime = undefined;
+
+module.exports = require("./runtime");
+
+if (hadRuntime) {
+
+  g.regeneratorRuntime = oldRuntime;
+} else {
+
+  try {
+    delete g.regeneratorRuntime;
+  } catch (e) {
+    g.regeneratorRuntime = undefined;
+  }
+}

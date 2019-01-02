@@ -1,0 +1,41 @@
+c5c3923c7d75ff84ed583c2cfa33906e
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var assignIn = require("./_createAssigner")(function (object, source) {
+  require("./_copyObject")(source, require("./keysIn")(source), object);
+});
+
+module.exports = assignIn;

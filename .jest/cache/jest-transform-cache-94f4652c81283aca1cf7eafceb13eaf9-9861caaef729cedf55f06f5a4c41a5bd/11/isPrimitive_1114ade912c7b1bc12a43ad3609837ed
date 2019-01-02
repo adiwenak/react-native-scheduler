@@ -1,0 +1,4 @@
+fe078d6eb0812405fbe0b896725d8e3b
+module.exports = function isPrimitive(value) {
+  return value === null || typeof value !== 'function' && typeof value !== 'object';
+};

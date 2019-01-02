@@ -1,0 +1,329 @@
+818a2d9376733329f06dbedf54411f94
+
+
+
+
+
+
+
+
+
+'use strict';
+
+var MockNativeMethods = require.requireActual("./MockNativeMethods");
+var mockComponent = require.requireActual("./mockComponent");
+
+require.requireActual("../Libraries/polyfills/babelHelpers.js");
+require.requireActual("../Libraries/polyfills/Object.es7.js");
+require.requireActual("../Libraries/polyfills/error-guard");
+
+global.__DEV__ = true;
+
+global.Promise = require.requireActual('promise');
+global.regeneratorRuntime = require.requireActual(
+'regenerator-runtime/runtime');
+
+
+global.requestAnimationFrame = function (callback) {
+  return setTimeout(callback, 0);
+};
+global.cancelAnimationFrame = function (id) {
+  clearTimeout(id);
+};
+
+jest.mock("../Libraries/Core/Devtools/setupDevtools").mock('npmlog');
+
+
+jest.setMock("../Libraries/vendor/core/ErrorUtils", require("../Libraries/vendor/core/ErrorUtils"));
+
+jest.
+mock("../Libraries/Core/InitializeCore", function () {}).
+mock('../Libraries/Image/Image', function () {return mockComponent('../Libraries/Image/Image');}).
+mock('../Libraries/Text/Text', function () {return mockComponent('../Libraries/Text/Text', MockNativeMethods);}).
+mock('../Libraries/Components/TextInput/TextInput', function () {return mockComponent('../Libraries/Components/TextInput/TextInput');}).
+mock('../Libraries/Modal/Modal', function () {return mockComponent('../Libraries/Modal/Modal');}).
+mock('../Libraries/Components/View/View', function () {return mockComponent('../Libraries/Components/View/View', MockNativeMethods);}).
+mock('../Libraries/Components/RefreshControl/RefreshControl', function () {return require.requireMock("../Libraries/Components/RefreshControl/__mocks__/RefreshControlMock");}).
+mock('../Libraries/Components/ScrollView/ScrollView', function () {return require.requireMock("../Libraries/Components/ScrollView/__mocks__/ScrollViewMock");}).
+mock('../Libraries/Components/ActivityIndicator/ActivityIndicator', function () {return mockComponent('../Libraries/Components/ActivityIndicator/ActivityIndicator');}).
+mock('../Libraries/Lists/ListView/ListView', function () {return require.requireMock("../Libraries/Lists/ListView/__mocks__/ListViewMock");}).
+mock('../Libraries/Lists/ListView/ListViewDataSource', function () {
+  var DataSource = require.requireActual("../Libraries/Lists/ListView/ListViewDataSource");
+  DataSource.prototype.toJSON = function () {
+    function ListViewDataSource(dataBlob) {var _this = this;
+      this.items = 0;
+
+      try {
+        Object.keys(dataBlob).forEach(function (key) {
+          _this.items +=
+          dataBlob[key] && (
+          dataBlob[key].length || dataBlob[key].size || 0);
+        });
+      } catch (e) {
+        this.items = 'unknown';
+      }
+    }
+
+    return new ListViewDataSource(this._dataBlob);
+  };
+  return DataSource;
+}).
+mock('../Libraries/Animated/src/AnimatedImplementation', function () {
+  var AnimatedImplementation = require.requireActual("../Libraries/Animated/src/AnimatedImplementation");
+
+
+  var oldCreate = AnimatedImplementation.createAnimatedComponent;
+  AnimatedImplementation.createAnimatedComponent = function (Component) {
+    var Wrapped = oldCreate(Component);
+    Wrapped.__skipSetNativeProps_FOR_TESTS_ONLY = true;
+    return Wrapped;
+  };
+  return AnimatedImplementation;
+}).
+mock('../Libraries/Renderer/shims/ReactNative', function () {
+  var ReactNative = require.requireActual("../Libraries/Renderer/shims/ReactNative");
+  var NativeMethodsMixin =
+  ReactNative.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.
+  NativeMethodsMixin;
+
+  require("@babel/runtime/helpers/extends")(NativeMethodsMixin, MockNativeMethods);
+  require("@babel/runtime/helpers/extends")(ReactNative.NativeComponent.prototype, MockNativeMethods);
+
+  return ReactNative;
+}).
+mock('../Libraries/Components/Touchable/ensureComponentIsNative', function () {return function () {return true;};});
+
+var mockEmptyObject = {};
+var mockNativeModules = {
+  AlertManager: {
+    alertWithArgs: jest.fn() },
+
+  AppState: {
+    addEventListener: jest.fn(),
+    removeEventListener: jest.fn() },
+
+  AsyncLocalStorage: {
+    multiGet: jest.fn(function (keys, callback) {return (
+        process.nextTick(function () {return callback(null, []);}));}),
+
+    multiSet: jest.fn(function (entries, callback) {return (
+        process.nextTick(function () {return callback(null);}));}),
+
+    multiRemove: jest.fn(function (keys, callback) {return (
+        process.nextTick(function () {return callback(null);}));}),
+
+    multiMerge: jest.fn(function (entries, callback) {return (
+        process.nextTick(function () {return callback(null);}));}),
+
+    clear: jest.fn(function (callback) {return process.nextTick(function () {return callback(null);});}),
+    getAllKeys: jest.fn(function (callback) {return process.nextTick(function () {return callback(null, []);});}) },
+
+  BuildInfo: {
+    appVersion: '0',
+    buildVersion: '0' },
+
+  Clipboard: {
+    setString: jest.fn() },
+
+  DataManager: {
+    queryData: jest.fn() },
+
+  DeviceInfo: {
+    Dimensions: {
+      window: {
+        fontScale: 2,
+        height: 1334,
+        scale: 2,
+        width: 750 },
+
+      screen: {
+        fontScale: 2,
+        height: 1334,
+        scale: 2,
+        width: 750 } } },
+
+
+
+  FacebookSDK: {
+    login: jest.fn(),
+    logout: jest.fn(),
+    queryGraphPath: jest.fn(function (path, method, params, callback) {return callback();}) },
+
+  GraphPhotoUpload: {
+    upload: jest.fn() },
+
+  I18n: {
+    translationsDictionary: JSON.stringify({
+      'Good bye, {name}!|Bye message': "\xA1Adi\xF3s {name}!" }) },
+
+
+  ImageLoader: {
+    getSize: jest.fn(function (url) {return Promise.resolve({ width: 320, height: 240 });}),
+    prefetchImage: jest.fn() },
+
+  ImageViewManager: {
+    getSize: jest.fn(function (uri, success) {return (
+        process.nextTick(function () {return success(320, 240);}));}),
+
+    prefetchImage: jest.fn() },
+
+  KeyboardObserver: {
+    addListener: jest.fn(),
+    removeListeners: jest.fn() },
+
+  Linking: {
+    openURL: jest.fn(),
+    canOpenURL: jest.fn(function () {return Promise.resolve(true);}),
+    addEventListener: jest.fn(),
+    getInitialURL: jest.fn(function () {return Promise.resolve();}),
+    removeEventListener: jest.fn() },
+
+  LocationObserver: {
+    getCurrentPosition: jest.fn(),
+    startObserving: jest.fn(),
+    stopObserving: jest.fn() },
+
+  ModalFullscreenViewManager: {},
+  NetInfo: {
+    fetch: jest.fn(function () {return Promise.resolve();}),
+    getConnectionInfo: jest.fn(function () {return Promise.resolve();}),
+    addEventListener: jest.fn(),
+    removeEventListener: jest.fn(),
+    isConnected: {
+      fetch: jest.fn(function () {return Promise.resolve();}),
+      addEventListener: jest.fn(),
+      removeEventListener: jest.fn() },
+
+    isConnectionExpensive: jest.fn(function () {return Promise.resolve();}) },
+
+  Networking: {
+    sendRequest: jest.fn(),
+    abortRequest: jest.fn(),
+    addListener: jest.fn(),
+    removeListeners: jest.fn() },
+
+  PushNotificationManager: {
+    presentLocalNotification: jest.fn(),
+    scheduleLocalNotification: jest.fn(),
+    cancelAllLocalNotifications: jest.fn(),
+    removeAllDeliveredNotifications: jest.fn(),
+    getDeliveredNotifications: jest.fn(function (callback) {return process.nextTick(function () {return [];});}),
+    removeDeliveredNotifications: jest.fn(),
+    setApplicationIconBadgeNumber: jest.fn(),
+    getApplicationIconBadgeNumber: jest.fn(function (callback) {return (
+        process.nextTick(function () {return callback(0);}));}),
+
+    cancelLocalNotifications: jest.fn(),
+    getScheduledLocalNotifications: jest.fn(function (callback) {return (
+        process.nextTick(function () {return callback();}));}),
+
+    requestPermissions: jest.fn(function () {return (
+        Promise.resolve({ alert: true, badge: true, sound: true }));}),
+
+    abandonPermissions: jest.fn(),
+    checkPermissions: jest.fn(function (callback) {return (
+        process.nextTick(function () {return callback({ alert: true, badge: true, sound: true });}));}),
+
+    getInitialNotification: jest.fn(function () {return Promise.resolve(null);}),
+    addListener: jest.fn(),
+    removeListeners: jest.fn() },
+
+  SourceCode: {
+    scriptURL: null },
+
+  StatusBarManager: {
+    HEIGHT: 42,
+    setColor: jest.fn(),
+    setStyle: jest.fn(),
+    setHidden: jest.fn(),
+    setNetworkActivityIndicatorVisible: jest.fn(),
+    setBackgroundColor: jest.fn(),
+    setTranslucent: jest.fn() },
+
+  Timing: {
+    createTimer: jest.fn(),
+    deleteTimer: jest.fn() },
+
+  UIManager: {
+    AndroidViewPager: {
+      Commands: {
+        setPage: jest.fn(),
+        setPageWithoutAnimation: jest.fn() } },
+
+
+    blur: jest.fn(),
+    createView: jest.fn(),
+    dispatchViewManagerCommand: jest.fn(),
+    focus: jest.fn(),
+    setChildren: jest.fn(),
+    manageChildren: jest.fn(),
+    updateView: jest.fn(),
+    removeSubviewsFromContainerWithID: jest.fn(),
+    replaceExistingNonRootView: jest.fn(),
+    customBubblingEventTypes: {},
+    customDirectEventTypes: {},
+    AndroidTextInput: {
+      Commands: {} },
+
+    ModalFullscreenView: {
+      Constants: {} },
+
+    ScrollView: {
+      Constants: {} },
+
+    View: {
+      Constants: {} } },
+
+
+  BlobModule: {
+    BLOB_URI_SCHEME: 'content',
+    BLOB_URI_HOST: null,
+    addNetworkingHandler: jest.fn(),
+    enableBlobSupport: jest.fn(),
+    disableBlobSupport: jest.fn(),
+    createFromParts: jest.fn(),
+    sendBlob: jest.fn(),
+    release: jest.fn() },
+
+  WebSocketModule: {
+    connect: jest.fn(),
+    send: jest.fn(),
+    sendBinary: jest.fn(),
+    ping: jest.fn(),
+    close: jest.fn(),
+    addListener: jest.fn(),
+    removeListeners: jest.fn() } };
+
+
+
+var mockNativeModuleJS = {
+  '../Libraries/AppState/AppState': mockNativeModules.AppState,
+  '../Libraries/Components/Clipboard/Clipboard': mockNativeModules.Clipboard,
+  '../Libraries/Utilities/DeviceInfo': mockNativeModules.DeviceInfo,
+  '../Libraries/Linking/Linking': mockNativeModules.Linking,
+  '../Libraries/Network/NetInfo': mockNativeModules.NetInfo,
+  '../Libraries/ReactNative/UIManager': mockNativeModules.UIManager };
+
+
+var allRNMocks = require("@babel/runtime/helpers/objectSpread")({}, mockNativeModules, mockNativeModuleJS);
+
+Object.keys(allRNMocks).forEach(function (module) {
+  try {
+    jest.doMock(module, function () {return allRNMocks[module];});
+  } catch (e) {
+    jest.doMock(module, function () {return allRNMocks[module];}, { virtual: true });
+  }
+});
+
+jest.doMock("../Libraries/BatchedBridge/NativeModules", function () {return mockNativeModules;});
+
+jest.doMock("../Libraries/ReactNative/requireNativeComponent", function () {
+  var React = require('react');
+
+  return function (viewName) {return function (_React$Component) {require("@babel/runtime/helpers/inherits")(_class, _React$Component);function _class() {require("@babel/runtime/helpers/classCallCheck")(this, _class);return require("@babel/runtime/helpers/possibleConstructorReturn")(this, require("@babel/runtime/helpers/getPrototypeOf")(_class).apply(this, arguments));}require("@babel/runtime/helpers/createClass")(_class, [{ key: "render", value: function render()
+
+        {
+          return React.createElement(viewName, this.props, this.props.children);
+        } }]);return _class;}(React.Component);};
+
+});

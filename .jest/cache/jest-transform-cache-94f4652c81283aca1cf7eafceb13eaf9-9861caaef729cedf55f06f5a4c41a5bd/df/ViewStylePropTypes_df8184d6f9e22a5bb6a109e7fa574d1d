@@ -1,0 +1,62 @@
+bc2f7a7d8fcd4d9f16d0dac17913801d
+
+
+
+
+
+
+
+
+
+
+'use strict';
+
+
+
+
+
+
+
+
+
+
+var ViewStylePropTypes = require("@babel/runtime/helpers/objectSpread")({}, require("../../StyleSheet/LayoutPropTypes"), require("./ShadowPropTypesIOS"), require("../../StyleSheet/TransformPropTypes"), {
+
+
+
+  backfaceVisibility: require('prop-types').oneOf(['visible', 'hidden']),
+  backgroundColor: require("../../StyleSheet/ColorPropType"),
+  borderColor: require("../../StyleSheet/ColorPropType"),
+  borderTopColor: require("../../StyleSheet/ColorPropType"),
+  borderRightColor: require("../../StyleSheet/ColorPropType"),
+  borderBottomColor: require("../../StyleSheet/ColorPropType"),
+  borderLeftColor: require("../../StyleSheet/ColorPropType"),
+  borderStartColor: require("../../StyleSheet/ColorPropType"),
+  borderEndColor: require("../../StyleSheet/ColorPropType"),
+  borderRadius: require('prop-types').number,
+  borderTopLeftRadius: require('prop-types').number,
+  borderTopRightRadius: require('prop-types').number,
+  borderTopStartRadius: require('prop-types').number,
+  borderTopEndRadius: require('prop-types').number,
+  borderBottomLeftRadius: require('prop-types').number,
+  borderBottomRightRadius: require('prop-types').number,
+  borderBottomStartRadius: require('prop-types').number,
+  borderBottomEndRadius: require('prop-types').number,
+  borderStyle: require('prop-types').oneOf(['solid', 'dotted', 'dashed']),
+  borderWidth: require('prop-types').number,
+  borderTopWidth: require('prop-types').number,
+  borderRightWidth: require('prop-types').number,
+  borderBottomWidth: require('prop-types').number,
+  borderLeftWidth: require('prop-types').number,
+  opacity: require('prop-types').number,
+
+
+
+
+
+
+
+  elevation: require('prop-types').number });
+
+
+module.exports = ViewStylePropTypes;

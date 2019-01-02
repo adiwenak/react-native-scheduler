@@ -1,0 +1,36 @@
+418aa70f9f3f79e1f4a7b06e224d0f5f
+'use strict';
+
+
+
+
+var defineProperty = Object.defineProperty;
+var TypeErr = TypeError;
+
+module.exports = function shimName() {
+  var polyfill = require("./polyfill")();
+  if (require("./helpers/functionsHaveNames")) {
+    return polyfill;
+  }
+  if (!require('define-properties').supportsDescriptors) {
+    throw new TypeErr('Shimming Function.prototype.name support requires ES5 property descriptor support.');
+  }
+  var functionProto = Function.prototype;
+  defineProperty(functionProto, 'name', {
+    configurable: true,
+    enumerable: false,
+    get: function get() {
+      var name = polyfill.call(this);
+      if (this !== functionProto) {
+        defineProperty(this, 'name', {
+          configurable: true,
+          enumerable: false,
+          value: name,
+          writable: false });
+
+      }
+      return name;
+    } });
+
+  return polyfill;
+};

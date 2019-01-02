@@ -1,0 +1,4 @@
+9920df51825d4ae5d1c9f7bf7907fb4d
+module.exports = function sign(number) {
+  return number >= 0 ? 1 : -1;
+};

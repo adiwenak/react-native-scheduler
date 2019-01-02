@@ -1,0 +1,18 @@
+221613127a30bd8722481c2b7f10dafe
+'use strict';
+
+
+
+
+
+
+
+var polyfill = require("./polyfill")();
+
+require('define-properties')(polyfill, {
+  getPolyfill: require("./polyfill"),
+  implementation: require("./implementation"),
+  shim: require("./shim") });
+
+
+module.exports = polyfill;

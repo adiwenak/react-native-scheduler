@@ -1,0 +1,18 @@
+d3b00bc27c7cf8819e6fd7768e295dc1
+
+var has = require('function-bind').call(Function.call, Object.prototype.hasOwnProperty);
+
+var $assign = Object.assign;
+
+module.exports = function assign(target, source) {
+  if ($assign) {
+    return $assign(target, source);
+  }
+
+  for (var key in source) {
+    if (has(source, key)) {
+      target[key] = source[key];
+    }
+  }
+  return target;
+};

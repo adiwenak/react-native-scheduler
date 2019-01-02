@@ -1,0 +1,343 @@
+4888eb75bfb2e06afac7f077dd0ef66c
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true });
+
+
+var _path;
+
+function _load_path() {
+  return _path = _interopRequireDefault(require('path'));
+}
+
+var _micromatch;
+
+function _load_micromatch() {
+  return _micromatch = _interopRequireDefault(require('micromatch'));
+}
+
+var _jestResolveDependencies;
+
+function _load_jestResolveDependencies() {
+  return _jestResolveDependencies = _interopRequireDefault(
+  require('jest-resolve-dependencies'));
+
+}
+
+var _testPathPatternToRegexp;
+
+function _load_testPathPatternToRegexp() {
+  return _testPathPatternToRegexp = _interopRequireDefault(
+  require("./testPathPatternToRegexp"));
+
+}
+
+var _jestRegexUtil;
+
+function _load_jestRegexUtil() {
+  return _jestRegexUtil = require('jest-regex-util');
+}
+
+var _jestConfig;
+
+function _load_jestConfig() {
+  return _jestConfig = require('jest-config');
+}
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
+function _asyncToGenerator(fn) {
+  return function () {
+    var gen = fn.apply(this, arguments);
+    return new Promise(function (resolve, reject) {
+      function step(key, arg) {
+        try {
+          var info = gen[key](arg);
+          var value = info.value;
+        } catch (error) {
+          reject(error);
+          return;
+        }
+        if (info.done) {
+          resolve(value);
+        } else {
+          return Promise.resolve(value).then(
+          function (value) {
+            step('next', value);
+          },
+          function (err) {
+            step('throw', err);
+          });
+
+        }
+      }
+      return step('next');
+    });
+  };
+}
+
+
+
+
+
+
+
+
+
+var globsToMatcher = function globsToMatcher(globs) {
+  if (globs == null || globs.length === 0) {
+    return function () {return true;};
+  }
+
+  return function (path) {return (
+      (0, (_micromatch || _load_micromatch()).default)([path], globs, { dot: true }).
+      length > 0);};
+};
+
+var regexToMatcher = function regexToMatcher(testRegex) {
+  if (!testRegex) {
+    return function () {return true;};
+  }
+
+  var regex = new RegExp(testRegex);
+  return function (path) {return regex.test(path);};
+};
+
+var toTests = function toTests(context, tests) {return (
+    tests.map(function (path) {return {
+        context: context,
+        duration: undefined,
+        path: path };}));};var
+
+
+SearchSource = function () {
+  function SearchSource(context) {var _this3 = this;require("@babel/runtime/helpers/classCallCheck")(this, SearchSource);
+    var config = context.config;
+
+    this._context = context;
+    this._rootPattern = new RegExp(
+    config.roots.
+    map(function (dir) {return (
+        (0, (_jestRegexUtil || _load_jestRegexUtil()).escapePathForRegex)(
+        dir + (_path || _load_path()).default.sep));}).
+
+
+    join('|'));
+
+
+    var ignorePattern = config.testPathIgnorePatterns;
+    this._testIgnorePattern = ignorePattern.length ?
+    new RegExp(ignorePattern.join('|')) :
+    null;
+
+    this._testPathCases = {
+      roots: function roots(path) {return _this3._rootPattern.test(path);},
+      testMatch: globsToMatcher(config.testMatch),
+      testPathIgnorePatterns: function testPathIgnorePatterns(path) {return (
+          !_this3._testIgnorePattern || !_this3._testIgnorePattern.test(path));},
+      testRegex: regexToMatcher(config.testRegex) };
+
+  }require("@babel/runtime/helpers/createClass")(SearchSource, [{ key: "_filterTestPathsWithStats", value: function _filterTestPathsWithStats(
+
+    allPaths, testPathPattern) {
+      var data = {
+        stats: {},
+        tests: [],
+        total: allPaths.length };
+
+
+      var testCases = require("@babel/runtime/helpers/extends")({}, this._testPathCases);
+      if (testPathPattern) {
+        var regex = (0,
+        (_testPathPatternToRegexp || _load_testPathPatternToRegexp()).default)(
+        testPathPattern);
+
+        testCases.testPathPattern = function (path) {return regex.test(path);};
+      }
+
+      var testCasesKeys = Object.keys(testCases);
+      data.tests = allPaths.filter(function (test) {return (
+          testCasesKeys.reduce(function (flag, key) {
+            if (testCases[key](test.path)) {
+              data.stats[key] = ++data.stats[key] || 1;
+              return flag && true;
+            }
+            data.stats[key] = data.stats[key] || 0;
+            return false;
+          }, true));});
+
+
+      return data;
+    } }, { key: "_getAllTestPaths", value: function _getAllTestPaths(
+
+    testPathPattern) {
+      return this._filterTestPathsWithStats(
+      toTests(this._context, this._context.hasteFS.getAllFiles()),
+      testPathPattern);
+
+    } }, { key: "isTestFilePath", value: function isTestFilePath(
+
+    path) {var _this4 = this;
+      return Object.keys(this._testPathCases).every(function (key) {return (
+          _this4._testPathCases[key](path));});
+
+    } }, { key: "findMatchingTests", value: function findMatchingTests(
+
+    testPathPattern) {
+      return this._getAllTestPaths(testPathPattern);
+    } }, { key: "findRelatedTests", value: function findRelatedTests(
+
+    allPaths, collectCoverage) {var _this5 = this;
+      var dependencyResolver = new (
+      _jestResolveDependencies || _load_jestResolveDependencies()).
+      default(this._context.resolver, this._context.hasteFS);
+
+      var tests = toTests(
+      this._context,
+      dependencyResolver.resolveInverse(
+      allPaths,
+      this.isTestFilePath.bind(this),
+      {
+        skipNodeResolution: this._context.config.skipNodeResolution }));
+
+
+
+      var collectCoverageFrom;
+
+
+      if (collectCoverage) {
+        collectCoverageFrom = Array.from(allPaths).map(function (filename) {
+          filename = (0,
+          (_jestConfig || _load_jestConfig()).replaceRootDirInPath)(
+          _this5._context.config.rootDir,
+          filename);
+
+          return (_path || _load_path()).default.isAbsolute(filename) ?
+          (_path || _load_path()).default.relative(
+          _this5._context.config.rootDir,
+          filename) :
+
+          filename;
+        });
+      }
+
+      return { collectCoverageFrom: collectCoverageFrom, tests: tests };
+    } }, { key: "findTestsByPaths", value: function findTestsByPaths(
+
+    paths) {
+      return {
+        tests: toTests(
+        this._context,
+        paths.
+        map(function (p) {return (_path || _load_path()).default.resolve(process.cwd(), p);}).
+        filter(this.isTestFilePath.bind(this))) };
+
+
+    } }, { key: "findRelatedTestsFromPattern", value: function findRelatedTestsFromPattern(
+
+    paths, collectCoverage) {
+      if (Array.isArray(paths) && paths.length) {
+        var resolvedPaths = paths.map(function (p) {return (
+            (_path || _load_path()).default.resolve(process.cwd(), p));});
+
+        return this.findRelatedTests(new Set(resolvedPaths), collectCoverage);
+      }
+      return { tests: [] };
+    } }, { key: "findTestRelatedToChangedFiles", value: function findTestRelatedToChangedFiles(
+
+    changedFilesPromise, collectCoverage) {
+      var _this = this;
+
+      return _asyncToGenerator(require("@babel/runtime/regenerator").mark(function _callee() {var _ref, repos, changedFiles, noSCM;return require("@babel/runtime/regenerator").wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;
+                return changedFilesPromise;case 2:_ref = _context.sent;
+
+                repos = _ref.repos,
+                changedFiles = _ref.changedFiles;
+
+
+                noSCM = Object.keys(repos).every(function (scm) {
+                  return repos[scm].size === 0;
+                });return _context.abrupt("return",
+                noSCM ?
+                { noSCM: true, tests: [] } :
+                _this.findRelatedTests(changedFiles, collectCoverage));case 6:case "end":return _context.stop();}}}, _callee, this);}))();
+
+    } }, { key: "_getTestPaths", value: function _getTestPaths(
+
+    globalConfig, changedFilesPromise) {
+      var paths = globalConfig.nonFlagArgs;
+
+      if (globalConfig.onlyChanged) {
+        if (!changedFilesPromise) {
+          throw new Error('This promise must be present when running with -o.');
+        }
+
+        return this.findTestRelatedToChangedFiles(
+        changedFilesPromise,
+        globalConfig.collectCoverage);
+
+      } else if (globalConfig.runTestsByPath && paths && paths.length) {
+        return Promise.resolve(this.findTestsByPaths(paths));
+      } else if (globalConfig.findRelatedTests && paths && paths.length) {
+        return Promise.resolve(
+        this.findRelatedTestsFromPattern(paths, globalConfig.collectCoverage));
+
+      } else if (globalConfig.testPathPattern != null) {
+        return Promise.resolve(
+        this.findMatchingTests(globalConfig.testPathPattern));
+
+      } else {
+        return Promise.resolve({ tests: [] });
+      }
+    } }, { key: "getTestPaths", value: function getTestPaths(
+
+    globalConfig, changedFilesPromise) {
+      var _this2 = this;
+
+      return _asyncToGenerator(require("@babel/runtime/regenerator").mark(function _callee2() {var searchResult, filterPath, tests, filter, filterResult, filteredSet;return require("@babel/runtime/regenerator").wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;
+                return _this2._getTestPaths(
+                globalConfig,
+                changedFilesPromise);case 2:searchResult = _context2.sent;
+
+
+                filterPath = globalConfig.filter;if (!(
+
+                filterPath && !globalConfig.skipFilter)) {_context2.next = 14;break;}
+                tests = searchResult.tests;
+
+
+                filter = require(filterPath);_context2.next = 9;
+                return filter(
+                tests.map(function (test) {
+                  return test.path;
+                }));case 9:filterResult = _context2.sent;if (
+
+
+                Array.isArray(filterResult.filtered)) {_context2.next = 12;break;}throw (
+                  new Error("Filter " +
+                  filterPath + " did not return a valid test list"));case 12:
+
+
+
+                filteredSet = new Set(
+                filterResult.filtered.map(function (result) {
+                  return result.test;
+                }));return _context2.abrupt("return",
+
+
+
+                require("@babel/runtime/helpers/extends")({}, searchResult, {
+                  tests: tests.filter(function (test) {
+                    return filteredSet.has(test.path);
+                  }) }));case 14:return _context2.abrupt("return",
+
+
+
+                searchResult);case 15:case "end":return _context2.stop();}}}, _callee2, this);}))();
+
+    } }]);return SearchSource;}();
+
+exports.default = SearchSource;

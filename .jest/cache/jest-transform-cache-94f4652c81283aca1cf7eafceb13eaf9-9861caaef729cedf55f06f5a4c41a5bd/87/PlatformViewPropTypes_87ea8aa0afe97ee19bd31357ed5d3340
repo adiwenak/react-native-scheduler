@@ -1,0 +1,22 @@
+55bf98f0862a7b1236a16aa976a0d1eb
+
+
+
+
+
+
+
+
+
+
+
+
+var TVViewPropTypes = {};
+
+
+
+if (require('../../Utilities/Platform').isTV || require('../../Utilities/Platform').OS === 'android') {
+  TVViewPropTypes = require('../AppleTV/TVViewPropTypes');
+}
+
+module.exports = TVViewPropTypes;

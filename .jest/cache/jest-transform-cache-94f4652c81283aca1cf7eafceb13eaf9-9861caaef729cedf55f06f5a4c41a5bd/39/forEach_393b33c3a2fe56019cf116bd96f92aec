@@ -1,0 +1,42 @@
+530acd56ae1cb2ca630a4d76fce4c91e
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function forEach(collection, iteratee) {
+  var func = require("./isArray")(collection) ? require("./_arrayEach") : require("./_baseEach");
+  return func(collection, require("./_castFunction")(iteratee));
+}
+
+module.exports = forEach;

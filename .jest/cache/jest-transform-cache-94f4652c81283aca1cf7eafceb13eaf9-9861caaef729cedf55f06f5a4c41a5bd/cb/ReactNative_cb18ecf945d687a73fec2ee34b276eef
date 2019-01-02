@@ -1,0 +1,24 @@
+07dbdc96174638b57dbb628ec97920c5
+
+
+
+
+
+
+
+
+
+
+'use strict';
+
+
+
+var ReactNative;
+
+if (__DEV__) {
+  ReactNative = require("../oss/ReactNativeRenderer-dev");
+} else {
+  ReactNative = require("../oss/ReactNativeRenderer-prod");
+}
+
+module.exports = ReactNative;

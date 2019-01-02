@@ -1,0 +1,18 @@
+053e9e227cb47555ae6904cdaafa3f9c
+
+
+
+
+
+
+
+
+
+
+
+
+function baseRest(func, start) {
+  return require("./_setToString")(require("./_overRest")(func, start, require("./identity")), func + '');
+}
+
+module.exports = baseRest;

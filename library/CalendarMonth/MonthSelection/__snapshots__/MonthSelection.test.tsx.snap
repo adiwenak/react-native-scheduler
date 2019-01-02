@@ -10,15 +10,9 @@ exports[`<MonthSelection /> should render with given props 1`] = `
   }
 >
   <View
-    accessibilityComponentType={undefined}
     accessibilityLabel="button-month-prev"
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -39,14 +33,12 @@ exports[`<MonthSelection /> should render with given props 1`] = `
         },
       ]
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <Image
       resizeMode="center"
       source={
         Object {
-          "testUri": "../../../src/MonthView/phone/CalendarMonth/MonthSelection/asset/arrow-back.png",
+          "testUri": "../../../library/CalendarMonth/MonthSelection/asset/arrow-back.png",
         }
       }
       style={
@@ -66,9 +58,6 @@ exports[`<MonthSelection /> should render with given props 1`] = `
     }
   >
     <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
       style={
         Object {
           "textAlign": "center",
@@ -79,15 +68,9 @@ exports[`<MonthSelection /> should render with given props 1`] = `
     </Text>
   </View>
   <View
-    accessibilityComponentType={undefined}
     accessibilityLabel="button-month-next"
-    accessibilityTraits={undefined}
     accessible={true}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -108,14 +91,12 @@ exports[`<MonthSelection /> should render with given props 1`] = `
         },
       ]
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <Image
       resizeMode="center"
       source={
         Object {
-          "testUri": "../../../src/MonthView/phone/CalendarMonth/MonthSelection/asset/arrow-forward.png",
+          "testUri": "../../../library/CalendarMonth/MonthSelection/asset/arrow-forward.png",
         }
       }
       style={

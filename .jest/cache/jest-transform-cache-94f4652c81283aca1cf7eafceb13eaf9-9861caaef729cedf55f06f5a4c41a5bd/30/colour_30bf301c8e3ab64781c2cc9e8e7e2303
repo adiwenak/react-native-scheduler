@@ -1,0 +1,13 @@
+cf6da84b1c9288137ecdcf843e7a123e
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Colours = void 0;
+var Colours = {
+  Cobalt: "#054BBD",
+  LaPalma: "#149427",
+  Zest: "#E4741B",
+  Cardinal: "#CC0F20"
+};
+exports.Colours = Colours;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9ha3VybmFkaS9Qcm9qZWN0cy9yZWFjdC1uYXRpdmUtc2NoZWR1bGVyL2xpYnJhcnkvc2hhcmVkL2NvbG91ci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7O0FBR08sSUFBTSxPQUFPLEdBQUc7QUFFbkIsRUFBQSxNQUFNLEVBQUUsU0FGVztBQUtuQixFQUFBLE9BQU8sRUFBRSxTQUxVO0FBUW5CLEVBQUEsSUFBSSxFQUFFLFNBUmE7QUFXbkIsRUFBQSxRQUFRLEVBQUU7QUFYUyxDQUFoQiIsInNvdXJjZXNDb250ZW50IjpbIi8vIGRlZmluZSB0aGUgbmFtZSBhbmQgcGljayBpdCB1cCBmcm9tIGhlcmVcbi8vIGh0dHA6Ly9jaGlyLmFnL3Byb2plY3RzL25hbWUtdGhhdC1jb2xvclxuXG5leHBvcnQgY29uc3QgQ29sb3VycyA9IHtcbiAgICAvLyBCbHVlXG4gICAgQ29iYWx0OiBcIiMwNTRCQkRcIixcblxuICAgIC8vIEdyZWVuXG4gICAgTGFQYWxtYTogXCIjMTQ5NDI3XCIsXG5cbiAgICAvLyBPcmFuZ2VcbiAgICBaZXN0OiBcIiNFNDc0MUJcIixcblxuICAgIC8vIFJlZFxuICAgIENhcmRpbmFsOiBcIiNDQzBGMjBcIlxufVxuIl19
