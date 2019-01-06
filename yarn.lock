@@ -5122,6 +5122,10 @@ react-native-scheduler-calendar@^0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/react-native-scheduler-calendar/-/react-native-scheduler-calendar-0.0.1.tgz#7c2abf7934816636e3b14f0aad9686ff7566a1f6"
 
+react-native-scheduler@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/react-native-scheduler/-/react-native-scheduler-0.0.1.tgz#bb1cb03930ef841118f409e4d134d93003cd5bec"
+
 react-native-screens@1.0.0-alpha.15:
   version "1.0.0-alpha.15"
   resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-1.0.0-alpha.15.tgz#5b5a0041310b46f12048fda1908d52e7290ec18f"

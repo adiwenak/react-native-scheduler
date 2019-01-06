@@ -11,14 +11,14 @@
         "build": "cd library && tsc",
         "build-calendar": "cd library/CalendarMonth && tsc && cp package.json ../../build/CalendarMonth/",
         "publish-calendar": "cd library/CalendarMonth && npm publish",
-        "build-library": "cd library && tsc && cp package.json ../build/dist/ && Echo Build completed!",
-        "publish-library": "cd build/dist && npm publish && echo Package published!",
+        "build-library": "cd library && tsc && cp package.json ../build/master/ && Echo Build completed!",
+        "publish-library": "cd build/master && npm publish && echo Package published!",
         "test": "jest"
     },
     "husky": {
         "hooks": {
-          "pre-commit": "yarn lint && yarn test",
-          "pre-push": "yarn lint && yarn test"
+            "pre-commit": "yarn lint && yarn test",
+            "pre-push": "yarn lint && yarn test"
         }
     },
     "dependencies": {
@@ -27,6 +27,7 @@
         "moment": "^2.23.0",
         "react": "16.5.0",
         "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
+        "react-native-scheduler": "^0.0.1",
         "react-native-scheduler-calendar": "^0.0.1",
         "tslib": "^1.9.3"
     },

@@ -1,6 +1,8 @@
 import * as React from "react"
 import { StyleSheet, Text, View } from "react-native"
+import { Scheduler } from "react-native-scheduler"
 import { CalendarMonth } from "react-native-scheduler-calendar/CalendarMonth"
+import { allUser, taskSchedules } from "./demoData/data"
 
 enum Language {
   english = "English",
@@ -9,13 +11,11 @@ enum Language {
 
 export default class App extends React.Component {
   render() {
-    const stringBuilder = `${Language.english}
-    Hellooooooooooooooooooooooooooooooooo`
     return (
-      <View style={styles.container}>
-        <Text>{stringBuilder}</Text>
-        <CalendarMonth data={[]} />
-      </View>
+      <Scheduler
+        users={allUser}
+        tasks={taskSchedules}
+      />
     )
   }
 }

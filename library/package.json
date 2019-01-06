@@ -2,7 +2,7 @@
   "name": "react-native-scheduler",
   "version": "0.0.1",
   "description": "Master library for react-native-scheduler",
-  "main": "index.js",
+  "main": "index.ts",
   "author": "",
   "license": "ISC"
 }

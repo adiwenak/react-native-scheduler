@@ -25,6 +25,9 @@
     ]
   },
   "exclude": [
-    "node_modules"
+    "__stubsData",
+    "__snapshots__",
+    "**/*.test.tsx",
+    "**/*.test.ts",
   ]
 }
