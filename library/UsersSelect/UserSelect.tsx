@@ -1,5 +1,4 @@
 
-import { Component } from "react"
 import * as React from "react"
 import { Button, ScrollView, View } from "react-native"
 import { UserSelection } from "../shared/model"
@@ -18,7 +17,7 @@ interface ComponentState {
   selectedUser: SelectedUser
 }
 
-export class UserSelect extends Component<ComponentProps, ComponentState> {
+export class UserSelect extends React.Component<ComponentProps, ComponentState> {
   constructor(props: ComponentProps) {
     super(props)
     if (props.data) {

@@ -13,7 +13,8 @@
         "publish-calendar": "cd library/CalendarMonth && npm publish",
         "build-library": "cd library && tsc && cp package.json ../build/master/ && Echo Build completed!",
         "publish-library": "cd build/master && npm publish && echo Package published!",
-        "test": "jest"
+        "test": "jest",
+        "report": "open ./testReport/lcov-report/index.html"
     },
     "husky": {
         "hooks": {
