@@ -29,9 +29,9 @@ module.exports = {
   coverageDirectory: "./testReport",
   coverageThreshold: {
       "global": {
-        "branches": 86.96,
-        "functions": 89.8,
-        "lines": 95.90
+        "branches": 80.00,
+        "functions": 80.00,
+        "lines": 80.00
       }
   },
   cacheDirectory: '.jest/cache',
