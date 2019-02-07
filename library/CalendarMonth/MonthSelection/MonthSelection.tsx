@@ -5,7 +5,7 @@ import { Image, Text, TouchableHighlight, View } from "react-native"
 import { Month } from "../../shared/model"
 import { styles } from "./MonthSelection.styles"
 
-enum MonthAsString {
+export enum MonthAsString {
     January = "January",
     February = "February",
     March = "March",
@@ -24,6 +24,7 @@ export interface MonthSelectionProps {
     onMonthChange?: (month: Month, year: number) => void
     currentYear?: number
     currentMonth?: Month
+    onMonthTitleTouch?: () => void
 }
 
 export interface MonthSelectionState {
@@ -41,7 +42,16 @@ export class MonthSelection extends Component<MonthSelectionProps, MonthSelectio
         super(props)
         this.state = {
             currentMonth: props.currentMonth || Month.January,
-            currentYear: props.currentYear || moment().year()
+            currentYear: props.currentYear || moment().year(),
+        }
+    }
+
+    public componentDidUpdate(prevProps: any) {
+        const { currentMonth } = this.props
+        const { currentMonth: prevMonth } = prevProps
+
+        if ( this.props.currentMonth !== undefined && currentMonth !== prevMonth ) {
+            this.setState({ currentMonth: this.props.currentMonth })
         }
     }
 
@@ -59,9 +69,12 @@ export class MonthSelection extends Component<MonthSelectionProps, MonthSelectio
                         style={styles.button}
                     />
                 </TouchableHighlight>
-                <View style={styles.containerTitle}>
+                <TouchableHighlight
+                    style={styles.containerTitle}
+                    onPress={this.props.onMonthTitleTouch}
+                >
                     <Text style={styles.title}>{title}</Text>
-                </View>
+                </TouchableHighlight>
                 <TouchableHighlight
                     onPress={this.handleNextButtonPress}
                     accessibilityLabel={"button-month-next"}
