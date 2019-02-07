@@ -1,0 +1,2746 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MonthSelectionPicker.tsx <MonthSelectionPicker /> should render with proper props 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MonthSelectionPicker
+    onMonthChangeFromPicker={[MockFunction]}
+    onPressHandler={[MockFunction]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <Component
+          style={
+            Object {
+              "alignSelf": "center",
+              "height": 40,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Component
+            style={
+              Object {
+                "fontSize": 16,
+              }
+            }
+          >
+            Month
+          </Component>
+        </Component>,
+        Array [
+          <Component
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <TouchableOpacity
+              activeOpacity={0.2}
+              onPress={[Function]}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ]
+              }
+            >
+              <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Jan
+              </Component>
+            </TouchableOpacity>
+            <TouchableOpacity
+              activeOpacity={0.2}
+              onPress={[Function]}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ]
+              }
+            >
+              <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Feb
+              </Component>
+            </TouchableOpacity>
+            <TouchableOpacity
+              activeOpacity={0.2}
+              onPress={[Function]}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ]
+              }
+            >
+              <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Mar
+              </Component>
+            </TouchableOpacity>
+            <TouchableOpacity
+              activeOpacity={0.2}
+              onPress={[Function]}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ]
+              }
+            >
+              <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Apr
+              </Component>
+            </TouchableOpacity>
+          </Component>,
+          <Component
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <TouchableOpacity
+              activeOpacity={0.2}
+              onPress={[Function]}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ]
+              }
+            >
+              <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                May
+              </Component>
+            </TouchableOpacity>
+            <TouchableOpacity
+              activeOpacity={0.2}
+              onPress={[Function]}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ]
+              }
+            >
+              <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Jun
+              </Component>
+            </TouchableOpacity>
+            <TouchableOpacity
+              activeOpacity={0.2}
+              onPress={[Function]}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ]
+              }
+            >
+              <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Jul
+              </Component>
+            </TouchableOpacity>
+            <TouchableOpacity
+              activeOpacity={0.2}
+              onPress={[Function]}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ]
+              }
+            >
+              <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Aug
+              </Component>
+            </TouchableOpacity>
+          </Component>,
+          <Component
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <TouchableOpacity
+              activeOpacity={0.2}
+              onPress={[Function]}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ]
+              }
+            >
+              <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Sep
+              </Component>
+            </TouchableOpacity>
+            <TouchableOpacity
+              activeOpacity={0.2}
+              onPress={[Function]}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ]
+              }
+            >
+              <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Oct
+              </Component>
+            </TouchableOpacity>
+            <TouchableOpacity
+              activeOpacity={0.2}
+              onPress={[Function]}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ]
+              }
+            >
+              <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Nov
+              </Component>
+            </TouchableOpacity>
+            <TouchableOpacity
+              activeOpacity={0.2}
+              onPress={[Function]}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ]
+              }
+            >
+              <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Dec
+              </Component>
+            </TouchableOpacity>
+          </Component>,
+        ],
+      ],
+      "style": Object {
+        "backgroundColor": "rgb(255,255,255)",
+        "borderColor": "rgb(125,125,125)",
+        "borderRadius": 5,
+        "borderWidth": 1,
+        "flexDirection": "column",
+        "left": "20%",
+        "position": "absolute",
+        "top": 40,
+        "width": "60%",
+      },
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <Component
+            style={
+              Object {
+                "fontSize": 16,
+              }
+            }
+          >
+            Month
+          </Component>,
+          "style": Object {
+            "alignSelf": "center",
+            "height": 40,
+            "justifyContent": "center",
+          },
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "Month",
+            "style": Object {
+              "fontSize": 16,
+            },
+          },
+          "ref": null,
+          "rendered": "Month",
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "0",
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <TouchableOpacity
+              activeOpacity={0.2}
+              onPress={[Function]}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ]
+              }
+            >
+              <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Jan
+              </Component>
+            </TouchableOpacity>,
+            <TouchableOpacity
+              activeOpacity={0.2}
+              onPress={[Function]}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ]
+              }
+            >
+              <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Feb
+              </Component>
+            </TouchableOpacity>,
+            <TouchableOpacity
+              activeOpacity={0.2}
+              onPress={[Function]}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ]
+              }
+            >
+              <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Mar
+              </Component>
+            </TouchableOpacity>,
+            <TouchableOpacity
+              activeOpacity={0.2}
+              onPress={[Function]}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ]
+              }
+            >
+              <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Apr
+              </Component>
+            </TouchableOpacity>,
+          ],
+          "style": Object {
+            "flexDirection": "row",
+          },
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "Jan",
+            "nodeType": "class",
+            "props": Object {
+              "activeOpacity": 0.2,
+              "children": <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Jan
+              </Component>,
+              "onPress": [Function],
+              "style": Array [
+                Object {
+                  "backgroundColor": "rgb(180,180,180)",
+                  "borderRadius": 5,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": "1.5%",
+                  "width": "22%",
+                },
+              ],
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Jan",
+                "style": Object {
+                  "fontSize": 14,
+                  "textAlign": "center",
+                },
+              },
+              "ref": null,
+              "rendered": "Jan",
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "Feb",
+            "nodeType": "class",
+            "props": Object {
+              "activeOpacity": 0.2,
+              "children": <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Feb
+              </Component>,
+              "onPress": [Function],
+              "style": Array [
+                Object {
+                  "backgroundColor": "rgb(180,180,180)",
+                  "borderRadius": 5,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": "1.5%",
+                  "width": "22%",
+                },
+              ],
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Feb",
+                "style": Object {
+                  "fontSize": 14,
+                  "textAlign": "center",
+                },
+              },
+              "ref": null,
+              "rendered": "Feb",
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "Mar",
+            "nodeType": "class",
+            "props": Object {
+              "activeOpacity": 0.2,
+              "children": <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Mar
+              </Component>,
+              "onPress": [Function],
+              "style": Array [
+                Object {
+                  "backgroundColor": "rgb(180,180,180)",
+                  "borderRadius": 5,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": "1.5%",
+                  "width": "22%",
+                },
+              ],
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Mar",
+                "style": Object {
+                  "fontSize": 14,
+                  "textAlign": "center",
+                },
+              },
+              "ref": null,
+              "rendered": "Mar",
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "Apr",
+            "nodeType": "class",
+            "props": Object {
+              "activeOpacity": 0.2,
+              "children": <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Apr
+              </Component>,
+              "onPress": [Function],
+              "style": Array [
+                Object {
+                  "backgroundColor": "rgb(180,180,180)",
+                  "borderRadius": 5,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": "1.5%",
+                  "width": "22%",
+                },
+              ],
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Apr",
+                "style": Object {
+                  "fontSize": 14,
+                  "textAlign": "center",
+                },
+              },
+              "ref": null,
+              "rendered": "Apr",
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <TouchableOpacity
+              activeOpacity={0.2}
+              onPress={[Function]}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ]
+              }
+            >
+              <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                May
+              </Component>
+            </TouchableOpacity>,
+            <TouchableOpacity
+              activeOpacity={0.2}
+              onPress={[Function]}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ]
+              }
+            >
+              <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Jun
+              </Component>
+            </TouchableOpacity>,
+            <TouchableOpacity
+              activeOpacity={0.2}
+              onPress={[Function]}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ]
+              }
+            >
+              <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Jul
+              </Component>
+            </TouchableOpacity>,
+            <TouchableOpacity
+              activeOpacity={0.2}
+              onPress={[Function]}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ]
+              }
+            >
+              <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Aug
+              </Component>
+            </TouchableOpacity>,
+          ],
+          "style": Object {
+            "flexDirection": "row",
+          },
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "May",
+            "nodeType": "class",
+            "props": Object {
+              "activeOpacity": 0.2,
+              "children": <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                May
+              </Component>,
+              "onPress": [Function],
+              "style": Array [
+                Object {
+                  "backgroundColor": "rgb(180,180,180)",
+                  "borderRadius": 5,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": "1.5%",
+                  "width": "22%",
+                },
+              ],
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "May",
+                "style": Object {
+                  "fontSize": 14,
+                  "textAlign": "center",
+                },
+              },
+              "ref": null,
+              "rendered": "May",
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "Jun",
+            "nodeType": "class",
+            "props": Object {
+              "activeOpacity": 0.2,
+              "children": <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Jun
+              </Component>,
+              "onPress": [Function],
+              "style": Array [
+                Object {
+                  "backgroundColor": "rgb(180,180,180)",
+                  "borderRadius": 5,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": "1.5%",
+                  "width": "22%",
+                },
+              ],
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Jun",
+                "style": Object {
+                  "fontSize": 14,
+                  "textAlign": "center",
+                },
+              },
+              "ref": null,
+              "rendered": "Jun",
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "Jul",
+            "nodeType": "class",
+            "props": Object {
+              "activeOpacity": 0.2,
+              "children": <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Jul
+              </Component>,
+              "onPress": [Function],
+              "style": Array [
+                Object {
+                  "backgroundColor": "rgb(180,180,180)",
+                  "borderRadius": 5,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": "1.5%",
+                  "width": "22%",
+                },
+              ],
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Jul",
+                "style": Object {
+                  "fontSize": 14,
+                  "textAlign": "center",
+                },
+              },
+              "ref": null,
+              "rendered": "Jul",
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "Aug",
+            "nodeType": "class",
+            "props": Object {
+              "activeOpacity": 0.2,
+              "children": <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Aug
+              </Component>,
+              "onPress": [Function],
+              "style": Array [
+                Object {
+                  "backgroundColor": "rgb(180,180,180)",
+                  "borderRadius": 5,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": "1.5%",
+                  "width": "22%",
+                },
+              ],
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Aug",
+                "style": Object {
+                  "fontSize": 14,
+                  "textAlign": "center",
+                },
+              },
+              "ref": null,
+              "rendered": "Aug",
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "2",
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <TouchableOpacity
+              activeOpacity={0.2}
+              onPress={[Function]}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ]
+              }
+            >
+              <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Sep
+              </Component>
+            </TouchableOpacity>,
+            <TouchableOpacity
+              activeOpacity={0.2}
+              onPress={[Function]}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ]
+              }
+            >
+              <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Oct
+              </Component>
+            </TouchableOpacity>,
+            <TouchableOpacity
+              activeOpacity={0.2}
+              onPress={[Function]}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ]
+              }
+            >
+              <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Nov
+              </Component>
+            </TouchableOpacity>,
+            <TouchableOpacity
+              activeOpacity={0.2}
+              onPress={[Function]}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ]
+              }
+            >
+              <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Dec
+              </Component>
+            </TouchableOpacity>,
+          ],
+          "style": Object {
+            "flexDirection": "row",
+          },
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "Sep",
+            "nodeType": "class",
+            "props": Object {
+              "activeOpacity": 0.2,
+              "children": <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Sep
+              </Component>,
+              "onPress": [Function],
+              "style": Array [
+                Object {
+                  "backgroundColor": "rgb(180,180,180)",
+                  "borderRadius": 5,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": "1.5%",
+                  "width": "22%",
+                },
+              ],
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Sep",
+                "style": Object {
+                  "fontSize": 14,
+                  "textAlign": "center",
+                },
+              },
+              "ref": null,
+              "rendered": "Sep",
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "Oct",
+            "nodeType": "class",
+            "props": Object {
+              "activeOpacity": 0.2,
+              "children": <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Oct
+              </Component>,
+              "onPress": [Function],
+              "style": Array [
+                Object {
+                  "backgroundColor": "rgb(180,180,180)",
+                  "borderRadius": 5,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": "1.5%",
+                  "width": "22%",
+                },
+              ],
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Oct",
+                "style": Object {
+                  "fontSize": 14,
+                  "textAlign": "center",
+                },
+              },
+              "ref": null,
+              "rendered": "Oct",
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "Nov",
+            "nodeType": "class",
+            "props": Object {
+              "activeOpacity": 0.2,
+              "children": <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Nov
+              </Component>,
+              "onPress": [Function],
+              "style": Array [
+                Object {
+                  "backgroundColor": "rgb(180,180,180)",
+                  "borderRadius": 5,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": "1.5%",
+                  "width": "22%",
+                },
+              ],
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Nov",
+                "style": Object {
+                  "fontSize": 14,
+                  "textAlign": "center",
+                },
+              },
+              "ref": null,
+              "rendered": "Nov",
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "Dec",
+            "nodeType": "class",
+            "props": Object {
+              "activeOpacity": 0.2,
+              "children": <Component
+                style={
+                  Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Dec
+              </Component>,
+              "onPress": [Function],
+              "style": Array [
+                Object {
+                  "backgroundColor": "rgb(180,180,180)",
+                  "borderRadius": 5,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": "1.5%",
+                  "width": "22%",
+                },
+              ],
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Dec",
+                "style": Object {
+                  "fontSize": 14,
+                  "textAlign": "center",
+                },
+              },
+              "ref": null,
+              "rendered": "Dec",
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <Component
+            style={
+              Object {
+                "alignSelf": "center",
+                "height": 40,
+                "justifyContent": "center",
+              }
+            }
+          >
+            <Component
+              style={
+                Object {
+                  "fontSize": 16,
+                }
+              }
+            >
+              Month
+            </Component>
+          </Component>,
+          Array [
+            <Component
+              style={
+                Object {
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <TouchableOpacity
+                activeOpacity={0.2}
+                onPress={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgb(180,180,180)",
+                      "borderRadius": 5,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": "1.5%",
+                      "width": "22%",
+                    },
+                  ]
+                }
+              >
+                <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Jan
+                </Component>
+              </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={0.2}
+                onPress={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgb(180,180,180)",
+                      "borderRadius": 5,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": "1.5%",
+                      "width": "22%",
+                    },
+                  ]
+                }
+              >
+                <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Feb
+                </Component>
+              </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={0.2}
+                onPress={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgb(180,180,180)",
+                      "borderRadius": 5,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": "1.5%",
+                      "width": "22%",
+                    },
+                  ]
+                }
+              >
+                <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Mar
+                </Component>
+              </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={0.2}
+                onPress={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgb(180,180,180)",
+                      "borderRadius": 5,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": "1.5%",
+                      "width": "22%",
+                    },
+                  ]
+                }
+              >
+                <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Apr
+                </Component>
+              </TouchableOpacity>
+            </Component>,
+            <Component
+              style={
+                Object {
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <TouchableOpacity
+                activeOpacity={0.2}
+                onPress={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgb(180,180,180)",
+                      "borderRadius": 5,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": "1.5%",
+                      "width": "22%",
+                    },
+                  ]
+                }
+              >
+                <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  May
+                </Component>
+              </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={0.2}
+                onPress={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgb(180,180,180)",
+                      "borderRadius": 5,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": "1.5%",
+                      "width": "22%",
+                    },
+                  ]
+                }
+              >
+                <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Jun
+                </Component>
+              </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={0.2}
+                onPress={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgb(180,180,180)",
+                      "borderRadius": 5,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": "1.5%",
+                      "width": "22%",
+                    },
+                  ]
+                }
+              >
+                <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Jul
+                </Component>
+              </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={0.2}
+                onPress={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgb(180,180,180)",
+                      "borderRadius": 5,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": "1.5%",
+                      "width": "22%",
+                    },
+                  ]
+                }
+              >
+                <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Aug
+                </Component>
+              </TouchableOpacity>
+            </Component>,
+            <Component
+              style={
+                Object {
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <TouchableOpacity
+                activeOpacity={0.2}
+                onPress={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgb(180,180,180)",
+                      "borderRadius": 5,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": "1.5%",
+                      "width": "22%",
+                    },
+                  ]
+                }
+              >
+                <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Sep
+                </Component>
+              </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={0.2}
+                onPress={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgb(180,180,180)",
+                      "borderRadius": 5,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": "1.5%",
+                      "width": "22%",
+                    },
+                  ]
+                }
+              >
+                <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Oct
+                </Component>
+              </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={0.2}
+                onPress={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgb(180,180,180)",
+                      "borderRadius": 5,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": "1.5%",
+                      "width": "22%",
+                    },
+                  ]
+                }
+              >
+                <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Nov
+                </Component>
+              </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={0.2}
+                onPress={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgb(180,180,180)",
+                      "borderRadius": 5,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": "1.5%",
+                      "width": "22%",
+                    },
+                  ]
+                }
+              >
+                <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Dec
+                </Component>
+              </TouchableOpacity>
+            </Component>,
+          ],
+        ],
+        "style": Object {
+          "backgroundColor": "rgb(255,255,255)",
+          "borderColor": "rgb(125,125,125)",
+          "borderRadius": 5,
+          "borderWidth": 1,
+          "flexDirection": "column",
+          "left": "20%",
+          "position": "absolute",
+          "top": 40,
+          "width": "60%",
+        },
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <Component
+              style={
+                Object {
+                  "fontSize": 16,
+                }
+              }
+            >
+              Month
+            </Component>,
+            "style": Object {
+              "alignSelf": "center",
+              "height": 40,
+              "justifyContent": "center",
+            },
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "Month",
+              "style": Object {
+                "fontSize": 16,
+              },
+            },
+            "ref": null,
+            "rendered": "Month",
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <TouchableOpacity
+                activeOpacity={0.2}
+                onPress={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgb(180,180,180)",
+                      "borderRadius": 5,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": "1.5%",
+                      "width": "22%",
+                    },
+                  ]
+                }
+              >
+                <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Jan
+                </Component>
+              </TouchableOpacity>,
+              <TouchableOpacity
+                activeOpacity={0.2}
+                onPress={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgb(180,180,180)",
+                      "borderRadius": 5,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": "1.5%",
+                      "width": "22%",
+                    },
+                  ]
+                }
+              >
+                <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Feb
+                </Component>
+              </TouchableOpacity>,
+              <TouchableOpacity
+                activeOpacity={0.2}
+                onPress={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgb(180,180,180)",
+                      "borderRadius": 5,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": "1.5%",
+                      "width": "22%",
+                    },
+                  ]
+                }
+              >
+                <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Mar
+                </Component>
+              </TouchableOpacity>,
+              <TouchableOpacity
+                activeOpacity={0.2}
+                onPress={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgb(180,180,180)",
+                      "borderRadius": 5,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": "1.5%",
+                      "width": "22%",
+                    },
+                  ]
+                }
+              >
+                <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Apr
+                </Component>
+              </TouchableOpacity>,
+            ],
+            "style": Object {
+              "flexDirection": "row",
+            },
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "Jan",
+              "nodeType": "class",
+              "props": Object {
+                "activeOpacity": 0.2,
+                "children": <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Jan
+                </Component>,
+                "onPress": [Function],
+                "style": Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ],
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Jan",
+                  "style": Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  },
+                },
+                "ref": null,
+                "rendered": "Jan",
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "Feb",
+              "nodeType": "class",
+              "props": Object {
+                "activeOpacity": 0.2,
+                "children": <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Feb
+                </Component>,
+                "onPress": [Function],
+                "style": Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ],
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Feb",
+                  "style": Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  },
+                },
+                "ref": null,
+                "rendered": "Feb",
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "Mar",
+              "nodeType": "class",
+              "props": Object {
+                "activeOpacity": 0.2,
+                "children": <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Mar
+                </Component>,
+                "onPress": [Function],
+                "style": Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ],
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Mar",
+                  "style": Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  },
+                },
+                "ref": null,
+                "rendered": "Mar",
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "Apr",
+              "nodeType": "class",
+              "props": Object {
+                "activeOpacity": 0.2,
+                "children": <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Apr
+                </Component>,
+                "onPress": [Function],
+                "style": Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ],
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Apr",
+                  "style": Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  },
+                },
+                "ref": null,
+                "rendered": "Apr",
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <TouchableOpacity
+                activeOpacity={0.2}
+                onPress={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgb(180,180,180)",
+                      "borderRadius": 5,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": "1.5%",
+                      "width": "22%",
+                    },
+                  ]
+                }
+              >
+                <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  May
+                </Component>
+              </TouchableOpacity>,
+              <TouchableOpacity
+                activeOpacity={0.2}
+                onPress={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgb(180,180,180)",
+                      "borderRadius": 5,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": "1.5%",
+                      "width": "22%",
+                    },
+                  ]
+                }
+              >
+                <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Jun
+                </Component>
+              </TouchableOpacity>,
+              <TouchableOpacity
+                activeOpacity={0.2}
+                onPress={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgb(180,180,180)",
+                      "borderRadius": 5,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": "1.5%",
+                      "width": "22%",
+                    },
+                  ]
+                }
+              >
+                <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Jul
+                </Component>
+              </TouchableOpacity>,
+              <TouchableOpacity
+                activeOpacity={0.2}
+                onPress={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgb(180,180,180)",
+                      "borderRadius": 5,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": "1.5%",
+                      "width": "22%",
+                    },
+                  ]
+                }
+              >
+                <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Aug
+                </Component>
+              </TouchableOpacity>,
+            ],
+            "style": Object {
+              "flexDirection": "row",
+            },
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "May",
+              "nodeType": "class",
+              "props": Object {
+                "activeOpacity": 0.2,
+                "children": <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  May
+                </Component>,
+                "onPress": [Function],
+                "style": Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ],
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "May",
+                  "style": Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  },
+                },
+                "ref": null,
+                "rendered": "May",
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "Jun",
+              "nodeType": "class",
+              "props": Object {
+                "activeOpacity": 0.2,
+                "children": <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Jun
+                </Component>,
+                "onPress": [Function],
+                "style": Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ],
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Jun",
+                  "style": Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  },
+                },
+                "ref": null,
+                "rendered": "Jun",
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "Jul",
+              "nodeType": "class",
+              "props": Object {
+                "activeOpacity": 0.2,
+                "children": <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Jul
+                </Component>,
+                "onPress": [Function],
+                "style": Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ],
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Jul",
+                  "style": Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  },
+                },
+                "ref": null,
+                "rendered": "Jul",
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "Aug",
+              "nodeType": "class",
+              "props": Object {
+                "activeOpacity": 0.2,
+                "children": <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Aug
+                </Component>,
+                "onPress": [Function],
+                "style": Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ],
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Aug",
+                  "style": Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  },
+                },
+                "ref": null,
+                "rendered": "Aug",
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "2",
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <TouchableOpacity
+                activeOpacity={0.2}
+                onPress={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgb(180,180,180)",
+                      "borderRadius": 5,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": "1.5%",
+                      "width": "22%",
+                    },
+                  ]
+                }
+              >
+                <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Sep
+                </Component>
+              </TouchableOpacity>,
+              <TouchableOpacity
+                activeOpacity={0.2}
+                onPress={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgb(180,180,180)",
+                      "borderRadius": 5,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": "1.5%",
+                      "width": "22%",
+                    },
+                  ]
+                }
+              >
+                <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Oct
+                </Component>
+              </TouchableOpacity>,
+              <TouchableOpacity
+                activeOpacity={0.2}
+                onPress={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgb(180,180,180)",
+                      "borderRadius": 5,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": "1.5%",
+                      "width": "22%",
+                    },
+                  ]
+                }
+              >
+                <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Nov
+                </Component>
+              </TouchableOpacity>,
+              <TouchableOpacity
+                activeOpacity={0.2}
+                onPress={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "rgb(180,180,180)",
+                      "borderRadius": 5,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": "1.5%",
+                      "width": "22%",
+                    },
+                  ]
+                }
+              >
+                <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Dec
+                </Component>
+              </TouchableOpacity>,
+            ],
+            "style": Object {
+              "flexDirection": "row",
+            },
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "Sep",
+              "nodeType": "class",
+              "props": Object {
+                "activeOpacity": 0.2,
+                "children": <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Sep
+                </Component>,
+                "onPress": [Function],
+                "style": Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ],
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Sep",
+                  "style": Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  },
+                },
+                "ref": null,
+                "rendered": "Sep",
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "Oct",
+              "nodeType": "class",
+              "props": Object {
+                "activeOpacity": 0.2,
+                "children": <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Oct
+                </Component>,
+                "onPress": [Function],
+                "style": Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ],
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Oct",
+                  "style": Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  },
+                },
+                "ref": null,
+                "rendered": "Oct",
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "Nov",
+              "nodeType": "class",
+              "props": Object {
+                "activeOpacity": 0.2,
+                "children": <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Nov
+                </Component>,
+                "onPress": [Function],
+                "style": Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ],
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Nov",
+                  "style": Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  },
+                },
+                "ref": null,
+                "rendered": "Nov",
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "Dec",
+              "nodeType": "class",
+              "props": Object {
+                "activeOpacity": 0.2,
+                "children": <Component
+                  style={
+                    Object {
+                      "fontSize": 14,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Dec
+                </Component>,
+                "onPress": [Function],
+                "style": Array [
+                  Object {
+                    "backgroundColor": "rgb(180,180,180)",
+                    "borderRadius": 5,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": "1.5%",
+                    "width": "22%",
+                  },
+                ],
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Dec",
+                  "style": Object {
+                    "fontSize": 14,
+                    "textAlign": "center",
+                  },
+                },
+                "ref": null,
+                "rendered": "Dec",
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
