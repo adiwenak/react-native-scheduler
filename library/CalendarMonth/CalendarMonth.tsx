@@ -1,10 +1,11 @@
 import moment from "moment"
 import * as React from "react"
-import { LayoutChangeEvent, View } from "react-native"
+import { LayoutChangeEvent, Text, View } from "react-native"
 import { DateNumber, Month, Task, User } from "../shared/model"
 import { styles } from "./CalendarMonth.styles"
 import { DateCalendarBox } from "./DateCalendarBox"
 import { MonthSelection } from "./MonthSelection"
+import { MonthSelectionPicker } from "./MonthSelection/MonthSelectionPicker"
 import { WeekDayHeader } from "./WeekDayHeader"
 
 export interface TaskAndUser {
@@ -21,6 +22,7 @@ interface CalendarMonthState {
     selectedDate?: DateNumber,
     currentMonth: Month,
     currentYear: number,
+    showMonthPicker: boolean
 }
 
 interface BoxToDateNumberMap {
@@ -100,7 +102,8 @@ export class CalendarMonth extends React.Component<CalendarMonthProps, CalendarM
         this.state = {
             dateBoxWidth: 0,
             currentMonth: today.month(),
-            currentYear: today.year()
+            currentYear: today.year(),
+            showMonthPicker: false
         }
     }
 
@@ -164,6 +167,7 @@ export class CalendarMonth extends React.Component<CalendarMonthProps, CalendarM
                         onMonthChange={this.onMonthChange}
                         currentMonth={this.state.currentMonth}
                         currentYear={this.state.currentYear}
+                        onMonthTitleTouch={() => this.setState({ showMonthPicker: !this.state.showMonthPicker})}
                     />
                 </View>
                 <View style={styles.containerWeekday}>
@@ -178,8 +182,13 @@ export class CalendarMonth extends React.Component<CalendarMonthProps, CalendarM
                         })
                     }
                 </View >
+                {this.state.showMonthPicker ?
+                    <MonthSelectionPicker
+                        onPressHandler={() => this.setState({ showMonthPicker: !this.state.showMonthPicker})}
+                        onMonthChangeFromPicker={(month: number) => this.setState({ currentMonth: month})}
+                    /> : null
+                }
             </View>
-
         )
     }
 
