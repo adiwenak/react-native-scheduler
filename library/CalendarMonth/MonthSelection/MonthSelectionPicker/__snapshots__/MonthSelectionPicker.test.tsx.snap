@@ -7,7 +7,7 @@ exports[`MonthSelectionPicker.tsx <MonthSelectionPicker /> should render with pr
       "backgroundColor": "white",
       "borderColor": "lightgrey",
       "borderRadius": 5,
-      "borderWidth": 1,
+      "borderWidth": 2,
       "flexDirection": "column",
       "height": 240,
       "width": 200,

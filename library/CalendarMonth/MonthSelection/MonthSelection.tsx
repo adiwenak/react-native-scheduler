@@ -1,7 +1,7 @@
 import moment from "moment"
 import * as React from "react"
 import { Component } from "react"
-import { Image, Text, TouchableOpacity, View } from "react-native"
+import { Dimensions, Image, Text, TouchableOpacity, View } from "react-native"
 import { Month } from "../../shared/model"
 import { styles } from "./MonthSelection.styles"
 import { MonthSelectionPicker } from "./MonthSelectionPicker"
@@ -89,7 +89,7 @@ export class MonthSelection extends Component<MonthSelectionProps, MonthSelectio
                     />
                 </TouchableOpacity>
                 {this.state.showMonthPicker ? (
-                    <View style={{ position: "absolute", top: 40, left: "22%" }}>
+                    <View style={[styles.monthSelectionPicker, { left: Dimensions.get("window").width / 2 - 100 }]}>
                         <MonthSelectionPicker
                             onMonthChangeFromPicker={
                                 (month: number) => {

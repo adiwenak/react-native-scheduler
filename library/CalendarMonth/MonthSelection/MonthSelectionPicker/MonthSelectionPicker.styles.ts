@@ -3,7 +3,6 @@ import { StyleSheet, TextStyle, ViewStyle } from "react-native"
 import { darkGrey, midGrey } from "../../../shared/colour"
 
 interface Style {
-  columnContainer: ViewStyle
   monthTitle: ViewStyle
   monthTitleText: TextStyle
   rowContainer: ViewStyle
@@ -13,17 +12,6 @@ interface Style {
 }
 
 export const styles = StyleSheet.create<Style>({
-  columnContainer: {
-      borderWidth: 1,
-      borderColor: midGrey,
-      backgroundColor: "white",
-      flexDirection: "column",
-      width: "60%",
-      position: "absolute",
-      top: 40,
-      left: "20%",
-      borderRadius: 5
-  },
   monthTitle: {
       height: 40,
       alignSelf: "center",
@@ -55,7 +43,7 @@ export const styles = StyleSheet.create<Style>({
       height: 240,
       backgroundColor: "white",
       borderRadius: 5,
-      borderWidth: 1,
+      borderWidth: 2,
       borderColor: "lightgrey"
     }
 })
