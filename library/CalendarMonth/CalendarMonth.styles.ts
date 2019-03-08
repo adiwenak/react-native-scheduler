@@ -2,7 +2,6 @@ import { StyleSheet, ViewStyle } from "react-native"
 
 interface Style {
     container: ViewStyle
-    containerMonthSelection: ViewStyle
     containerWeekday: ViewStyle
     containerDates: ViewStyle
 }
@@ -10,11 +9,6 @@ interface Style {
 export const styles = StyleSheet.create<Style>({
     container: {
         flexDirection: "column",
-        flex: 1
-    },
-    containerMonthSelection: {
-        height: 40,
-        marginBottom: 10
     },
     containerWeekday: {
         height: 35

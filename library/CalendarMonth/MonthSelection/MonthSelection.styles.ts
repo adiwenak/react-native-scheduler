@@ -12,8 +12,11 @@ interface Style {
 
 export const styles = StyleSheet.create<Style>({
     container: {
-        flex: 1,
-        flexDirection: "row"
+        flexDirection: "row",
+        height: 40,
+        marginBottom: 10,
+        backgroundColor: "white",
+        zIndex: 1
     },
     containerButton: {
         width: 20,
@@ -32,7 +35,9 @@ export const styles = StyleSheet.create<Style>({
     },
     containerTitle: {
         flex: 1,
-        justifyContent: "center"
+        justifyContent: "center",
+        alignSelf: "center",
+        height: 20
     },
     button: {
         width: 20,

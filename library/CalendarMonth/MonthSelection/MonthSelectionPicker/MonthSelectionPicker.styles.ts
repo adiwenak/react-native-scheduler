@@ -1,5 +1,7 @@
 import { StyleSheet, TextStyle, ViewStyle } from "react-native"
 
+import { darkGrey, midGrey } from "../../../shared/colour"
+
 interface Style {
   columnContainer: ViewStyle
   monthTitle: ViewStyle
@@ -7,13 +9,14 @@ interface Style {
   rowContainer: ViewStyle
   individualContainer: ViewStyle
   monthFont: TextStyle
+  outerView: ViewStyle
 }
 
 export const styles = StyleSheet.create<Style>({
   columnContainer: {
       borderWidth: 1,
-      borderColor: "rgb(125,125,125)",
-      backgroundColor: "rgb(255,255,255)",
+      borderColor: midGrey,
+      backgroundColor: "white",
       flexDirection: "column",
       width: "60%",
       position: "absolute",
@@ -27,14 +30,15 @@ export const styles = StyleSheet.create<Style>({
       justifyContent: "center"
   },
   monthTitleText: {
-      fontSize: 16
+      fontSize: 16,
+      color: darkGrey
   },
   rowContainer: {
       flexDirection: "row"
   },
   individualContainer: {
       margin: "1.5%",
-      backgroundColor: "rgb(180,180,180)",
+      backgroundColor: "white",
       height: 60,
       width: "22%",
       borderRadius: 5,
@@ -42,6 +46,16 @@ export const styles = StyleSheet.create<Style>({
   },
   monthFont: {
       fontSize: 14,
-      textAlign: "center"
-  }
+      textAlign: "center",
+      color: darkGrey
+  },
+  outerView: {
+      flexDirection: "column",
+      width: 200,
+      height: 240,
+      backgroundColor: "white",
+      borderRadius: 5,
+      borderWidth: 1,
+      borderColor: "lightgrey"
+    }
 })

@@ -1,11 +1,10 @@
 import moment from "moment"
 import * as React from "react"
-import { LayoutChangeEvent, Text, View } from "react-native"
+import { LayoutChangeEvent, View } from "react-native"
 import { DateNumber, Month, Task, User } from "../shared/model"
 import { styles } from "./CalendarMonth.styles"
 import { DateCalendarBox } from "./DateCalendarBox"
 import { MonthSelection } from "./MonthSelection"
-import { MonthSelectionPicker } from "./MonthSelection/MonthSelectionPicker"
 import { WeekDayHeader } from "./WeekDayHeader"
 
 export interface TaskAndUser {
@@ -22,7 +21,6 @@ interface CalendarMonthState {
     selectedDate?: DateNumber,
     currentMonth: Month,
     currentYear: number,
-    showMonthPicker: boolean
 }
 
 interface BoxToDateNumberMap {
@@ -102,8 +100,7 @@ export class CalendarMonth extends React.Component<CalendarMonthProps, CalendarM
         this.state = {
             dateBoxWidth: 0,
             currentMonth: today.month(),
-            currentYear: today.year(),
-            showMonthPicker: false
+            currentYear: today.year()
         }
     }
 
@@ -162,14 +159,11 @@ export class CalendarMonth extends React.Component<CalendarMonthProps, CalendarM
 
         return (
             <View style={styles.container}>
-                <View style={styles.containerMonthSelection}>
-                    <MonthSelection
-                        onMonthChange={this.onMonthChange}
-                        currentMonth={this.state.currentMonth}
-                        currentYear={this.state.currentYear}
-                        onMonthTitleTouch={() => this.setState({ showMonthPicker: !this.state.showMonthPicker})}
-                    />
-                </View>
+                <MonthSelection
+                    onMonthChange={this.onMonthChange}
+                    currentMonth={this.state.currentMonth}
+                    currentYear={this.state.currentYear}
+                />
                 <View style={styles.containerWeekday}>
                     <WeekDayHeader />
                 </View>
@@ -182,12 +176,6 @@ export class CalendarMonth extends React.Component<CalendarMonthProps, CalendarM
                         })
                     }
                 </View >
-                {this.state.showMonthPicker ?
-                    <MonthSelectionPicker
-                        onPressHandler={() => this.setState({ showMonthPicker: !this.state.showMonthPicker})}
-                        onMonthChangeFromPicker={(month: number) => this.setState({ currentMonth: month})}
-                    /> : null
-                }
             </View>
         )
     }

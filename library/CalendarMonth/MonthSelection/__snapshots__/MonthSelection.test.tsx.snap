@@ -4,8 +4,11 @@ exports[`<MonthSelection /> should render with given props 1`] = `
 <View
   style={
     Object {
-      "flex": 1,
+      "backgroundColor": "white",
       "flexDirection": "row",
+      "height": 40,
+      "marginBottom": 10,
+      "zIndex": 1,
     }
   }
 >
@@ -20,18 +23,13 @@ exports[`<MonthSelection /> should render with given props 1`] = `
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "justifyContent": "center",
-          "width": 20,
-        },
-        Object {
-          "alignItems": "flex-start",
-          "marginLeft": 17,
-          "width": 40,
-        },
-      ]
+      Object {
+        "alignItems": "flex-start",
+        "justifyContent": "center",
+        "marginLeft": 17,
+        "opacity": 1,
+        "width": 40,
+      }
     }
   >
     <Image
@@ -60,8 +58,11 @@ exports[`<MonthSelection /> should render with given props 1`] = `
     onStartShouldSetResponder={[Function]}
     style={
       Object {
+        "alignSelf": "center",
         "flex": 1,
+        "height": 20,
         "justifyContent": "center",
+        "opacity": 1,
       }
     }
   >
@@ -86,18 +87,13 @@ exports[`<MonthSelection /> should render with given props 1`] = `
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "justifyContent": "center",
-          "width": 20,
-        },
-        Object {
-          "alignItems": "flex-end",
-          "marginRight": 17,
-          "width": 40,
-        },
-      ]
+      Object {
+        "alignItems": "flex-end",
+        "justifyContent": "center",
+        "marginRight": 17,
+        "opacity": 1,
+        "width": 40,
+      }
     }
   >
     <Image

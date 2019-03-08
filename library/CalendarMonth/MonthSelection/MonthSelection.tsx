@@ -1,9 +1,10 @@
 import moment from "moment"
 import * as React from "react"
 import { Component } from "react"
-import { Image, Text, TouchableHighlight, View } from "react-native"
+import { Image, Text, TouchableOpacity, View } from "react-native"
 import { Month } from "../../shared/model"
 import { styles } from "./MonthSelection.styles"
+import { MonthSelectionPicker } from "./MonthSelectionPicker"
 
 export enum MonthAsString {
     January = "January",
@@ -30,6 +31,7 @@ export interface MonthSelectionProps {
 export interface MonthSelectionState {
     currentMonth: Month
     currentYear: number
+    showMonthPicker: boolean
 }
 
 export class MonthSelection extends Component<MonthSelectionProps, MonthSelectionState> {
@@ -43,6 +45,7 @@ export class MonthSelection extends Component<MonthSelectionProps, MonthSelectio
         this.state = {
             currentMonth: props.currentMonth || Month.January,
             currentYear: props.currentYear || moment().year(),
+            showMonthPicker: false
         }
     }
 
@@ -59,7 +62,7 @@ export class MonthSelection extends Component<MonthSelectionProps, MonthSelectio
         const title = `${this.allMonths[this.state.currentMonth]} ${this.state.currentYear}`
         return(
             <View style={styles.container}>
-                <TouchableHighlight
+                <TouchableOpacity
                     onPress={this.handlePreviousButtonPress}
                     accessibilityLabel={"button-month-prev"}
                     style={[styles.containerButton, styles.containerButtonLeft]}
@@ -68,14 +71,14 @@ export class MonthSelection extends Component<MonthSelectionProps, MonthSelectio
                         source={require("./asset/arrow-back.png")} resizeMode={"center"}
                         style={styles.button}
                     />
-                </TouchableHighlight>
-                <TouchableHighlight
+                </TouchableOpacity>
+                <TouchableOpacity
                     style={styles.containerTitle}
-                    onPress={this.props.onMonthTitleTouch}
+                    onPress={() => this.setState({ showMonthPicker: !this.state.showMonthPicker })}
                 >
                     <Text style={styles.title}>{title}</Text>
-                </TouchableHighlight>
-                <TouchableHighlight
+                </TouchableOpacity>
+                <TouchableOpacity
                     onPress={this.handleNextButtonPress}
                     accessibilityLabel={"button-month-next"}
                     style={[styles.containerButton, styles.containerButtonRight]}
@@ -84,7 +87,21 @@ export class MonthSelection extends Component<MonthSelectionProps, MonthSelectio
                         source={require("./asset/arrow-forward.png")} resizeMode={"center"}
                         style={styles.button}
                     />
-                </TouchableHighlight>
+                </TouchableOpacity>
+                {this.state.showMonthPicker ? (
+                    <View style={{ position: "absolute", top: 40, left: "22%" }}>
+                        <MonthSelectionPicker
+                            onMonthChangeFromPicker={
+                                (month: number) => {
+                                    this.setState({ currentMonth: month}),
+                                    this.onMonthChange(month, this.state.currentYear)
+                                }
+                            }
+                            dismissMonthSelectionPicker={() => this.setState({ showMonthPicker: false })}
+                            currentMonth={this.state.currentMonth}
+                        />
+                    </View>) : null
+                }
             </View >
         )
     }
