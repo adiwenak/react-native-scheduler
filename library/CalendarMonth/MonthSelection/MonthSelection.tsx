@@ -92,13 +92,19 @@ export class MonthSelection extends Component<MonthSelectionProps, MonthSelectio
                     <View style={[styles.monthSelectionPicker, { left: Dimensions.get("window").width / 2 - 100 }]}>
                         <MonthSelectionPicker
                             onMonthChangeFromPicker={
-                                (month: number) => {
-                                    this.setState({ currentMonth: month}),
+                                (month: Month) => {
+                                    this.setState({ currentMonth: month }),
                                     this.onMonthChange(month, this.state.currentYear)
                                 }
                             }
-                            dismissMonthSelectionPicker={() => this.setState({ showMonthPicker: false })}
+                            onYearChangeFromPicker={
+                                (year: number) => {
+                                    this.setState({ currentYear: year }),
+                                    this.onMonthChange(this.state.currentMonth, year)
+                                }
+                            }
                             currentMonth={this.state.currentMonth}
+                            currentYear={this.state.currentYear}
                         />
                     </View>) : null
                 }
