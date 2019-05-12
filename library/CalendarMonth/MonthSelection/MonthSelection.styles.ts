@@ -8,7 +8,8 @@ interface Style {
     containerTitle: ViewStyle
     title: TextStyle
     button: ImageStyle
-    monthSelectionPicker: ViewStyle
+    monthSelectionPickerTop: ViewStyle
+    monthSelectionPickerBottom: ViewStyle
 }
 
 export const styles = StyleSheet.create<Style>({
@@ -47,7 +48,11 @@ export const styles = StyleSheet.create<Style>({
     title: {
         textAlign: "center"
     },
-    monthSelectionPicker: {
+    monthSelectionPickerTop: {
+        position: "absolute",
+        top: -240
+    },
+    monthSelectionPickerBottom: {
         position: "absolute",
         top: 40
     }

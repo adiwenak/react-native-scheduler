@@ -21,11 +21,17 @@ export enum MonthAsString {
     December = "December"
 }
 
+export enum PickerPosition {
+    top = "top",
+    bottom = "bottom"
+}
+
 export interface MonthSelectionProps {
     onMonthChange?: (month: Month, year: number) => void
     currentYear?: number
     currentMonth?: Month
     onMonthTitleTouch?: () => void
+    displayPickerPosition?: PickerPosition
 }
 
 export interface MonthSelectionState {
@@ -90,7 +96,11 @@ export class MonthSelection extends Component<MonthSelectionProps, MonthSelectio
                     />
                 </TouchableOpacity>
                 {this.state.showMonthPicker ? (
-                    <View style={[styles.monthSelectionPicker, { left: Dimensions.get("window").width / 2 - 100 }]}>
+                    <View style={[
+                        this.props.displayPickerPosition === PickerPosition.top ?
+                        styles.monthSelectionPickerTop : styles.monthSelectionPickerBottom,
+                        { left: Dimensions.get("window").width / 2 - 100 }
+                    ]}>
                         <MonthSelectionPicker
                             onMonthChangeFromPicker={
                                 (month: Month) => {
@@ -107,6 +117,7 @@ export class MonthSelection extends Component<MonthSelectionProps, MonthSelectio
                             currentMonth={this.state.currentMonth}
                             currentYear={this.state.currentYear}
                             startYear={1900}
+                            endYear={2021}
                         />
                     </View>) : null
                 }
