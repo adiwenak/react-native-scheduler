@@ -48,6 +48,7 @@ exports[`<MonthSelection /> should render with given props 1`] = `
     />
   </View>
   <View
+    accessibilityLabel="date-display"
     accessible={true}
     isTVSelectable={true}
     onResponderGrant={[Function]}

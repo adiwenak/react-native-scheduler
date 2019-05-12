@@ -73,6 +73,7 @@ export class MonthSelection extends Component<MonthSelectionProps, MonthSelectio
                     />
                 </TouchableOpacity>
                 <TouchableOpacity
+                    accessibilityLabel={"date-display"}
                     style={styles.containerTitle}
                     onPress={() => this.setState({ showMonthPicker: !this.state.showMonthPicker })}
                 >
@@ -105,6 +106,7 @@ export class MonthSelection extends Component<MonthSelectionProps, MonthSelectio
                             }
                             currentMonth={this.state.currentMonth}
                             currentYear={this.state.currentYear}
+                            startYear={1900}
                         />
                     </View>) : null
                 }
