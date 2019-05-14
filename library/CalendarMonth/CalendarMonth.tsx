@@ -159,13 +159,11 @@ export class CalendarMonth extends React.Component<CalendarMonthProps, CalendarM
 
         return (
             <View style={styles.container}>
-                <View style={styles.containerMonthSelection}>
-                    <MonthSelection
-                        onMonthChange={this.onMonthChange}
-                        currentMonth={this.state.currentMonth}
-                        currentYear={this.state.currentYear}
-                    />
-                </View>
+                <MonthSelection
+                    onMonthChange={this.onMonthChange}
+                    currentMonth={this.state.currentMonth}
+                    currentYear={this.state.currentYear}
+                />
                 <View style={styles.containerWeekday}>
                     <WeekDayHeader />
                 </View>
@@ -179,7 +177,6 @@ export class CalendarMonth extends React.Component<CalendarMonthProps, CalendarM
                     }
                 </View >
             </View>
-
         )
     }
 

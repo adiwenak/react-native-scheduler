@@ -20,6 +20,11 @@ interface ComponentState {
 export class UserSelect extends React.Component<ComponentProps, ComponentState> {
   constructor(props: ComponentProps) {
     super(props)
+
+    this.state = {
+      selectedUser: {}
+    }
+
     if (props.data) {
       const selectedUser: SelectedUser = {}
       props.data.forEach((value: UserSelection, idx: number) => {
@@ -30,10 +35,6 @@ export class UserSelect extends React.Component<ComponentProps, ComponentState> 
 
       this.state = {
         selectedUser
-      }
-    } else {
-      this.state = {
-        selectedUser: {}
       }
     }
   }

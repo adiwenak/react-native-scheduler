@@ -1,7 +1,7 @@
 import * as React from "react"
 import { StyleSheet, Text, View } from "react-native"
-import { Scheduler } from "./library"
 import { allUser, taskSchedules } from "./demoData/data"
+import { Scheduler } from "./library"
 
 enum Language {
   english = "English",

@@ -8,12 +8,17 @@ interface Style {
     containerTitle: ViewStyle
     title: TextStyle
     button: ImageStyle
+    monthSelectionPickerTop: ViewStyle
+    monthSelectionPickerBottom: ViewStyle
 }
 
 export const styles = StyleSheet.create<Style>({
     container: {
-        flex: 1,
-        flexDirection: "row"
+        flexDirection: "row",
+        height: 40,
+        marginBottom: 10,
+        backgroundColor: "white",
+        zIndex: 1
     },
     containerButton: {
         width: 20,
@@ -32,7 +37,9 @@ export const styles = StyleSheet.create<Style>({
     },
     containerTitle: {
         flex: 1,
-        justifyContent: "center"
+        justifyContent: "center",
+        alignSelf: "center",
+        height: 20
     },
     button: {
         width: 20,
@@ -40,5 +47,13 @@ export const styles = StyleSheet.create<Style>({
     },
     title: {
         textAlign: "center"
+    },
+    monthSelectionPickerTop: {
+        position: "absolute",
+        top: -240
+    },
+    monthSelectionPickerBottom: {
+        position: "absolute",
+        top: 40
     }
 })
