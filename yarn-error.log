@@ -2,7 +2,7 @@ Arguments:
   /Users/Adiwena/.nvm/versions/node/v10.13.0/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js test
 
 PATH: 
-  /Users/Adiwena/.nvm/versions/node/v10.13.0/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/Adiwena/anaconda3/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin
+  /Users/Adiwena/.nvm/versions/node/v10.13.0/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/Adiwena/anaconda3/bin:/Users/Adiwena/anaconda3/condabin:/Library/Frameworks/Python.framework/Versions/3.4/bin
 
 Yarn version: 
   1.5.1
@@ -65,7 +65,7 @@ npm manifest:
           "react-test-renderer": "^16.7.0",
           "ts-jest": "^23.10.5",
           "tslint": "^5.12.0",
-          "typescript": "^3.2.2"
+          "typescript": "3.4.1"
       }
   }
 
@@ -6172,9 +6172,9 @@ Lockfile:
     version "0.0.6"
     resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   
-  typescript@^3.2.2:
-    version "3.2.2"
-    resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.2.2.tgz#fe8101c46aa123f8353523ebdcf5730c2ae493e5"
+  typescript@^3.4.1:
+    version "3.4.4"
+    resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.4.4.tgz#aac4a08abecab8091a75f10842ffa0631818f785"
   
   ua-parser-js@^0.7.18:
     version "0.7.19"

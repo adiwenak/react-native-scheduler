@@ -16,7 +16,7 @@ module.exports = {
   setupFiles: [
     "./jest.setup.js"
   ],
-  testMatch: ["<rootDir>/**/*.test.tsx"],
+  testMatch: ["<rootDir>/**/*.test.tsx", "<rootDir>/**/*.test.ts"],
   testPathIgnorePatterns: [
     "\\.snap$",
     "<rootDir>/node_modules/",

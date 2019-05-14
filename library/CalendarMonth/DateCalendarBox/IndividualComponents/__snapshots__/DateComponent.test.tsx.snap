@@ -14,9 +14,11 @@ exports[`<DateComponent /> should render with given props when isSelected is fal
     style={
       Array [
         Object {
-          "color": "#323A48",
           "fontSize": 14,
-          "fontWeight": "500",
+          "fontWeight": "400",
+        },
+        Object {
+          "color": "#323A48",
         },
         Object {
           "fontSize": 16,
@@ -43,7 +45,7 @@ exports[`<DateComponent /> should render with given props when isSelected is tru
     style={
       Array [
         Object {
-          "backgroundColor": "#FF1493",
+          "backgroundColor": "#E4741B",
         },
         Object {
           "borderRadius": 20.833333333333336,
@@ -66,9 +68,11 @@ exports[`<DateComponent /> should render with given props when isSelected is tru
         style={
           Array [
             Object {
-              "color": "#323A48",
               "fontSize": 14,
-              "fontWeight": "500",
+              "fontWeight": "400",
+            },
+            Object {
+              "color": "white",
             },
             Object {
               "fontSize": 16,

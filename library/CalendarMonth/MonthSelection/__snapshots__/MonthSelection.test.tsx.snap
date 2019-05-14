@@ -20,18 +20,13 @@ exports[`<MonthSelection /> should render with given props 1`] = `
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "justifyContent": "center",
-          "width": 20,
-        },
-        Object {
-          "alignItems": "flex-start",
-          "marginLeft": 17,
-          "width": 40,
-        },
-      ]
+      Object {
+        "alignItems": "flex-start",
+        "justifyContent": "center",
+        "marginLeft": 17,
+        "opacity": 1,
+        "width": 40,
+      }
     }
   >
     <Image
@@ -78,18 +73,13 @@ exports[`<MonthSelection /> should render with given props 1`] = `
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "alignItems": "center",
-          "justifyContent": "center",
-          "width": 20,
-        },
-        Object {
-          "alignItems": "flex-end",
-          "marginRight": 17,
-          "width": 40,
-        },
-      ]
+      Object {
+        "alignItems": "flex-end",
+        "justifyContent": "center",
+        "marginRight": 17,
+        "opacity": 1,
+        "width": 40,
+      }
     }
   >
     <Image

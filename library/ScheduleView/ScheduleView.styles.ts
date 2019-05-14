@@ -1,4 +1,5 @@
 import { StyleSheet, TextStyle, ViewStyle } from "react-native"
+import { Colours } from "../shared/colour"
 
 interface Style {
     container: ViewStyle
@@ -6,7 +7,8 @@ interface Style {
     containerTimeline: ViewStyle
     containerScheduleBackground: ViewStyle
     containerSchedule: ViewStyle
-    time: TextStyle
+    time: TextStyle,
+    scheduleBox: ViewStyle
 }
 
 export const styles = StyleSheet.create<Style>({
@@ -14,25 +16,31 @@ export const styles = StyleSheet.create<Style>({
         flex: 1
     },
     containerInner: {
-        flexDirection: "row"
+        flexDirection: "row",
+        marginTop: 20,
+        marginBottom: 50
     },
     containerTimeline: {
-        width: 70,
-        backgroundColor: "whitesmoke",
+        marginTop: -13,
         borderRightWidth: 0.5,
-        borderRightColor: "gray"
+        borderRightColor: Colours.Grey300
     },
     containerScheduleBackground: {
         flex: 1,
     },
     containerSchedule: {
-        position: "absolute",
-        left: 70
+        position: "absolute"
     },
     time: {
         fontSize: 12,
         textAlign: "right",
+        color: Colours.Grey800,
         paddingRight: 10,
         paddingTop: 5
+    },
+    scheduleBox: {
+        marginTop: 1,
+        marginLeft: 1,
+        borderRadius: 5,
     }
 })

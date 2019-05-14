@@ -1,8 +1,8 @@
 import * as React from "react"
 import { Component } from "react"
 import { TouchableOpacity } from "react-native"
-import { DateNumber, User } from "../../shared/model"
-import styles from "./DateCalendarBox.style"
+import { Category, DateNumber } from "../../shared/model"
+import styles from "./DateCalendarBox.styles"
 import { BusyIndicator, DateComponent } from "./IndividualComponents"
 
 interface ComponentProps {
@@ -11,7 +11,7 @@ interface ComponentProps {
   isWeekend: boolean
   boxWidth: number
   dateFontSize: number
-  whosBusy: User[]
+  whosBusy: Category[]
   dateBoxOnPressHandler: (date: DateNumber) => void
 }
 

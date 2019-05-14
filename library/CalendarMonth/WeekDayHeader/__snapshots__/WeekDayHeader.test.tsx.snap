@@ -20,7 +20,7 @@ exports[`<WeekDayHeader /> should render with given props 1`] = `
       }
     }
   >
-    S
+    Su
   </Text>
   <Text
     style={
@@ -46,7 +46,7 @@ exports[`<WeekDayHeader /> should render with given props 1`] = `
       }
     }
   >
-    T
+    Tu
   </Text>
   <Text
     style={
@@ -59,7 +59,7 @@ exports[`<WeekDayHeader /> should render with given props 1`] = `
       }
     }
   >
-    W
+    We
   </Text>
   <Text
     style={
@@ -72,7 +72,7 @@ exports[`<WeekDayHeader /> should render with given props 1`] = `
       }
     }
   >
-    T
+    Th
   </Text>
   <Text
     style={
@@ -98,7 +98,7 @@ exports[`<WeekDayHeader /> should render with given props 1`] = `
       }
     }
   >
-    S
+    Sa
   </Text>
 </View>
 `;

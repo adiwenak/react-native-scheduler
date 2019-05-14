@@ -1,26 +1,37 @@
+import moment from "moment"
 import * as React from "react"
 import { View } from "react-native"
-import { CalendarMonth, TaskAndUser } from "../CalendarMonth"
-import { TaskSchedule, UserSelection } from "../shared/model"
-import { UserSelect } from "../UsersSelect"
+import { CalendarMonth } from "../CalendarMonth"
+import { CategoryPicker } from "../CategoryPicker"
+import { GroupIdentifierToColour, ScheduleView } from "../ScheduleView"
+import { Activity, CategoryActivity, CategorySelection } from "../shared"
 import { styles } from "./PhoneMonthView.styles"
 
-interface PhoneMonthViewProps {
-  users: UserSelection[]
-  tasks: TaskSchedule
+interface Props {
+  data: CategoryActivity[]
 }
 
-interface PhoneMonthViewState {
-  taskAndUsers: TaskAndUser[]
+interface State {
+  filteredData: CategoryActivity[]
+  allCategories: CategorySelection[]
+  selectedDate?: Date
 }
 
-export class Scheduler extends React.Component<PhoneMonthViewProps, PhoneMonthViewState> {
+export class Scheduler extends React.PureComponent<Props, State> {
 
-  constructor(props: PhoneMonthViewProps) {
+  private static defaultActivities: Activity[] = []
+
+  private colourMap: GroupIdentifierToColour = {}
+
+  constructor(props: Props) {
     super(props)
-    const taskAndUsers = this.createTaskAndUser(props.users, props.tasks)
+    const res = this.generateStateData(props.data)
     this.state = {
-      taskAndUsers
+      ...res
+    }
+
+    for (const obj of props.data) {
+      this.colourMap[obj.category.id] = obj.category.colour
     }
   }
 
@@ -28,40 +39,72 @@ export class Scheduler extends React.Component<PhoneMonthViewProps, PhoneMonthVi
     return (
       <View style={styles.container}>
         <View style={styles.userSelectionContainer}>
-          <UserSelect
-            data={this.props.users}
-            onSelectedEvent={this.onUserChange}
+          <CategoryPicker
+            data={this.state.allCategories}
+            onSelectedEvent={this.onCategorySelectionChange}
           />
         </View>
         <View style={styles.calendarMonthContainer}>
-          <CalendarMonth data={this.state.taskAndUsers} />
+          <CalendarMonth
+            data={this.state.filteredData}
+            onDateSelected={this.onDateSelected}
+          />
         </View>
         <View style={styles.dayScheduleContainer}>
+          <ScheduleView
+            rowHeight={80}
+            startTime={7}
+            endTime={23}
+            data={this.filterScheduledData()}
+            colourMap={this.colourMap}
+          />
         </View>
       </View>
     )
   }
 
-  private createTaskAndUser = (users: UserSelection[], taskSchedule: TaskSchedule) => {
-
-    const collections: TaskAndUser[] = []
-
-    users.forEach((user: UserSelection) => {
-      if (user.isSelected) {
-        const tasks = taskSchedule[user.id]
-        if (tasks) {
-          collections.push({
-            user,
-            tasks
-          })
-        }
+  private generateStateData = (data: CategoryActivity[]) => {
+    const filteredData: CategoryActivity[] = []
+    const allCategories: CategorySelection[] = []
+    for (const obj of data) {
+      this.colourMap[obj.category.id] = obj.category.colour
+      if (obj.category.isSelected) {
+        filteredData.push(obj)
       }
-    })
+      allCategories.push(obj.category)
+    }
 
-    return collections
+    return { filteredData, allCategories }
   }
 
-  private onUserChange = (selectedUsers: UserSelection[]) => {
-    this.setState({ taskAndUsers: this.createTaskAndUser(selectedUsers, this.props.tasks) })
+  private filterScheduledData = (): Activity[] => {
+    if (!this.state.selectedDate) {
+      return Scheduler.defaultActivities
+    }
+
+    let allActivities: Activity[] = []
+    for (const obj of this.state.filteredData) {
+      allActivities = [...allActivities, ...obj.tasks]
+    }
+
+    const today = moment(this.state.selectedDate)
+    const fromDate = today.set({hour: 0, minute: 0, second: 0, millisecond: 0}).toDate().getTime()
+    const toDate = today.set({hour: 23, minute: 59, second: 59, millisecond: 0}).toDate().getTime()
+
+    return allActivities.filter(
+      (val) => val.startTime.getTime() > fromDate && val.startTime.getTime() <= toDate)
+  }
+
+  private onDateSelected = (date: Date) => {
+    this.setState({selectedDate: date})
+  }
+
+  private onCategorySelectionChange = (selectedCategoriesIndex: number[]) => {
+    const filteredData: CategoryActivity[] = []
+    for (const idx of selectedCategoriesIndex) {
+      filteredData.push(this.props.data[idx])
+    }
+
+    this.setState({ filteredData })
   }
 }

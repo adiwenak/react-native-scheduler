@@ -32,7 +32,7 @@ exports[`<DateCalendarBox /> should render with given props 1`] = `
       style={
         Array [
           Object {
-            "backgroundColor": "#FF1493",
+            "backgroundColor": "#E4741B",
           },
           Object {
             "borderRadius": 12.5,
@@ -55,9 +55,11 @@ exports[`<DateCalendarBox /> should render with given props 1`] = `
           style={
             Array [
               Object {
-                "color": "#323A48",
                 "fontSize": 14,
-                "fontWeight": "500",
+                "fontWeight": "400",
+              },
+              Object {
+                "color": "white",
               },
               Object {
                 "fontSize": 16,
@@ -89,7 +91,7 @@ exports[`<DateCalendarBox /> should render with given props 1`] = `
     <View
       style={
         Object {
-          "backgroundColor": "blue",
+          "backgroundColor": "#054BBD",
           "borderRadius": 2.9411764705882355,
           "height": 5.882352941176471,
           "marginLeft": 2,
@@ -101,7 +103,7 @@ exports[`<DateCalendarBox /> should render with given props 1`] = `
     <View
       style={
         Object {
-          "backgroundColor": "green",
+          "backgroundColor": "#CC0F20",
           "borderRadius": 2.9411764705882355,
           "height": 5.882352941176471,
           "marginLeft": 2,
@@ -113,7 +115,7 @@ exports[`<DateCalendarBox /> should render with given props 1`] = `
     <View
       style={
         Object {
-          "backgroundColor": "red",
+          "backgroundColor": "#E4741B",
           "borderRadius": 2.9411764705882355,
           "height": 5.882352941176471,
           "marginLeft": 2,
@@ -125,31 +127,7 @@ exports[`<DateCalendarBox /> should render with given props 1`] = `
     <View
       style={
         Object {
-          "backgroundColor": "pink",
-          "borderRadius": 2.9411764705882355,
-          "height": 5.882352941176471,
-          "marginLeft": 2,
-          "marginRight": 2,
-          "width": 5.882352941176471,
-        }
-      }
-    />
-    <View
-      style={
-        Object {
-          "backgroundColor": "black",
-          "borderRadius": 2.9411764705882355,
-          "height": 5.882352941176471,
-          "marginLeft": 2,
-          "marginRight": 2,
-          "width": 5.882352941176471,
-        }
-      }
-    />
-    <View
-      style={
-        Object {
-          "backgroundColor": "grey",
+          "backgroundColor": "#149427",
           "borderRadius": 2.9411764705882355,
           "height": 5.882352941176471,
           "marginLeft": 2,

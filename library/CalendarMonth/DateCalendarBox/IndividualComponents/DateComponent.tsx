@@ -13,9 +13,12 @@ interface DateComponentProps {
 
 const getDateTitle = (props: DateComponentProps) => {
   const dateTitle = props.date ? `${props.date}` : ""
-  const dateStyle = props.isWeekend ? styles.textStyleWeekend : styles.textStyleWeekday
+  let dateStyle = props.isWeekend ? styles.textStyleWeekend : styles.textStyleWeekday
+  if (props.isSelected) {
+    dateStyle = styles.titleSelected
+  }
   return (
-    <Text style={[dateStyle, { fontSize: props.dateFontSize }]}>
+    <Text style={[styles.title, dateStyle, { fontSize: props.dateFontSize }]}>
       {dateTitle}
     </Text>
   )

@@ -1,4 +1,5 @@
 import { StyleSheet, ViewStyle } from "react-native"
+import { Colours } from "../shared"
 
 interface Styles {
     container: ViewStyle
@@ -10,16 +11,19 @@ interface Styles {
 export const styles = StyleSheet.create<Styles>({
     container: {
         flex: 1,
-        marginTop: 20
+        marginTop: 10
     },
     userSelectionContainer: {
         marginBottom: 10
     },
     calendarMonthContainer: {
-        flex: 1,
-        marginBottom: 20
+        marginBottom: 5,
+        borderBottomWidth: 1,
+        borderBottomColor: Colours.Grey300
     },
     dayScheduleContainer: {
-        flex: 1
+        flex: 1,
+        borderBottomWidth: 1,
+        borderBottomColor: Colours.Grey300
     },
 })

@@ -1,10 +1,10 @@
 import * as React from "react"
 import {View} from "react-native"
-import {User} from "../../../shared/model"
+import {Category} from "../../../shared/model"
 import styles from "./BusyIndicator.style"
 
 export interface BusyIndicatorProps {
-  whosBusy: User[]
+  whosBusy: Category[]
   height: number
 }
 
@@ -21,15 +21,15 @@ export const BusyIndicator = (props: BusyIndicatorProps): JSX.Element => {
     ]}>
       {props
         .whosBusy
-        .map((obj: User) => <View
-          key={obj.id}
+        .map((obj: Category, index: number) => <View
+          key={`${obj.id}-${index}`}
           style={{
           height: circleSize,
           width: circleSize,
           borderRadius: circleBorderRadius,
           marginLeft: 2,
           marginRight: 2,
-          backgroundColor: obj.colourIndicator
+          backgroundColor: obj.colour
         }}/>)
 }
     </View>

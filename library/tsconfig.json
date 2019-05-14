@@ -25,7 +25,7 @@
     ]
   },
   "exclude": [
-    "__stubsData",
+    "CategoryPicker/__stubsData",
     "__snapshots__",
     "**/*.test.tsx",
     "**/*.test.ts",

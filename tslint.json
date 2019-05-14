@@ -24,7 +24,9 @@
     "member-access": false,
     "no-angle-bracket-type-assertion": false,
     "object-literal-sort-keys": false,
-    "trailing-comma": false
+    "max-line-length": false,
+    "trailing-comma": false,
+    "radix": false
   },
   "rulesDirectory": []
 }

@@ -1,1 +1,1 @@
-export { CalendarMonth, TaskAndUser } from "./CalendarMonth"
+export { CalendarMonth, CategoryActivity } from "./CalendarMonth"

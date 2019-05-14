@@ -1,11 +1,14 @@
 import { StyleSheet, TextStyle, ViewStyle } from "react-native"
+import { Colours } from "../../../shared"
 
 interface Style {
     topOuterView: ViewStyle
     selectedColor: ViewStyle
     circleView: ViewStyle
+    title: TextStyle
     textStyleWeekday: TextStyle
     textStyleWeekend: TextStyle
+    titleSelected: TextStyle
 }
 
 export default StyleSheet.create({
@@ -15,21 +18,24 @@ export default StyleSheet.create({
         alignItems: "center",
     },
     selectedColor: {
-        backgroundColor: "#FF1493"
+        backgroundColor: Colours.Zest
     },
     circleView: {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
     },
-    textStyleWeekday: {
-        color: "#323A48",
-        fontWeight: "500",
-        fontSize: 14
-    },
-    textStyleWeekend: {
-        color: "#768398",
+    title: {
         fontWeight: "400",
         fontSize: 14
+    },
+    textStyleWeekday: {
+        color: "#323A48"
+    },
+    textStyleWeekend: {
+        color: "#768398"
+    },
+    titleSelected: {
+        color: "white"
     }
 })

@@ -10,7 +10,6 @@ interface Style {
 export const styles = StyleSheet.create<Style>({
     container: {
         flexDirection: "column",
-        flex: 1
     },
     containerMonthSelection: {
         height: 40,
