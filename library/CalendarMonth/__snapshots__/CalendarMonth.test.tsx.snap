@@ -74,7 +74,7 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
             }
           }
         >
-          May 2019
+          June 2019
         </Text>
       </View>
       <View
@@ -458,6 +458,195 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
                 "color": "#323A48",
               },
               Object {
+                "fontSize": 12,
+              },
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flex": 1,
+              "flexDirection": "row",
+              "justifyContent": "center",
+            },
+            Object {
+              "height": 0,
+              "paddingBottom": 8,
+            },
+          ]
+        }
+      />
+    </View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "flexDirection": "column",
+          "height": 0,
+          "opacity": 1,
+          "width": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "fontSize": 14,
+                "fontWeight": "400",
+              },
+              Object {
+                "color": "#323A48",
+              },
+              Object {
+                "fontSize": 12,
+              },
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flex": 1,
+              "flexDirection": "row",
+              "justifyContent": "center",
+            },
+            Object {
+              "height": 0,
+              "paddingBottom": 8,
+            },
+          ]
+        }
+      />
+    </View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "flexDirection": "column",
+          "height": 0,
+          "opacity": 1,
+          "width": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "fontSize": 14,
+                "fontWeight": "400",
+              },
+              Object {
+                "color": "#323A48",
+              },
+              Object {
+                "fontSize": 12,
+              },
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flex": 1,
+              "flexDirection": "row",
+              "justifyContent": "center",
+            },
+            Object {
+              "height": 0,
+              "paddingBottom": 8,
+            },
+          ]
+        }
+      />
+    </View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "flexDirection": "column",
+          "height": 0,
+          "opacity": 1,
+          "width": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "fontSize": 14,
+                "fontWeight": "400",
+              },
+              Object {
+                "color": "#768398",
+              },
+              Object {
                 "fontSize": 13,
               },
             ]
@@ -518,7 +707,7 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
                 "fontWeight": "400",
               },
               Object {
-                "color": "#323A48",
+                "color": "#768398",
               },
               Object {
                 "fontSize": 13,
@@ -644,7 +833,7 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
                 "fontWeight": "400",
               },
               Object {
-                "color": "#768398",
+                "color": "#323A48",
               },
               Object {
                 "fontSize": 13,
@@ -707,7 +896,7 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
                 "fontWeight": "400",
               },
               Object {
-                "color": "#768398",
+                "color": "#323A48",
               },
               Object {
                 "fontSize": 13,
@@ -896,7 +1085,7 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
                 "fontWeight": "400",
               },
               Object {
-                "color": "#323A48",
+                "color": "#768398",
               },
               Object {
                 "fontSize": 13,
@@ -959,7 +1148,7 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
                 "fontWeight": "400",
               },
               Object {
-                "color": "#323A48",
+                "color": "#768398",
               },
               Object {
                 "fontSize": 13,
@@ -1085,7 +1274,7 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
                 "fontWeight": "400",
               },
               Object {
-                "color": "#768398",
+                "color": "#323A48",
               },
               Object {
                 "fontSize": 13,
@@ -1148,7 +1337,7 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
                 "fontWeight": "400",
               },
               Object {
-                "color": "#768398",
+                "color": "#323A48",
               },
               Object {
                 "fontSize": 13,
@@ -1337,7 +1526,7 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
                 "fontWeight": "400",
               },
               Object {
-                "color": "#323A48",
+                "color": "#768398",
               },
               Object {
                 "fontSize": 13,
@@ -1363,20 +1552,7 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
             },
           ]
         }
-      >
-        <View
-          style={
-            Object {
-              "backgroundColor": "#054BBD",
-              "borderRadius": 0,
-              "height": 0,
-              "marginLeft": 2,
-              "marginRight": 2,
-              "width": 0,
-            }
-          }
-        />
-      </View>
+      />
     </View>
     <View
       accessible={true}
@@ -1413,7 +1589,7 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
                 "fontWeight": "400",
               },
               Object {
-                "color": "#323A48",
+                "color": "#768398",
               },
               Object {
                 "fontSize": 13,
@@ -1439,32 +1615,7 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
             },
           ]
         }
-      >
-        <View
-          style={
-            Object {
-              "backgroundColor": "#CC0F20",
-              "borderRadius": 0,
-              "height": 0,
-              "marginLeft": 2,
-              "marginRight": 2,
-              "width": 0,
-            }
-          }
-        />
-        <View
-          style={
-            Object {
-              "backgroundColor": "#149427",
-              "borderRadius": 0,
-              "height": 0,
-              "marginLeft": 2,
-              "marginRight": 2,
-              "width": 0,
-            }
-          }
-        />
-      </View>
+      />
     </View>
     <View
       accessible={true}
@@ -1527,32 +1678,7 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
             },
           ]
         }
-      >
-        <View
-          style={
-            Object {
-              "backgroundColor": "#054BBD",
-              "borderRadius": 0,
-              "height": 0,
-              "marginLeft": 2,
-              "marginRight": 2,
-              "width": 0,
-            }
-          }
-        />
-        <View
-          style={
-            Object {
-              "backgroundColor": "#CC0F20",
-              "borderRadius": 0,
-              "height": 0,
-              "marginLeft": 2,
-              "marginRight": 2,
-              "width": 0,
-            }
-          }
-        />
-      </View>
+      />
     </View>
     <View
       accessible={true}
@@ -1589,7 +1715,7 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
                 "fontWeight": "400",
               },
               Object {
-                "color": "#768398",
+                "color": "#323A48",
               },
               Object {
                 "fontSize": 13,
@@ -1615,20 +1741,7 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
             },
           ]
         }
-      >
-        <View
-          style={
-            Object {
-              "backgroundColor": "#E4741B",
-              "borderRadius": 0,
-              "height": 0,
-              "marginLeft": 2,
-              "marginRight": 2,
-              "width": 0,
-            }
-          }
-        />
-      </View>
+      />
     </View>
     <View
       accessible={true}
@@ -1665,7 +1778,7 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
                 "fontWeight": "400",
               },
               Object {
-                "color": "#768398",
+                "color": "#323A48",
               },
               Object {
                 "fontSize": 13,
@@ -1691,20 +1804,7 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
             },
           ]
         }
-      >
-        <View
-          style={
-            Object {
-              "backgroundColor": "#E4741B",
-              "borderRadius": 0,
-              "height": 0,
-              "marginLeft": 2,
-              "marginRight": 2,
-              "width": 0,
-            }
-          }
-        />
-      </View>
+      />
     </View>
     <View
       accessible={true}
@@ -1767,20 +1867,7 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
             },
           ]
         }
-      >
-        <View
-          style={
-            Object {
-              "backgroundColor": "#054BBD",
-              "borderRadius": 0,
-              "height": 0,
-              "marginLeft": 2,
-              "marginRight": 2,
-              "width": 0,
-            }
-          }
-        />
-      </View>
+      />
     </View>
     <View
       accessible={true}
@@ -1843,20 +1930,7 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
             },
           ]
         }
-      >
-        <View
-          style={
-            Object {
-              "backgroundColor": "#149427",
-              "borderRadius": 0,
-              "height": 0,
-              "marginLeft": 2,
-              "marginRight": 2,
-              "width": 0,
-            }
-          }
-        />
-      </View>
+      />
     </View>
     <View
       accessible={true}
@@ -1893,7 +1967,7 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
                 "fontWeight": "400",
               },
               Object {
-                "color": "#323A48",
+                "color": "#768398",
               },
               Object {
                 "fontSize": 13,
@@ -1919,20 +1993,7 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
             },
           ]
         }
-      >
-        <View
-          style={
-            Object {
-              "backgroundColor": "#149427",
-              "borderRadius": 0,
-              "height": 0,
-              "marginLeft": 2,
-              "marginRight": 2,
-              "width": 0,
-            }
-          }
-        />
-      </View>
+      />
     </View>
     <View
       accessible={true}
@@ -1969,7 +2030,7 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
                 "fontWeight": "400",
               },
               Object {
-                "color": "#323A48",
+                "color": "#768398",
               },
               Object {
                 "fontSize": 13,
@@ -2095,7 +2156,7 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
                 "fontWeight": "400",
               },
               Object {
-                "color": "#768398",
+                "color": "#323A48",
               },
               Object {
                 "fontSize": 13,
@@ -2158,7 +2219,7 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
                 "fontWeight": "400",
               },
               Object {
-                "color": "#768398",
+                "color": "#323A48",
               },
               Object {
                 "fontSize": 13,
@@ -2347,7 +2408,7 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
                 "fontWeight": "400",
               },
               Object {
-                "color": "#323A48",
+                "color": "#768398",
               },
               Object {
                 "fontSize": 13,
@@ -2356,195 +2417,6 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
           }
         >
           29
-        </Text>
-      </View>
-      <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "flex": 1,
-              "flexDirection": "row",
-              "justifyContent": "center",
-            },
-            Object {
-              "height": 0,
-              "paddingBottom": 8,
-            },
-          ]
-        }
-      />
-    </View>
-    <View
-      accessible={true}
-      isTVSelectable={true}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "flexDirection": "column",
-          "height": 0,
-          "opacity": 1,
-          "width": 0,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "justifyContent": "center",
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "fontSize": 14,
-                "fontWeight": "400",
-              },
-              Object {
-                "color": "#323A48",
-              },
-              Object {
-                "fontSize": 13,
-              },
-            ]
-          }
-        >
-          30
-        </Text>
-      </View>
-      <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "flex": 1,
-              "flexDirection": "row",
-              "justifyContent": "center",
-            },
-            Object {
-              "height": 0,
-              "paddingBottom": 8,
-            },
-          ]
-        }
-      />
-    </View>
-    <View
-      accessible={true}
-      isTVSelectable={true}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "flexDirection": "column",
-          "height": 0,
-          "opacity": 1,
-          "width": 0,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "justifyContent": "center",
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "fontSize": 14,
-                "fontWeight": "400",
-              },
-              Object {
-                "color": "#323A48",
-              },
-              Object {
-                "fontSize": 13,
-              },
-            ]
-          }
-        >
-          31
-        </Text>
-      </View>
-      <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "flex": 1,
-              "flexDirection": "row",
-              "justifyContent": "center",
-            },
-            Object {
-              "height": 0,
-              "paddingBottom": 8,
-            },
-          ]
-        }
-      />
-    </View>
-    <View
-      accessible={true}
-      isTVSelectable={true}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "flexDirection": "column",
-          "height": 0,
-          "opacity": 1,
-          "width": 0,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "justifyContent": "center",
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "fontSize": 14,
-                "fontWeight": "400",
-              },
-              Object {
-                "color": "#323A48",
-              },
-              Object {
-                "fontSize": 12,
-              },
-            ]
-          }
-        >
-          
         </Text>
       </View>
       <View

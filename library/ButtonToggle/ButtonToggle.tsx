@@ -29,6 +29,7 @@ export class ButtonToggle extends React.Component<Props, State> {
 
     return (
       <TouchableOpacity
+        testID={"Button-Toggle"}
         style={buttonStyle}
         onPress={this.buttonPress}>
         <Text

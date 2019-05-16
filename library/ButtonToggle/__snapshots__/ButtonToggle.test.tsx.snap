@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ScheduleView /> render() should render with selected state 1`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "blue",
+      "borderRadius": 5,
+      "justifyContent": "center",
+      "marginHorizontal": 2,
+      "opacity": 1,
+    }
+  }
+  testID="Button-Toggle"
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#455A64",
+          "fontSize": 12,
+          "marginHorizontal": 7,
+          "marginVertical": 5,
+        },
+        Object {
+          "color": "#FAFAFA",
+        },
+      ]
+    }
+  >
+    button1
+  </Text>
+</View>
+`;
+
+exports[`<ScheduleView /> render() should render with unselected state 1`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#EEEEEE",
+      "borderRadius": 5,
+      "justifyContent": "center",
+      "marginHorizontal": 2,
+      "opacity": 1,
+    }
+  }
+  testID="Button-Toggle"
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#455A64",
+          "fontSize": 12,
+          "marginHorizontal": 7,
+          "marginVertical": 5,
+        },
+      ]
+    }
+  >
+    button1
+  </Text>
+</View>
+`;
