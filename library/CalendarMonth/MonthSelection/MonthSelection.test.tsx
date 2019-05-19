@@ -21,6 +21,40 @@ describe("<MonthSelection />", () => {
     button.onPress()
     expect(onChange.mock.calls.length).toBe(1)
     expect(component.state("currentMonth")).toBe(Month.January)
+  })
+
+  it("should render with given props and show month picker", () => {
+    const component = shallow(<MonthSelection currentYear={2017} />)
+    component.setState({ showMonthPicker: true })
+    expect(component.find("MonthSelectionPicker")).toBeTruthy()
+  })
+
+  it("should call setState when currentMonth prop changes", () => {
+    const setState = jest.fn()
+    const component = shallow(<MonthSelection currentMonth={Month.January} />)
+    component.instance().setState = setState
+    component.setProps({ currentMonth: Month.February })
+    expect(setState).toBeCalledTimes(1)
+    expect(setState).toBeCalledWith({ currentMonth: Month.February })
+  })
+
+  it("should call setState with showMonthPicker when touchable is pressed", () => {
+    const setState = jest.fn()
+    const component = shallow(<MonthSelection currentMonth={Month.January} />)
+    component.instance().setState = setState
+    component.find({ accessibilityLabel: "date-display" }).props().onPress()
+    expect(setState).toBeCalledTimes(1)
+    expect(setState).toBeCalledWith({ showMonthPicker: true })
+  })
+
+  it("should change current month or current year when previous button press", () => {
+    const onChange = jest.fn()
+    const component = shallow(
+      <MonthSelection currentYear={2017} currentMonth={Month.February} onMonthChange={onChange} />)
+    const button = component.find({ accessibilityLabel: "button-month-prev" }).props()
+    button.onPress()
+    expect(onChange.mock.calls.length).toBe(1)
+    expect(component.state("currentMonth")).toBe(Month.January)
 
     button.onPress()
     expect(onChange.mock.calls.length).toBe(2)

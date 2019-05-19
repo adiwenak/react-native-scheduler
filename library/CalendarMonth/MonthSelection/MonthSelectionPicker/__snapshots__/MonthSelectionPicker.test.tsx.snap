@@ -1,0 +1,504 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MonthSelectionPicker /> render() should render with proper props 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "white",
+      "borderColor": "lightgrey",
+      "borderRadius": 5,
+      "borderWidth": 2,
+      "flexDirection": "column",
+      "height": 240,
+      "width": 200,
+    }
+  }
+>
+  <View
+    accessibilityLabel="month-year-btn"
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignSelf": "center",
+        "height": 40,
+        "justifyContent": "center",
+        "opacity": 1,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "rgb(100, 100, 100)",
+          "fontSize": 16,
+        }
+      }
+    >
+      Month
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#FAFAFA",
+        "flexDirection": "row",
+        "flexWrap": "wrap",
+      }
+    }
+  >
+    <View
+      accessibilityLabel="Jan"
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "rgb(26, 117, 173)",
+          "borderRadius": 5,
+          "height": 60,
+          "justifyContent": "center",
+          "margin": 2,
+          "opacity": 1,
+          "width": 45,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "rgb(100, 100, 100)",
+              "fontSize": 14,
+              "textAlign": "center",
+            },
+            Object {
+              "color": "white",
+            },
+          ]
+        }
+      >
+        Jan
+      </Text>
+    </View>
+    <View
+      accessibilityLabel="Feb"
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "white",
+          "borderRadius": 5,
+          "height": 60,
+          "justifyContent": "center",
+          "margin": 2,
+          "opacity": 1,
+          "width": 45,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "rgb(100, 100, 100)",
+              "fontSize": 14,
+              "textAlign": "center",
+            },
+            null,
+          ]
+        }
+      >
+        Feb
+      </Text>
+    </View>
+    <View
+      accessibilityLabel="Mar"
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "white",
+          "borderRadius": 5,
+          "height": 60,
+          "justifyContent": "center",
+          "margin": 2,
+          "opacity": 1,
+          "width": 45,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "rgb(100, 100, 100)",
+              "fontSize": 14,
+              "textAlign": "center",
+            },
+            null,
+          ]
+        }
+      >
+        Mar
+      </Text>
+    </View>
+    <View
+      accessibilityLabel="Apr"
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "white",
+          "borderRadius": 5,
+          "height": 60,
+          "justifyContent": "center",
+          "margin": 2,
+          "opacity": 1,
+          "width": 45,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "rgb(100, 100, 100)",
+              "fontSize": 14,
+              "textAlign": "center",
+            },
+            null,
+          ]
+        }
+      >
+        Apr
+      </Text>
+    </View>
+    <View
+      accessibilityLabel="May"
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "white",
+          "borderRadius": 5,
+          "height": 60,
+          "justifyContent": "center",
+          "margin": 2,
+          "opacity": 1,
+          "width": 45,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "rgb(100, 100, 100)",
+              "fontSize": 14,
+              "textAlign": "center",
+            },
+            null,
+          ]
+        }
+      >
+        May
+      </Text>
+    </View>
+    <View
+      accessibilityLabel="Jun"
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "white",
+          "borderRadius": 5,
+          "height": 60,
+          "justifyContent": "center",
+          "margin": 2,
+          "opacity": 1,
+          "width": 45,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "rgb(100, 100, 100)",
+              "fontSize": 14,
+              "textAlign": "center",
+            },
+            null,
+          ]
+        }
+      >
+        Jun
+      </Text>
+    </View>
+    <View
+      accessibilityLabel="Jul"
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "white",
+          "borderRadius": 5,
+          "height": 60,
+          "justifyContent": "center",
+          "margin": 2,
+          "opacity": 1,
+          "width": 45,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "rgb(100, 100, 100)",
+              "fontSize": 14,
+              "textAlign": "center",
+            },
+            null,
+          ]
+        }
+      >
+        Jul
+      </Text>
+    </View>
+    <View
+      accessibilityLabel="Aug"
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "white",
+          "borderRadius": 5,
+          "height": 60,
+          "justifyContent": "center",
+          "margin": 2,
+          "opacity": 1,
+          "width": 45,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "rgb(100, 100, 100)",
+              "fontSize": 14,
+              "textAlign": "center",
+            },
+            null,
+          ]
+        }
+      >
+        Aug
+      </Text>
+    </View>
+    <View
+      accessibilityLabel="Sep"
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "white",
+          "borderRadius": 5,
+          "height": 60,
+          "justifyContent": "center",
+          "margin": 2,
+          "opacity": 1,
+          "width": 45,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "rgb(100, 100, 100)",
+              "fontSize": 14,
+              "textAlign": "center",
+            },
+            null,
+          ]
+        }
+      >
+        Sep
+      </Text>
+    </View>
+    <View
+      accessibilityLabel="Oct"
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "white",
+          "borderRadius": 5,
+          "height": 60,
+          "justifyContent": "center",
+          "margin": 2,
+          "opacity": 1,
+          "width": 45,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "rgb(100, 100, 100)",
+              "fontSize": 14,
+              "textAlign": "center",
+            },
+            null,
+          ]
+        }
+      >
+        Oct
+      </Text>
+    </View>
+    <View
+      accessibilityLabel="Nov"
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "white",
+          "borderRadius": 5,
+          "height": 60,
+          "justifyContent": "center",
+          "margin": 2,
+          "opacity": 1,
+          "width": 45,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "rgb(100, 100, 100)",
+              "fontSize": 14,
+              "textAlign": "center",
+            },
+            null,
+          ]
+        }
+      >
+        Nov
+      </Text>
+    </View>
+    <View
+      accessibilityLabel="Dec"
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "white",
+          "borderRadius": 5,
+          "height": 60,
+          "justifyContent": "center",
+          "margin": 2,
+          "opacity": 1,
+          "width": 45,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "rgb(100, 100, 100)",
+              "fontSize": 14,
+              "textAlign": "center",
+            },
+            null,
+          ]
+        }
+      >
+        Dec
+      </Text>
+    </View>
+  </View>
+</View>
+`;

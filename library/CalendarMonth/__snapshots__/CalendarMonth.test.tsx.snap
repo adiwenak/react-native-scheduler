@@ -19,8 +19,11 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
     <View
       style={
         Object {
-          "flex": 1,
+          "backgroundColor": "white",
           "flexDirection": "row",
+          "height": 40,
+          "marginBottom": 10,
+          "zIndex": 1,
         }
       }
     >
@@ -60,10 +63,22 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
         />
       </View>
       <View
+        accessibilityLabel="date-display"
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
           Object {
+            "alignSelf": "center",
             "flex": 1,
+            "height": 20,
             "justifyContent": "center",
+            "opacity": 1,
           }
         }
       >

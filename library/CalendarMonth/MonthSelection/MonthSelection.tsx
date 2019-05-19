@@ -1,11 +1,12 @@
 import moment from "moment"
 import * as React from "react"
 import { Component } from "react"
-import { Image, Text, TouchableHighlight, TouchableOpacity, View } from "react-native"
+import { Dimensions, Image, Text, TouchableOpacity, View } from "react-native"
 import { Month } from "../../shared/model"
 import { styles } from "./MonthSelection.styles"
+import { MonthSelectionPicker } from "./MonthSelectionPicker"
 
-enum MonthAsString {
+export enum MonthAsString {
   January = "January",
   February = "February",
   March = "March",
@@ -20,15 +21,23 @@ enum MonthAsString {
   December = "December"
 }
 
+export enum PickerPosition {
+  top = "top",
+  bottom = "bottom"
+}
+
 export interface MonthSelectionProps {
   onMonthChange?: (month: Month, year: number) => void
   currentYear?: number
   currentMonth?: Month
+  onMonthTitleTouch?: () => void
+  displayPickerPosition?: PickerPosition
 }
 
 export interface MonthSelectionState {
   currentMonth: Month
   currentYear: number
+  showMonthPicker: boolean
 }
 
 export class MonthSelection extends Component<MonthSelectionProps, MonthSelectionState> {
@@ -41,7 +50,17 @@ export class MonthSelection extends Component<MonthSelectionProps, MonthSelectio
     super(props)
     this.state = {
       currentMonth: props.currentMonth || Month.January,
-      currentYear: props.currentYear || moment().year()
+      currentYear: props.currentYear || moment().year(),
+      showMonthPicker: false
+    }
+  }
+
+  public componentDidUpdate(prevProps: any) {
+    const { currentMonth } = this.props
+    const { currentMonth: prevMonth } = prevProps
+
+    if (this.props.currentMonth !== undefined && currentMonth !== prevMonth) {
+      this.setState({ currentMonth: this.props.currentMonth })
     }
   }
 
@@ -59,9 +78,13 @@ export class MonthSelection extends Component<MonthSelectionProps, MonthSelectio
             style={styles.button}
           />
         </TouchableOpacity>
-        <View style={styles.containerTitle}>
+        <TouchableOpacity
+          accessibilityLabel={"date-display"}
+          style={styles.containerTitle}
+          onPress={() => this.setState({ showMonthPicker: !this.state.showMonthPicker })}
+        >
           <Text style={styles.title}>{title}</Text>
-        </View>
+        </TouchableOpacity>
         <TouchableOpacity
           onPress={this.handleNextButtonPress}
           accessibilityLabel={"button-month-next"}
@@ -72,6 +95,32 @@ export class MonthSelection extends Component<MonthSelectionProps, MonthSelectio
             style={styles.button}
           />
         </TouchableOpacity>
+        {this.state.showMonthPicker ? (
+          <View style={[
+            this.props.displayPickerPosition === PickerPosition.top ?
+              styles.monthSelectionPickerTop : styles.monthSelectionPickerBottom,
+            { left: Dimensions.get("window").width / 2 - 100 }
+          ]}>
+            <MonthSelectionPicker
+              onMonthChangeFromPicker={
+                (month: Month) => {
+                  this.setState({ currentMonth: month }),
+                    this.onMonthChange(month, this.state.currentYear)
+                }
+              }
+              onYearChangeFromPicker={
+                (year: number) => {
+                  this.setState({ currentYear: year }),
+                    this.onMonthChange(this.state.currentMonth, year)
+                }
+              }
+              currentMonth={this.state.currentMonth}
+              currentYear={this.state.currentYear}
+              startYear={1900}
+              endYear={2021}
+            />
+          </View>) : null
+        }
       </View >
     )
   }

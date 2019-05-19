@@ -43,3 +43,7 @@ export const Colours = {
     Grey800: "#424242",
     Grey900: "#212121"
 }
+
+export const oceanBlue = "rgb(26, 117, 173)"
+export const midGrey = "rgb(125,125,125)"
+export const darkGrey = "rgb(100, 100, 100)"
