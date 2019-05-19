@@ -1615,7 +1615,32 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
             },
           ]
         }
-      />
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#054BBD",
+              "borderRadius": 0,
+              "height": 0,
+              "marginLeft": 2,
+              "marginRight": 2,
+              "width": 0,
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "backgroundColor": "#CC0F20",
+              "borderRadius": 0,
+              "height": 0,
+              "marginLeft": 2,
+              "marginRight": 2,
+              "width": 0,
+            }
+          }
+        />
+      </View>
     </View>
     <View
       accessible={true}
@@ -1678,7 +1703,44 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
             },
           ]
         }
-      />
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#054BBD",
+              "borderRadius": 0,
+              "height": 0,
+              "marginLeft": 2,
+              "marginRight": 2,
+              "width": 0,
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "backgroundColor": "#CC0F20",
+              "borderRadius": 0,
+              "height": 0,
+              "marginLeft": 2,
+              "marginRight": 2,
+              "width": 0,
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "backgroundColor": "#149427",
+              "borderRadius": 0,
+              "height": 0,
+              "marginLeft": 2,
+              "marginRight": 2,
+              "width": 0,
+            }
+          }
+        />
+      </View>
     </View>
     <View
       accessible={true}
@@ -1741,7 +1803,20 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
             },
           ]
         }
-      />
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#E4741B",
+              "borderRadius": 0,
+              "height": 0,
+              "marginLeft": 2,
+              "marginRight": 2,
+              "width": 0,
+            }
+          }
+        />
+      </View>
     </View>
     <View
       accessible={true}
@@ -1804,7 +1879,20 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
             },
           ]
         }
-      />
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#E4741B",
+              "borderRadius": 0,
+              "height": 0,
+              "marginLeft": 2,
+              "marginRight": 2,
+              "width": 0,
+            }
+          }
+        />
+      </View>
     </View>
     <View
       accessible={true}
@@ -1930,7 +2018,32 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
             },
           ]
         }
-      />
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#054BBD",
+              "borderRadius": 0,
+              "height": 0,
+              "marginLeft": 2,
+              "marginRight": 2,
+              "width": 0,
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "backgroundColor": "#149427",
+              "borderRadius": 0,
+              "height": 0,
+              "marginLeft": 2,
+              "marginRight": 2,
+              "width": 0,
+            }
+          }
+        />
+      </View>
     </View>
     <View
       accessible={true}
@@ -1993,7 +2106,20 @@ exports[`<CalendarMonth /> should render with given props 1`] = `
             },
           ]
         }
-      />
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#149427",
+              "borderRadius": 0,
+              "height": 0,
+              "marginLeft": 2,
+              "marginRight": 2,
+              "width": 0,
+            }
+          }
+        />
+      </View>
     </View>
     <View
       accessible={true}

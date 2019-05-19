@@ -33,7 +33,7 @@ describe("<PhoneMonthView />", () => {
       categoryPickerProps.onSelectedEvent([0, 1, 2, 3])
 
       expect(spySetState).toHaveBeenCalled()
-      expect(spySetState).toHaveBeenCalledWith(data.slice(0, 4))
+      expect(spySetState).toHaveBeenCalledWith({ filteredData: data.slice(0, 4) })
     })
   })
 
@@ -48,13 +48,14 @@ describe("<PhoneMonthView />", () => {
     const instance = component.instance()
 
     const spySetState = jest.spyOn(instance, "setState")
+
     it("should set new state for selected date", () => {
       const calendarMonthProps: any = component.find("CalendarMonth").props()
       const date = new Date()
       calendarMonthProps.onDateSelected(date)
 
       expect(spySetState).toHaveBeenCalled()
-      expect(spySetState).toHaveBeenCalledWith(date)
+      expect(spySetState).toHaveBeenCalledWith({selectedDate: date})
     })
   })
 })
