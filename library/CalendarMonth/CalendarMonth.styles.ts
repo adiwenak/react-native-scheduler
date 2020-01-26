@@ -13,7 +13,8 @@ export const styles = StyleSheet.create<Style>({
     },
     containerMonthSelection: {
         height: 40,
-        marginBottom: 10
+        marginBottom: 10,
+        zIndex: 99
     },
     containerWeekday: {
         height: 35

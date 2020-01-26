@@ -17,8 +17,7 @@ export const styles = StyleSheet.create<Style>({
         flexDirection: "row",
         height: 40,
         marginBottom: 10,
-        backgroundColor: "white",
-        zIndex: 1
+        backgroundColor: "white"
     },
     containerButton: {
         width: 20,

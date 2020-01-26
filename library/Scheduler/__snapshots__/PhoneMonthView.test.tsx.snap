@@ -286,6 +286,7 @@ exports[`<PhoneMonthView /> render() should render with valid props 1`] = `
           Object {
             "height": 40,
             "marginBottom": 10,
+            "zIndex": 99,
           }
         }
       >
@@ -296,7 +297,6 @@ exports[`<PhoneMonthView /> render() should render with valid props 1`] = `
               "flexDirection": "row",
               "height": 40,
               "marginBottom": 10,
-              "zIndex": 1,
             }
           }
         >

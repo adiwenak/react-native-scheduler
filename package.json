@@ -24,12 +24,10 @@
     },
     "dependencies": {
         "enzyme-adapter-react-16": "^1.7.1",
-        "expo": "^31.0.2",
+        "expo": "^33.0.0",
         "moment": "^2.23.0",
-        "react": "16.5.0",
-        "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
-        "react-native-scheduler": "^0.0.1",
-        "react-native-scheduler-calendar": "^0.0.1",
+        "react": "16.8.3",
+        "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
         "tslib": "^1.9.3"
     },
     "devDependencies": {

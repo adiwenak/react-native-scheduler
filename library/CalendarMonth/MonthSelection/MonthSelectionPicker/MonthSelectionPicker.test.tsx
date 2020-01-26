@@ -1,6 +1,6 @@
 import { shallow } from "enzyme"
-import { default as React } from "react"
 import "jest"
+import { default as React } from "react"
 import "react-native"
 import { create } from "react-test-renderer"
 import { Month } from "../../../shared/model"
