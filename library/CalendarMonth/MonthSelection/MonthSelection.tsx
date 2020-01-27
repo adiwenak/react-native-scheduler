@@ -102,18 +102,8 @@ export class MonthSelection extends Component<MonthSelectionProps, MonthSelectio
             { left: Dimensions.get("window").width / 2 - 100 }
           ]}>
             <MonthSelectionPicker
-              onMonthChangeFromPicker={
-                (month: Month) => {
-                  this.setState({ currentMonth: month }),
-                    this.onMonthChange(month, this.state.currentYear)
-                }
-              }
-              onYearChangeFromPicker={
-                (year: number) => {
-                  this.setState({ currentYear: year }),
-                    this.onMonthChange(this.state.currentMonth, year)
-                }
-              }
+              onMonthChangeFromPicker={this.onMonthChangeFromPicker}
+              onYearChangeFromPicker={this.onYearChangeFromPicker}
               currentMonth={this.state.currentMonth}
               currentYear={this.state.currentYear}
               startYear={1900}
@@ -123,6 +113,16 @@ export class MonthSelection extends Component<MonthSelectionProps, MonthSelectio
         }
       </View >
     )
+  }
+
+  private onMonthChangeFromPicker = (month: Month) => {
+    this.setState({ currentMonth: month, showMonthPicker: !this.state.showMonthPicker })
+    this.onMonthChange(month, this.state.currentYear)
+  }
+
+  private onYearChangeFromPicker = (year: number) => {
+    this.setState({ currentYear: year })
+    this.onMonthChange(this.state.currentMonth, year)
   }
 
   private onMonthChange = (month: Month, year: number) => {

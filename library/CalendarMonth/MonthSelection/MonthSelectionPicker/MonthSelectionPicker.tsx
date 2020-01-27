@@ -1,8 +1,7 @@
-import moment from "moment"
 import * as React from "react"
 import { FlatList, Text, TouchableOpacity, View } from "react-native"
 
-import { oceanBlue } from "../../../shared/colour"
+import { Colours } from "../../../shared/colour"
 import { Month } from "../../../shared/model"
 import { styles } from "./MonthSelectionPicker.styles"
 
@@ -26,7 +25,7 @@ interface ComponentProps {
 
 export class MonthSelectionPicker extends React.Component<ComponentProps, ComponentState> {
 
-  private monthElements: MonthElement[] = [
+  private static monthElements: MonthElement[] = [
     { month: "Jan", monthNum: Month.January },
     { month: "Feb", monthNum: Month.February },
     { month: "Mar", monthNum: Month.March },
@@ -54,7 +53,29 @@ export class MonthSelectionPicker extends React.Component<ComponentProps, Compon
     }
   }
 
-  public renderYearList = () => {
+  public render(): JSX.Element {
+    return (
+      <View style={styles.outerView}>
+        <View style={styles.titleContainer}>
+          <TouchableOpacity
+            style={styles.titleButton}
+            accessibilityLabel={"month-year-btn"}
+            onPress={() => this.setState({ showYearView: !this.state.showYearView })}
+          >
+            <Text style={styles.titleText}>{this.state.showYearView ? "Year" : "Month"}</Text>
+          </TouchableOpacity>
+        </View>
+        {this.state.showYearView ? this.renderYearList() : this.renderMonthList()}
+      </View>
+    )
+  }
+
+  private onYearSelected = (item: number) => {
+    this.setState({ showYearView: !this.state.showYearView })
+    this.props.onYearChangeFromPicker(item)
+  }
+
+  private renderYearList = () => {
     return (
       <FlatList
         data={this.yearList}
@@ -66,34 +87,34 @@ export class MonthSelectionPicker extends React.Component<ComponentProps, Compon
     )
   }
 
-  public renderYearListItem = ({ item }: any) => (
-    <TouchableOpacity
-      accessibilityLabel={item.toString()}
-      style={[styles.individualContainer,
-      this.props.currentYear === item ?
-        { backgroundColor: oceanBlue } : null]}
-      onPress={() => {
-        this.props.onYearChangeFromPicker(item)
-      }}
-    >
-      <Text
-        style={[styles.monthFont, this.props.currentYear === item ? { color: "white" } : null]}
+  private renderYearListItem = ({ item }: { item: number }) => (
+    <View style={styles.containerBox}>
+      <TouchableOpacity
+        accessibilityLabel={`year-${item.toString()}`}
+        style={[styles.individualContainer,
+        this.props.currentYear === item ?
+          { backgroundColor: Colours.OceanBlue } : null]}
+        onPress={() => this.onYearSelected(item)}
       >
-        {item}
-      </Text>
-    </TouchableOpacity>
+        <Text
+          style={[styles.monthFont, this.props.currentYear === item ? { color: "white" } : null]}
+        >
+          {item}
+        </Text>
+      </TouchableOpacity>
+    </View>
   )
 
-  public renderMonthList = () => {
+  private renderMonthList = () => {
     return (
       <View style={styles.containerBox}>
-        {this.monthElements.map((monthObj: MonthElement) => (
+        {MonthSelectionPicker.monthElements.map((monthObj: MonthElement) => (
           <TouchableOpacity
             key={monthObj.month}
             accessibilityLabel={monthObj.month}
             style={[styles.individualContainer,
             this.props.currentMonth === monthObj.monthNum ?
-              { backgroundColor: oceanBlue } : null]}
+              { backgroundColor: Colours.OceanBlue } : null]}
             onPress={() => {
               this.props.onMonthChangeFromPicker(monthObj.monthNum)
             }}
@@ -104,21 +125,6 @@ export class MonthSelectionPicker extends React.Component<ComponentProps, Compon
             </Text>
           </TouchableOpacity>
         ))}
-      </View>
-    )
-  }
-
-  public render(): JSX.Element {
-    return (
-      <View style={styles.outerView}>
-        <TouchableOpacity
-          style={styles.monthTitle}
-          accessibilityLabel={"month-year-btn"}
-          onPress={() => this.setState({ showYearView: !this.state.showYearView })}
-        >
-          <Text style={styles.monthTitleText}>{this.state.showYearView ? "Year" : "Month"}</Text>
-        </TouchableOpacity>
-        {this.state.showYearView ? this.renderYearList() : this.renderMonthList()}
       </View>
     )
   }

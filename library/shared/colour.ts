@@ -7,6 +7,7 @@ export const Colours = {
     Indigo: "#3F51B5",
     Blue: "#2196F3",
     LightBlue: "#03A9F4",
+    OceanBlue: "#1a75ad",
 
     // Purple
     Purple: "#9C27B0",
@@ -43,7 +44,3 @@ export const Colours = {
     Grey800: "#424242",
     Grey900: "#212121"
 }
-
-export const oceanBlue = "rgb(26, 117, 173)"
-export const midGrey = "rgb(125,125,125)"
-export const darkGrey = "rgb(100, 100, 100)"

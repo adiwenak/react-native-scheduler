@@ -1,10 +1,11 @@
-import { StyleSheet, TextStyle, ViewStyle } from "react-native"
+import { StyleSheet, TextStyle, View, ViewStyle } from "react-native"
 
-import { Colours, darkGrey, midGrey } from "../../../shared/colour"
+import { Colours } from "../../../shared/colour"
 
 interface Style {
-  monthTitle: ViewStyle
-  monthTitleText: TextStyle
+  titleContainer: ViewStyle
+  titleButton: ViewStyle
+  titleText: TextStyle
   containerBox: ViewStyle
   individualContainer: ViewStyle
   monthFont: TextStyle
@@ -12,14 +13,20 @@ interface Style {
 }
 
 export const styles = StyleSheet.create<Style>({
-  monthTitle: {
+  titleContainer: {
+    backgroundColor: "white",
+    borderRadius: 5,
+    borderColor: Colours.Grey300,
+    height: 40
+  },
+  titleButton: {
     height: 40,
     alignSelf: "center",
     justifyContent: "center"
   },
-  monthTitleText: {
+  titleText: {
     fontSize: 16,
-    color: darkGrey
+    color: Colours.LightBlue,
   },
   containerBox: {
     flexDirection: "row",
@@ -37,15 +44,15 @@ export const styles = StyleSheet.create<Style>({
   monthFont: {
     fontSize: 14,
     textAlign: "center",
-    color: darkGrey
+    color: Colours.Grey800
   },
   outerView: {
     flexDirection: "column",
     width: 200,
     height: 240,
-    backgroundColor: "white",
+    backgroundColor: Colours.Grey50,
     borderRadius: 5,
     borderWidth: 2,
-    borderColor: "lightgrey"
+    borderColor: Colours.Grey300
   }
 })

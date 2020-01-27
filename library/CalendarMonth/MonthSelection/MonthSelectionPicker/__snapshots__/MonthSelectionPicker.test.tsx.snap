@@ -4,8 +4,8 @@ exports[`<MonthSelectionPicker /> render() should render with proper props 1`] =
 <View
   style={
     Object {
-      "backgroundColor": "white",
-      "borderColor": "lightgrey",
+      "backgroundColor": "#FAFAFA",
+      "borderColor": "#E0E0E0",
       "borderRadius": 5,
       "borderWidth": 2,
       "flexDirection": "column",
@@ -15,34 +15,45 @@ exports[`<MonthSelectionPicker /> render() should render with proper props 1`] =
   }
 >
   <View
-    accessibilityLabel="month-year-btn"
-    accessible={true}
-    isTVSelectable={true}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "alignSelf": "center",
+        "backgroundColor": "white",
+        "borderColor": "#E0E0E0",
+        "borderRadius": 5,
         "height": 40,
-        "justifyContent": "center",
-        "opacity": 1,
       }
     }
   >
-    <Text
+    <View
+      accessibilityLabel="month-year-btn"
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "color": "rgb(100, 100, 100)",
-          "fontSize": 16,
+          "alignSelf": "center",
+          "height": 40,
+          "justifyContent": "center",
+          "opacity": 1,
         }
       }
     >
-      Month
-    </Text>
+      <Text
+        style={
+          Object {
+            "color": "#03A9F4",
+            "fontSize": 16,
+          }
+        }
+      >
+        Month
+      </Text>
+    </View>
   </View>
   <View
     style={
@@ -65,7 +76,7 @@ exports[`<MonthSelectionPicker /> render() should render with proper props 1`] =
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "backgroundColor": "rgb(26, 117, 173)",
+          "backgroundColor": "#1a75ad",
           "borderRadius": 5,
           "height": 60,
           "justifyContent": "center",
@@ -79,7 +90,7 @@ exports[`<MonthSelectionPicker /> render() should render with proper props 1`] =
         style={
           Array [
             Object {
-              "color": "rgb(100, 100, 100)",
+              "color": "#424242",
               "fontSize": 14,
               "textAlign": "center",
             },
@@ -118,7 +129,7 @@ exports[`<MonthSelectionPicker /> render() should render with proper props 1`] =
         style={
           Array [
             Object {
-              "color": "rgb(100, 100, 100)",
+              "color": "#424242",
               "fontSize": 14,
               "textAlign": "center",
             },
@@ -155,7 +166,7 @@ exports[`<MonthSelectionPicker /> render() should render with proper props 1`] =
         style={
           Array [
             Object {
-              "color": "rgb(100, 100, 100)",
+              "color": "#424242",
               "fontSize": 14,
               "textAlign": "center",
             },
@@ -192,7 +203,7 @@ exports[`<MonthSelectionPicker /> render() should render with proper props 1`] =
         style={
           Array [
             Object {
-              "color": "rgb(100, 100, 100)",
+              "color": "#424242",
               "fontSize": 14,
               "textAlign": "center",
             },
@@ -229,7 +240,7 @@ exports[`<MonthSelectionPicker /> render() should render with proper props 1`] =
         style={
           Array [
             Object {
-              "color": "rgb(100, 100, 100)",
+              "color": "#424242",
               "fontSize": 14,
               "textAlign": "center",
             },
@@ -266,7 +277,7 @@ exports[`<MonthSelectionPicker /> render() should render with proper props 1`] =
         style={
           Array [
             Object {
-              "color": "rgb(100, 100, 100)",
+              "color": "#424242",
               "fontSize": 14,
               "textAlign": "center",
             },
@@ -303,7 +314,7 @@ exports[`<MonthSelectionPicker /> render() should render with proper props 1`] =
         style={
           Array [
             Object {
-              "color": "rgb(100, 100, 100)",
+              "color": "#424242",
               "fontSize": 14,
               "textAlign": "center",
             },
@@ -340,7 +351,7 @@ exports[`<MonthSelectionPicker /> render() should render with proper props 1`] =
         style={
           Array [
             Object {
-              "color": "rgb(100, 100, 100)",
+              "color": "#424242",
               "fontSize": 14,
               "textAlign": "center",
             },
@@ -377,7 +388,7 @@ exports[`<MonthSelectionPicker /> render() should render with proper props 1`] =
         style={
           Array [
             Object {
-              "color": "rgb(100, 100, 100)",
+              "color": "#424242",
               "fontSize": 14,
               "textAlign": "center",
             },
@@ -414,7 +425,7 @@ exports[`<MonthSelectionPicker /> render() should render with proper props 1`] =
         style={
           Array [
             Object {
-              "color": "rgb(100, 100, 100)",
+              "color": "#424242",
               "fontSize": 14,
               "textAlign": "center",
             },
@@ -451,7 +462,7 @@ exports[`<MonthSelectionPicker /> render() should render with proper props 1`] =
         style={
           Array [
             Object {
-              "color": "rgb(100, 100, 100)",
+              "color": "#424242",
               "fontSize": 14,
               "textAlign": "center",
             },
@@ -488,7 +499,7 @@ exports[`<MonthSelectionPicker /> render() should render with proper props 1`] =
         style={
           Array [
             Object {
-              "color": "rgb(100, 100, 100)",
+              "color": "#424242",
               "fontSize": 14,
               "textAlign": "center",
             },
