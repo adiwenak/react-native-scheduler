@@ -50,3 +50,13 @@ export interface CategoryActivity {
   category: CategorySelection
   tasks: Activity[]
 }
+
+export interface User {
+  id: string
+  name: string
+  colourIndicator: string
+}
+
+export interface UserSelection extends User {
+  isSelected: boolean
+}

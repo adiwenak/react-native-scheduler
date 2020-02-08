@@ -6,67 +6,42 @@ function timeSorter(a: BaseTimeline, b: BaseTimeline) {
   return a.startTime.getTime() - b.startTime.getTime()
 }
 
-function regroupGroupSchedule(groupSchedule: GroupSchedule[], longestOverlap: number): RegroupResult {
-  groupSchedule.sort(timeSorter)
-
-  let groupinHappen = false
-  const newGroup: GroupSchedule[] = []
-  let longest = longestOverlap
-  while (groupSchedule.length > 0) {
-    const obj = groupSchedule.shift()
-    if (obj) {
-      if (obj.allItems.length > longest) {
-        longest = obj.allItems.length
-      }
-
-      let idx = 0
-      for (const toCompare of groupSchedule) {
-        if (obj.isScheduleWithinTheGroup(toCompare)) {
-          obj.addGroup(toCompare)
-          groupinHappen = true
-          groupSchedule.splice(idx, 1)
-        }
-
-        idx += 1
-      }
-
-      newGroup.push(obj)
-    }
-
-  }
-  if (!groupinHappen) {
-    return { groups: newGroup, longestOverlap: longest }
-  } else {
-    return regroupGroupSchedule(newGroup, longest)
-  }
-}
-
-export function groupSchedule(allSchedule: Activity[]): RegroupResult {
+export function groupSchedule(allActivities: Activity[]): RegroupResult {
   const collections: GroupSchedule[] = []
+  const sortedActivities = allActivities.sort(timeSorter)
 
-  for (const schedule of allSchedule) {
+  for (const activity of sortedActivities) {
     if (collections.length === 0) {
-      const group = new GroupSchedule(schedule)
+      const group = new GroupSchedule(activity)
       collections.push(group)
       continue
     }
 
     let isAdded = false
     for (const group of collections) {
-      if (group.isScheduleWithinTheGroup(schedule)) {
-        group.addSchedule(schedule)
+      if (group.isScheduleWithinTheGroup(activity)) {
+        group.addActivity(activity)
         isAdded = true
         break
       }
     }
 
     if (!isAdded) {
-      const group = new GroupSchedule(schedule)
+      const group = new GroupSchedule(activity)
       collections.push(group)
     }
   }
 
-  return regroupGroupSchedule(collections, 0)
+  // return regroupGroupSchedule(collections, 0)
+  let longestOverlap = 0
+  collections.forEach((group) => {
+    group.groom()
+    if (group.getNumberOfColumn() > longestOverlap) {
+      longestOverlap = group.getNumberOfColumn()
+    }
+  })
+
+  return {longestOverlap, groups: collections}
 }
 
 function yPosition(startTime: Date, gridStartHours: number): number {
@@ -90,45 +65,45 @@ interface Param {
   groupToColour: GroupIdentifierToColour
 }
 
-export function mapGroupScheduleToGridViewItem(param: Param): GridViewItem[] {
+export function mapToGridViewItem(param: Param): GridViewItem[] {
   const { allGroup, gridMaxColumn, gridStartHour, groupToColour } = param
   const items: GridViewItem[] = []
 
   allGroup.sort(timeSorter)
 
   for (const group of allGroup) {
-    const sorted = group.allItems.sort(timeSorter)
 
-    if (sorted.length < 5) {
-      const width = Math.round(gridMaxColumn / sorted.length * 2) / 2
-      let xPosition = 0
+    if (group.getNumberOfColumn() < 5) {
+      const allActivities = group.flatLanes
+      const columnWidth = Math.round(gridMaxColumn / group.getNumberOfColumn() * 2) / 2
       let widthRemaining = gridMaxColumn
-      let lastCounter = 0
-      for (const item of sorted) {
-        const y = yPosition(item.startTime, gridStartHour)
-        const x = xPosition
-        const height = itemHeight(item)
+      let counter = 0
+      for (const item of allActivities) {
+        // console.log(`${item.activity.name} - column span: ${item.columnSpan} - start: ${item.columnStart}`)
+        const activity = item.activity
+        const y = yPosition(item.activity.startTime, gridStartHour)
+        const x = item.columnStart * columnWidth
+        const height = itemHeight(item.activity)
         const position = { x, y }
-        let widthToBeUse = width
-        if (lastCounter === (sorted.length - 1)) {
-          widthToBeUse = widthRemaining
-        }
+        const widthToBeUse = columnWidth * item.columnSpan
+
         const dimension = { height, width: widthToBeUse }
+        // console.log("position", position)
+        // console.log("dimension", dimension)
         const gridItem: GridViewItem = {
           position,
           dimension,
-          id: item.id,
-          name: item.name,
-          category: item.category,
-          backgroundColor: groupToColour[item.category],
-          startTime: item.startTime,
-          endTime: item.endTime
+          id: activity.id,
+          name: activity.name,
+          category: activity.category,
+          backgroundColor: groupToColour[activity.category],
+          startTime: activity.startTime,
+          endTime: activity.endTime
         }
 
         items.push(gridItem)
-        xPosition += width
-        lastCounter += 1
-        widthRemaining = widthRemaining - width
+        counter += 1
+        widthRemaining = widthRemaining - columnWidth
       }
     } else {
       //
@@ -145,8 +120,7 @@ interface Result {
 
 export function activityToGridViewItem(activities: Activity[], colourMap: GroupIdentifierToColour): Result {
   const group = groupSchedule(activities)
-
-  const items = mapGroupScheduleToGridViewItem({
+  const items = mapToGridViewItem({
     allGroup: group.groups,
     gridMaxColumn: group.longestOverlap,
     gridStartHour: 7,
