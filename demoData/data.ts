@@ -202,9 +202,37 @@ export const dataGroupThisWeek: Activity[] = [
     category: C1,
     startTime: date2.set({ hour: 11, minute: 30 }).toDate(),
     endTime: date2.set({ hour: 15, minute: 0 }).toDate(),
-    name: "Test C1-4"
+    name: "Test C1-1"
   },
-
+  //
+  {
+    id: `${C2}-${Math.floor(Math.random() * 10000)}`,
+    category: C2,
+    startTime: date2.set({ hour: 16, minute: 0 }).toDate(),
+    endTime: date2.set({ hour: 17, minute: 0 }).toDate(),
+    name: "Test C2-1"
+  },
+  {
+    id: `${B1}-${Math.floor(Math.random() * 10000)}`,
+    category: B1,
+    startTime: date2.set({ hour: 16, minute: 30 }).toDate(),
+    endTime: date2.set({ hour: 20, minute: 30 }).toDate(),
+    name: "Test B1-1"
+  },
+  {
+    id: `${A1}-${Math.floor(Math.random() * 10000)}`,
+    category: A1,
+    startTime: date2.set({ hour: 17, minute: 0 }).toDate(),
+    endTime: date2.set({ hour: 19, minute: 30 }).toDate(),
+    name: "Test A1-2"
+  },
+  {
+    id: `${A2}-${Math.floor(Math.random() * 10000)}`,
+    category: A2,
+    startTime: date2.set({ hour: 19, minute: 30 }).toDate(),
+    endTime: date2.set({ hour: 20, minute: 30 }).toDate(),
+    name: "Test A2-2"
+  }
 ]
 
 export const dataGroupNextWeek: Activity[] = [

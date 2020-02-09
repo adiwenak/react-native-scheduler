@@ -1,10 +1,5 @@
 import { Activity, ActivityId, BaseTimeline } from "../shared"
 
-export interface RegroupResult {
-  groups: GroupSchedule[]
-  longestOverlap: number
-}
-
 export interface GridViewItem extends Activity {
   position: {
     x: number
@@ -37,15 +32,13 @@ function activityIsWithinActivity(activity1: Activity, activity2: Activity): boo
   }
 }
 
-export class GroupSchedule implements BaseTimeline {
-  public allItems: Activity[]
-  public startTime: Date
-  public endTime: Date
-  public lanes?: LaneItem[][]
-  public flatLanes: LaneItem[]
+export class GroupActivity {
+  private startTime: Date
+  private endTime: Date
+  private lanes?: LaneItem[][]
+  private flatLanes: LaneItem[]
 
   constructor(schedule: Activity) {
-    this.allItems = []
     this.startTime = schedule.startTime
     this.endTime = schedule.endTime
     this.flatLanes = []
@@ -70,22 +63,8 @@ export class GroupSchedule implements BaseTimeline {
     }
   }
 
-  public addGroup = (group: GroupSchedule): boolean => {
-    if (!this.isScheduleWithinTheGroup(group)) {
-      return false
-    }
-
-    this.allItems = [...this.allItems, ...group.allItems]
-
-    if (group.startTime < this.startTime) {
-      this.startTime = group.startTime
-    }
-
-    if (group.endTime > this.endTime) {
-      this.endTime = group.endTime
-    }
-
-    return true
+  public getAllLaneItems = (): LaneItem[] => {
+    return this.flatLanes
   }
 
   public groom = () => {
@@ -107,7 +86,9 @@ export class GroupSchedule implements BaseTimeline {
       })
     })
 
-    this.flatLanes = Array.from(map.values())
+    this.flatLanes = Array.from(map.values()).sort((a, b) => {
+      return a.activity.startTime.getTime() - b.activity.startTime.getTime()
+    })
   }
 
   public addActivity = (schedule: Activity): boolean => {
@@ -130,16 +111,15 @@ export class GroupSchedule implements BaseTimeline {
 
     let added = false
     this.lanes.forEach((val: LaneItem[], index: number, array: LaneItem[][]) => {
-      val.forEach((item) => {
-        if (!activityIsWithinActivity(schedule, item.activity)) {
-          val.push({
-            activity: schedule,
-            columnStart: index,
-            columnSpan: 0
-          })
-          added = true
-        }
-      })
+      const lastItem = val[val.length - 1]
+      if (!activityIsWithinActivity(schedule, lastItem.activity)) {
+        val.push({
+          activity: schedule,
+          columnStart: index,
+          columnSpan: 0
+        })
+        added = true
+      }
     })
 
     if (!added) {
@@ -153,8 +133,6 @@ export class GroupSchedule implements BaseTimeline {
 
       this.lanes.push(laneItems)
     }
-
-    this.allItems.push(schedule)
 
     if (schedule.startTime < this.startTime) {
       this.startTime = schedule.startTime
