@@ -3,7 +3,7 @@ import * as React from "react"
 import { View } from "react-native"
 import { CalendarMonth } from "../CalendarMonth"
 import { CategoryPicker } from "../CategoryPicker"
-import { GroupIdentifierToColour, ScheduleView } from "../ScheduleView"
+import { CategoryColour, ScheduleView } from "../ScheduleView"
 import { Activity, CategoryActivity, CategorySelection } from "../shared"
 import { styles } from "./PhoneMonthView.styles"
 
@@ -21,7 +21,7 @@ export class Scheduler extends React.PureComponent<Props, State> {
 
   private static defaultActivities: Activity[] = []
 
-  private colourMap: GroupIdentifierToColour = {}
+  private colourMap: CategoryColour = {}
 
   constructor(props: Props) {
     super(props)

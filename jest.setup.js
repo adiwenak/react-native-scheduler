@@ -2,6 +2,7 @@ import Adapter from "enzyme-adapter-react-16"
 import Enzyme from "enzyme"
 import "./library/extensions/date.extensions"
 import mockdate from "mockdate"
+
 Enzyme.configure({ adapter: new Adapter() });
 const today = new Date(2019, 5, 15, 10, 0, 0, 0)
 mockdate.set(today)

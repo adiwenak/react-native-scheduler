@@ -4,7 +4,7 @@ import { Activity } from "../shared"
 import { Colours } from "../shared/colour"
 import { ActivityBoxView } from "./ActivityBoxView"
 import { activityToGridViewItem } from "./ScheduleView.helper"
-import { GridViewItem, GroupIdentifierToColour } from "./ScheduleView.model"
+import { CategoryColour, GridViewItem, MapperParam } from "./ScheduleView.model"
 import { styles } from "./ScheduleView.styles"
 
 enum ScheduleInterval {
@@ -16,7 +16,7 @@ enum ScheduleInterval {
 interface Props {
   rowHeight: number
   data: Activity[]
-  colourMap: GroupIdentifierToColour
+  colourMap: CategoryColour
   startTime: number
   endTime: number
   interval?: ScheduleInterval
@@ -39,8 +39,13 @@ export class ScheduleView extends React.PureComponent<Props, State> {
     let numberOfColumn = 0
 
     if (props.data && props.data.length > 0) {
-      const result = activityToGridViewItem(props.data, props.colourMap)
-      numberOfColumn = result.longestOverlap
+      const param: MapperParam = {
+        activities: props.data,
+        categoryColour: props.colourMap,
+        starTime: props.startTime
+      }
+      const result = activityToGridViewItem(param)
+      numberOfColumn = result.maxColumn
       activityItems = result.items
     }
 
@@ -54,11 +59,18 @@ export class ScheduleView extends React.PureComponent<Props, State> {
 
   componentDidUpdate(prevProps: Props) {
     if (this.props.data !== prevProps.data) {
+      const param: MapperParam = {
+        activities: this.props.data,
+        categoryColour: this.props.colourMap,
+        starTime: this.props.startTime
+      }
+
       const {
         items: activityItems,
-        longestOverlap: numberOfColumn } = activityToGridViewItem(this.props.data, this.props.colourMap)
+        maxColumn: numberOfColumn } = activityToGridViewItem(param)
+
       const dateBoxWidth = this.scheduleContainerWidth / numberOfColumn
-      this.setState({activityItems, numberOfColumn, dateBoxWidth})
+      this.setState({ activityItems, numberOfColumn, dateBoxWidth })
     }
   }
 
